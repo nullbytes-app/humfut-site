@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — HumFut</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5a5a5a;
+    --accent: #6d4fc2;
+    --border: #e4e2ea;
+    --card: #f7f6fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14121a;
+      --fg: #f0eef7;
+      --muted: #b7b2c6;
+      --accent: #b39bff;
+      --border: #2c2836;
+      --card: #1d1a26;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    padding: 0 16px 64px;
+  }
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  header {
+    padding: 40px 0 8px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 6px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0 0 24px;
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 36px 0 10px;
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  h3 {
+    font-size: 1rem;
+    margin: 22px 0 6px;
+  }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 1.2em; }
+  li { margin-bottom: 8px; }
+  .summary-box {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 0 0 28px;
+  }
+  .summary-box p { margin: 0 0 8px; }
+  .summary-box p:last-child { margin-bottom: 0; }
+  a { color: var(--accent); }
+  code {
+    background: var(--card);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.9em;
+  }
+  .faq-item {
+    margin-bottom: 22px;
+  }
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Support</h1>
+    <p class="subtitle">HumFut: Sounds for Calls · nullBytes</p>
+  </header>
+
+  <div class="summary-box">
+    <p>HumFut lets you type what you want to say and have it spoken into a live Phone or FaceTime call, for moments when speaking out loud isn't an option. You can also drop in reactions, your own sounds, and background music, all mixed into the same call.</p>
+    <p>It works on an iPhone running iOS 26 or later, during a live Phone or FaceTime call, using the "Microphone Injection" permission Apple built for adding audio to a call.</p>
+  </div>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>iPhone with iOS 26 or later</li>
+    <li>A live Phone or FaceTime call (audio is only added while a call is actually connected)</li>
+    <li>The Microphone Injection permission, granted once during onboarding</li>
+    <li>Optional: a paired Apple Watch, for playing sounds and adjusting levels from your wrist</li>
+  </ul>
+
+  <h2>Frequently asked questions</h2>
+
+  <div class="faq-item">
+    <h3>I can't hear sounds on the call</h3>
+    <p>Make sure Call Sounds is turned on and you're in a live Phone or FaceTime call — HumFut only adds audio to the call while one is actually connected. Check that you granted the Microphone Injection permission when asked (Settings → HumFut, if you need to review it). Also note that call audio is unavailable while you're screen sharing, and that ending the call disarms injection until your next call.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>The call app muted me and now nothing plays</h3>
+    <p>This is expected. HumFut's audio travels over the same call uplink your voice does, so muting the call also mutes anything HumFut adds. Unmute the call to hear HumFut again.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>What does the unlock buy?</h3>
+    <p>New installs get 3 free calls with Call Sounds turned on, where the other person can hear you. After that, a single one-time purchase (with Family Sharing support) lets the other person hear you — Speak, Reactions and music alike — on every call after that, forever. Typing phrases, trying sounds on your own speaker, and editing your library and collections are always free, whether or not you've unlocked. You can restore a previous purchase from Settings → Unlock HumFut → Restore Purchases.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>How do I add my own sounds, or capture audio from another app?</h3>
+    <p>To add your own sounds: import an audio file from Files, or use the Share button in another app and choose HumFut. To capture audio playing in another app: open Capture in HumFut, start a broadcast using Apple's system picker, then play the sound in the other app — HumFut keeps the captured clip in your library with silence trimmed from the ends.</p>
+  </div>
+
+  <div class="faq-item">
+    <h3>Does it record my calls?</h3>
+    <p><strong>No.</strong> HumFut never uses your microphone, never records a call, and never listens to one. It only adds its own audio — your typed phrases, sounds and music — into the call using Apple's microphone-injection capability. "Capture" is a separate, user-started feature for capturing audio from another app on your own device; it has nothing to do with your calls.</p>
+  </div>
+
+  <h2>Still need help?</h2>
+  <p>Contact us at <a href="mailto:ravi@nullbytes.app">ravi@nullbytes.app</a> and we'll get back to you.</p>
+
+  <h2>Privacy</h2>
+  <p>HumFut collects no data — see our <a href="privacy.html">Privacy Policy</a> for details.</p>
+
+  <footer>
+    <p>HumFut is made by nullBytes.</p>
+  </footer>
+</main>
+</body>
+</html>
