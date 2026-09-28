@@ -1,0 +1,154 @@
+/* HumFut components. Every value comes from tokens.css (colors, radii,
+   shadows, spacing, font families). Source per component in its README. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Nunito:wght@500;700&display=swap");
+
+/* ---------- App Store button (Apple badge; Things 6px button radius) ---------- */
+.hf-store {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 48px; padding: 8px 18px 8px 14px;
+  border-radius: var(--radius-button);
+  background: var(--store-badge); color: var(--on-store-badge);
+  font-family: var(--font-sans); text-decoration: none;
+}
+.hf-store:hover { color: var(--on-store-badge); opacity: .88; }
+.hf-store svg { width: 22px; height: 22px; flex: none; fill: currentColor; }
+.hf-store .hf-store-lines { display: flex; flex-direction: column; line-height: 1.05; }
+.hf-store .hf-store-small { font-size: 11px; font-weight: 500; }
+.hf-store .hf-store-big { font-size: 19px; font-weight: 600; letter-spacing: -.01em; }
+
+/* ---------- Text link with chevron (Things Inline Text Link) ---------- */
+.hf-link {
+  font-family: var(--font-sans); font-size: 17px; line-height: 1.3; font-weight: 400;
+  color: var(--accent); text-decoration: none;
+}
+.hf-link::after { content: " \25B8"; }
+.hf-link:hover { color: var(--accent-press); text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- Focus ring (accent, 3px solid; 3:1+ on every surface) ---------- */
+.hf-focus:focus-visible, .hf-store:focus-visible, .hf-link:focus-visible,
+.hf-tab:focus-visible, .hf-step:focus-visible, .hf-doc-button:focus-visible {
+  outline: 3px solid var(--accent); outline-offset: 3px;
+}
+
+/* ---------- App icon (iOS mask) ---------- */
+.hf-app-icon { display: block; border-radius: var(--radius-app-icon); }
+
+/* ---------- Feature card (Things: surface on canvas, 18px, paired shadow) ---------- */
+.hf-feature {
+  background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+  padding: var(--space-24); font-family: var(--font-sans); color: var(--ink);
+}
+.hf-feature-head { display: flex; align-items: center; gap: var(--space-10); }
+.hf-feature-icon {
+  width: 28px; height: 28px; border-radius: var(--radius-icon); flex: none;
+  background: var(--accent); color: var(--on-accent); display: grid; place-items: center;
+}
+.hf-feature-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hf-feature h3 { font-size: 20px; line-height: 1.3; font-weight: 600; margin: 0; }
+.hf-feature p { font-size: 15px; line-height: 1.6; color: var(--muted); margin: var(--space-10) 0 0; }
+
+/* ---------- Floating card (Flighty: 20px, whisper stack, ±3deg) ---------- */
+.hf-float {
+  display: flex; gap: var(--space-10); align-items: center;
+  background: var(--surface); border-radius: var(--radius-float); box-shadow: var(--shadow-float);
+  padding: var(--space-16); font-family: var(--font-sans); color: var(--ink); width: max-content; max-width: 260px;
+}
+.hf-float strong { display: block; font-size: 15px; line-height: 1.3; font-weight: 600; }
+.hf-float span.hf-float-meta { display: block; font-size: 13px; line-height: 1.4; color: var(--muted); }
+.hf-float .hf-float-art { width: 32px; height: 32px; border-radius: var(--radius-pill); flex: none; background: var(--live); display: grid; place-items: center; }
+.hf-float .hf-float-art svg { width: 16px; height: 16px; fill: var(--on-live); }
+
+/* ---------- Live waveform (Stable Audio: lime marks audio-active) ---------- */
+.hf-live { display: inline-flex; align-items: center; gap: 2px; height: 18px; }
+.hf-live i { display: block; width: 3px; height: 30%; border-radius: 2px; background: var(--live); animation: hf-eq 1s ease-in-out infinite; }
+.hf-live i:nth-child(2) { animation-delay: -.2s; } .hf-live i:nth-child(3) { animation-delay: -.5s; }
+.hf-live i:nth-child(4) { animation-delay: -.7s; } .hf-live i:nth-child(5) { animation-delay: -.35s; }
+@keyframes hf-eq { 0%, 100% { height: 25%; } 50% { height: 100%; } }
+
+/* ---------- Kicker badge (Jitter pill badge, one per section) ---------- */
+.hf-kicker {
+  display: inline-block; padding: 6px 14px; border-radius: var(--radius-pill);
+  background: var(--kicker); color: var(--on-kicker);
+  font-family: var(--font-doc); font-size: 13px; line-height: 1.2; font-weight: 500;
+}
+
+/* ---------- Tutorial tabs (Duolingo: 12px, 2px outline, pressed edge) ---------- */
+.hf-tabs { display: flex; flex-wrap: wrap; gap: var(--space-12); justify-content: center; }
+.hf-tab {
+  display: inline-flex; align-items: center; gap: var(--space-10); cursor: pointer;
+  padding: var(--space-12) var(--space-16); border-radius: var(--radius-tutorial);
+  border: 2px solid var(--hairline); border-bottom-width: 4px; background: var(--surface); color: var(--ink);
+  font-family: var(--font-rounded); font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: .8px;
+}
+.hf-tab .hf-num {
+  width: 28px; height: 28px; border-radius: var(--radius-tutorial); display: grid; place-items: center;
+  background: var(--accent-wash); color: var(--accent);
+}
+.hf-tab[aria-selected="true"] { background: var(--accent); border-color: var(--accent-press); color: var(--on-accent); }
+.hf-tab[aria-selected="true"] .hf-num { background: var(--on-accent); color: var(--accent); }
+.hf-tab:active { border-bottom-width: 2px; transform: translateY(2px); }
+
+/* ---------- Step card (Duolingo: border only, no fill change, no shadow) ---------- */
+.hf-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-12); }
+.hf-step {
+  position: relative; overflow: hidden; cursor: pointer;
+  display: grid; grid-template-columns: 36px 1fr; gap: var(--space-16); align-items: start;
+  padding: var(--space-16); border-radius: var(--radius-tutorial);
+  border: 2px solid var(--hairline); border-bottom-width: 4px; background: var(--surface);
+  font-family: var(--font-rounded); color: var(--ink);
+}
+.hf-step .hf-num {
+  width: 36px; height: 36px; border-radius: var(--radius-tutorial); display: grid; place-items: center;
+  border: 2px solid var(--hairline); color: var(--muted);
+  font-size: 15px; font-weight: 700; letter-spacing: .8px;
+}
+.hf-step strong { display: block; font-size: 19px; line-height: 1.33; font-weight: 700; letter-spacing: 1px; }
+.hf-step span.hf-step-body { display: block; font-size: 15px; line-height: 1.47; font-weight: 500; letter-spacing: .8px; color: var(--muted); margin-top: 2px; }
+.hf-step.is-active { border-color: var(--accent); border-bottom-color: var(--accent-press); }
+.hf-step.is-active .hf-num { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.hf-step.is-done .hf-num { border-color: var(--accent); color: var(--accent); }
+.hf-step .hf-bar { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--accent); }
+.hf-step.is-active .hf-bar { animation: hf-fill var(--dur, 3s) linear forwards; }
+@keyframes hf-fill { to { width: 100%; } }
+
+/* ---------- Animation preview card (Jitter: 40px, four-layer float) ---------- */
+.hf-preview {
+  background: var(--surface); border-radius: var(--radius-preview); box-shadow: var(--shadow-preview);
+  padding: var(--space-40) var(--space-24); display: grid; place-items: center;
+}
+/* Tap ring (Jitter Electric Blue highlight ring) */
+.hf-tap {
+  position: absolute; width: 44px; height: 44px; margin: -22px 0 0 -22px; border-radius: var(--radius-pill);
+  border: 3px solid var(--tap-ring); pointer-events: none; animation: hf-tap 1.6s ease-out infinite;
+}
+@keyframes hf-tap {
+  0% { opacity: 0; transform: scale(1.4); } 20% { opacity: 1; transform: scale(.85); }
+  45% { opacity: .9; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); }
+}
+
+/* ---------- Doc (Signal): outlined button, panel ---------- */
+.hf-doc-button {
+  display: inline-flex; align-items: center; gap: var(--space-8);
+  padding: var(--space-12) var(--space-24); border-radius: var(--radius-doc-button);
+  border: 1.5px solid var(--accent); background: transparent; color: var(--accent);
+  font-family: var(--font-doc); font-size: 16px; font-weight: 600; text-decoration: none;
+}
+.hf-doc-button:hover { color: var(--accent-press); border-color: var(--accent-press); }
+.hf-doc-panel {
+  background: var(--accent-wash); border-radius: var(--radius-doc-panel); padding: 30px;
+  font-family: var(--font-doc); color: var(--doc-ink);
+}
+.hf-doc-panel p { margin: 0; font-size: 16px; line-height: 1.5; }
+
+/* ---------- Footer (Signal Twilight band) ---------- */
+.hf-footer { background: var(--footer); color: var(--on-footer); font-family: var(--font-doc); font-size: 14px; }
+.hf-footer a { color: var(--on-footer); text-decoration: none; }
+.hf-footer a:hover { text-decoration: underline; }
+.hf-footer h4 { color: #ffffff; font-size: 16px; font-weight: 600; margin: 0 0 var(--space-12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hf-live i, .hf-tap, .hf-step.is-active .hf-bar { animation: none; }
+  .hf-live i { height: 60%; }
+  .hf-step.is-active .hf-bar { width: 100%; }
+  .hf-tap { opacity: 1; }
+}
