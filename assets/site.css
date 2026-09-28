@@ -171,9 +171,46 @@ a:hover { color: var(--accent-press); }
 .hf-footer nav { display: flex; flex-wrap: wrap; gap: var(--space-12) var(--space-24); }
 .footer-brand { display: flex; align-items: center; gap: var(--space-10); color: var(--on-footer); font-weight: 600; font-size: 16px; }
 
-/* Reveal on scroll: visible at rest without script */
-.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
-.js .reveal.is-in { opacity: 1; transform: none; }
+/* Reveal on scroll (React Bits FadeContent: fade, rise and un-blur); visible at rest without script */
+.js .reveal { opacity: 0; transform: translateY(20px); filter: blur(6px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1), filter .8s ease; }
+.js .reveal.is-in { opacity: 1; transform: none; filter: none; }
+.features .reveal:nth-child(3n+2) { transition-delay: .08s; }
+.features .reveal:nth-child(3n) { transition-delay: .16s; }
+
+/* ---------- Effects (assets/effects.js) ---------- */
+/* Sonar Grid: canvas behind the hero and the closing band */
+.hero, .closing { position: relative; isolation: isolate; }
+.sonar-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; }
+
+/* BlurText (React Bits): headline words blur into focus */
+.blur-word { display: inline-block; animation: blur-in .9s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i) * 110ms + 100ms); }
+@keyframes blur-in {
+  0% { opacity: 0; filter: blur(10px); transform: translateY(-24px); }
+  50% { opacity: .5; filter: blur(5px); transform: translateY(4px); }
+  100% { opacity: 1; filter: blur(0); transform: none; }
+}
+
+/* ShinyText (React Bits): a slow shine across the kicker label */
+.hf-kicker .shine {
+  background-image: linear-gradient(110deg, var(--on-kicker) 40%, var(--accent) 50%, var(--on-kicker) 60%);
+  background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shine 5s linear infinite;
+}
+@keyframes shine { 0% { background-position: 150% 0; } 60%, 100% { background-position: -50% 0; } }
+
+/* SpotlightCard (React Bits): violet glow that follows the pointer */
+.hf-feature.spotlight { position: relative; overflow: hidden; }
+.hf-feature.spotlight::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .5s ease;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), var(--accent-wash), transparent 80%);
+}
+.hf-feature.spotlight:hover::before { opacity: 1; }
+.hf-feature.spotlight > * { position: relative; }
+
+/* Magnet (React Bits): App Store buttons lean toward the pointer */
+.hero-actions .hf-store, .price .hf-store, .closing .hf-store { transition: transform .5s ease-in-out, opacity .2s ease; will-change: transform; }
+.hf-store.is-pulled { transition: transform .3s ease-out, opacity .2s ease; }
 
 /* ---------- Support and Privacy (Signal) ---------- */
 .doc-page { background: var(--doc-canvas); color: var(--doc-ink); font-family: var(--font-doc); }
@@ -205,7 +242,8 @@ a:hover { color: var(--accent-press); }
 .contact { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; }
 
 @media (prefers-reduced-motion: reduce) {
-  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; filter: none; transition: none; }
+  .blur-word, .hf-kicker .shine { animation: none; }
   .hero-stage .hf-float { animation: none; }
   .scene, .scene .sheet { transition: none; }
   .scene.is-on .hf-tap { animation: none; opacity: 1; }

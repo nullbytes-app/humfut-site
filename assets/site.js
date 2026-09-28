@@ -31,6 +31,7 @@
       var pad = heroPads[order[h % order.length]];
       pad.classList.add('is-firing');
       if (heroToast) heroToast.textContent = pad.getAttribute('data-name');
+      document.dispatchEvent(new CustomEvent('humfut:pad-fired'));
       h += 1;
     };
     fire();
