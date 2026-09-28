@@ -90,7 +90,26 @@
       scene.classList.toggle('is-on', n === i);
       scene.classList.toggle('is-past', n < i);
     });
+    this.runCountdown(this.scenes[i]);
     self.schedule();
+  };
+
+  // 3-2-1 before a capture starts. Done in script because Safari does not
+  // animate the CSS content property.
+  Tutorial.prototype.runCountdown = function (scene) {
+    (this.countTimers || []).forEach(clearTimeout);
+    this.countTimers = [];
+    var num = scene && scene.querySelector('.countdown span');
+    if (!num) return;
+    var show = function (n) {
+      num.textContent = n;
+      num.classList.remove('tick'); void num.offsetWidth;
+      if (!reduceMotion.matches) num.classList.add('tick');
+    };
+    show(3);
+    if (reduceMotion.matches) return;
+    this.countTimers.push(setTimeout(function () { show(2); }, 1000));
+    this.countTimers.push(setTimeout(function () { show(1); }, 2000));
   };
 
   Tutorial.prototype.schedule = function () {
@@ -163,6 +182,19 @@
       if (n !== null) { e.preventDefault(); selectTab(tabs[n], true); }
     });
   });
+
+  // ---------- Watch: tap tiles in turn ----------
+  var watchTiles = document.querySelectorAll('.w-grid span');
+  if (watchTiles.length && !reduceMotion.matches) {
+    var wOrder = [0, 3, 1, 4, 2, 5, 6, 9, 7, 10, 8, 11];
+    var wi = 0;
+    setInterval(function () {
+      watchTiles.forEach(function (t) { t.classList.remove('is-firing'); });
+      var t = watchTiles[wOrder[wi % wOrder.length]];
+      if (t) t.classList.add('is-firing');
+      wi += 1;
+    }, 1300);
+  }
 
   // ---------- Music levels: gentle drift ----------
   var them = document.getElementById('lvl-them');
