@@ -65,8 +65,10 @@
         self.renderControls();
       });
     }
+    if (!this.steps.length || !this.scenes.length) return;
     this.go(0, false);
     this.renderControls();
+    root.classList.add('is-ready');
   }
 
   Tutorial.prototype.go = function (i, fromUser) {
@@ -82,7 +84,7 @@
       if (bar && n === i) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
     });
     var cap = this.root.querySelector('.tut-caption');
-    if (cap) {
+    if (cap && this.steps[i]) {
       cap.querySelector('.js-cap-n').textContent = 'Step ' + (i + 1) + ' of ' + this.steps.length;
       cap.querySelector('.js-cap-t').textContent = this.steps[i].querySelector('strong').textContent;
     }
