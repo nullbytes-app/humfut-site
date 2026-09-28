@@ -40,7 +40,7 @@
   // ---------- Tutorials ----------
   function Tutorial(root) {
     this.root = root;
-    this.steps = Array.prototype.slice.call(root.querySelectorAll('.step'));
+    this.steps = Array.prototype.slice.call(root.querySelectorAll('.hf-step'));
     this.scenes = Array.prototype.slice.call(root.querySelectorAll('.scene'));
     this.toggle = root.querySelector('.js-toggle');
     this.status = root.querySelector('.js-status');
@@ -78,7 +78,7 @@
       step.setAttribute('aria-current', n === i ? 'step' : 'false');
       step.style.setProperty('--dur', (step.getAttribute('data-dur') || 3000) + 'ms');
       // Restart the progress bar animation.
-      var bar = step.querySelector('.bar');
+      var bar = step.querySelector('.hf-bar');
       if (bar && n === i) { bar.style.animation = 'none'; void bar.offsetWidth; bar.style.animation = ''; }
     });
     var cap = this.root.querySelector('.tut-caption');
@@ -133,8 +133,7 @@
   Tutorial.prototype.renderControls = function () {
     if (!this.toggle) return;
     var paused = this.userPaused;
-    this.toggle.querySelector('span').textContent = paused ? 'Play' : 'Pause';
-    this.toggle.querySelector('use').setAttribute('href', paused ? '#i-play' : '#i-pause');
+    this.toggle.textContent = paused ? 'Play' : 'Pause';
     this.toggle.setAttribute('aria-label', paused ? 'Play the walkthrough' : 'Pause the walkthrough');
     if (this.status) this.status.textContent = paused ? 'Tap a step to see it' : 'Playing step by step';
   };
@@ -157,7 +156,7 @@
   }
 
   // Tabs (roving tabindex, arrow keys).
-  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tut-tab'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.hf-tab'));
   function selectTab(tab, focus) {
     tabs.forEach(function (t) {
       var on = t === tab;

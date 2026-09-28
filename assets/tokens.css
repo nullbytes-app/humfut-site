@@ -1,0 +1,130 @@
+/* GENERATED from the HumFut design system tokens.json. Do not edit by hand. */
+:root {
+  color-scheme: light;
+  --canvas: #f2f5f7;
+  --surface: #ffffff;
+  --ink: #303336;
+  --ink-2: #44474b;
+  --muted: #55606e;
+  --fog: #838b96;
+  --hairline: #dfe3e8;
+  --accent: #6d4fc2;
+  --accent-press: #553b9e;
+  --on-accent: #ffffff;
+  --accent-wash: #ece6fb;
+  --kicker: #cab3f8;
+  --on-kicker: #17082c;
+  --live: #a0f32f;
+  --on-live: #17082c;
+  --tap-ring: #00b2ff;
+  --store-badge: #000000;
+  --on-store-badge: #ffffff;
+  --doc-canvas: #f6f6f6;
+  --doc-ink: #1b1b1b;
+  --doc-body: #404654;
+  --footer: #3c3744;
+  --on-footer: #e9e9e9;
+  --app-ground: #0e1012;
+  --app-panel: #1f2225;
+  --app-ink: #f2f3f4;
+  --app-ink-dim: #8a9199;
+  --app-ready: #3db863;
+  --pad-orange: #d9573d;
+  --pad-ochre: #e3a93c;
+  --pad-teal: #4e9e8f;
+  --pad-blue: #6b7fc7;
+  --pad-rose: #c0577e;
+  --pad-olive: #7fa653;
+  --shadow-card: 0 2px 8px 0 rgba(0,0,0,0.1), 0 0 2px 0 rgba(0,0,0,0.1);
+  --shadow-preview: 0 152px 61px 0 rgba(25,23,28,0.01), 0 85px 51px 0 rgba(25,23,28,0.05), 0 38px 38px 0 rgba(25,23,28,0.09), 0 9px 21px 0 rgba(25,23,28,0.1);
+  --shadow-float: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 1px 0.5px rgba(0,0,0,0.02), 0 3px 3px 1.5px rgba(0,0,0,0.02), 0 6px 6px -3px rgba(0,0,0,0.02), 0 12px 12px -6px rgba(0,0,0,0.02), 0 24px 24px -12px rgba(0,0,0,0.02);
+  --shadow-doc: 0 4px 12px 0 rgba(0,0,0,0.12), 0 0 2px 0 rgba(0,0,0,0.08);
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-40: 40px;
+  --space-80: 80px;
+  --width-page: 960px;
+  --width-text: 540px;
+  --width-doc: 680px;
+  --radius-icon: 3px;
+  --radius-button: 6px;
+  --radius-doc-button: 8px;
+  --radius-tutorial: 12px;
+  --radius-doc-panel: 16px;
+  --radius-card: 18px;
+  --radius-float: 20px;
+  --radius-app-icon: 22%;
+  --radius-preview: 40px;
+  --radius-pill: 9999px;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", system-ui, "Helvetica Neue", sans-serif;
+  --font-rounded: "Nunito", "Quicksand", "DM Sans", system-ui, sans-serif;
+  --font-doc: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --canvas: #0d0021;
+    --surface: #05010d;
+    --ink: #ffffff;
+    --ink-2: #cfcfcf;
+    --muted: #a39eb0;
+    --fog: #6e6780;
+    --hairline: #1d1629;
+    --accent: #a981ff;
+    --accent-press: #7a40ed;
+    --on-accent: #0d0021;
+    --accent-wash: #1e1238;
+    --store-badge: #ffffff;
+    --on-store-badge: #000000;
+    --doc-canvas: #0d0021;
+    --doc-ink: #ffffff;
+    --doc-body: #cfcfcf;
+    --footer: #05010d;
+    --on-footer: #cfcfcf;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #0d0021;
+  --surface: #05010d;
+  --ink: #ffffff;
+  --ink-2: #cfcfcf;
+  --muted: #a39eb0;
+  --fog: #6e6780;
+  --hairline: #1d1629;
+  --accent: #a981ff;
+  --accent-press: #7a40ed;
+  --on-accent: #0d0021;
+  --accent-wash: #1e1238;
+  --store-badge: #ffffff;
+  --on-store-badge: #000000;
+  --doc-canvas: #0d0021;
+  --doc-ink: #ffffff;
+  --doc-body: #cfcfcf;
+  --footer: #05010d;
+  --on-footer: #cfcfcf;
+}
+.display { font-family: var(--font-sans); font-size: 56px; line-height: 1.0; font-weight: 700; letter-spacing: -1.4px; }
+.heading-xl { font-family: var(--font-sans); font-size: 36px; line-height: 1.2; font-weight: 700; }
+.heading { font-family: var(--font-sans); font-size: 24px; line-height: 1.2; font-weight: 700; }
+.heading-sm { font-family: var(--font-sans); font-size: 20px; line-height: 1.3; font-weight: 600; }
+.lede { font-family: var(--font-sans); font-size: 18px; line-height: 1.6; font-weight: 400; }
+.body { font-family: var(--font-sans); font-size: 17px; line-height: 1.6; font-weight: 400; }
+.body-sm { font-family: var(--font-sans); font-size: 15px; line-height: 1.6; font-weight: 400; }
+.link { font-family: var(--font-sans); font-size: 17px; line-height: 1.3; font-weight: 400; }
+.caption { font-family: var(--font-sans); font-size: 13px; line-height: 1.4; font-weight: 400; }
+.float-title { font-family: var(--font-sans); font-size: 15px; line-height: 1.3; font-weight: 600; }
+.float-meta { font-family: var(--font-sans); font-size: 13px; line-height: 1.4; font-weight: 400; }
+.step-title { font-family: var(--font-rounded); font-size: 19px; line-height: 1.33; font-weight: 700; letter-spacing: 1px; }
+.step-body { font-family: var(--font-rounded); font-size: 15px; line-height: 1.47; font-weight: 500; letter-spacing: 0.8px; }
+.tab-label { font-family: var(--font-rounded); font-size: 15px; line-height: 1.2; font-weight: 700; letter-spacing: 0.8px; }
+.kicker { font-family: var(--font-doc); font-size: 13px; line-height: 1.2; font-weight: 500; }
+.doc-display { font-family: var(--font-doc); font-size: 60px; line-height: 1.07; font-weight: 800; }
+.doc-heading { font-family: var(--font-doc); font-size: 40px; line-height: 1.14; font-weight: 800; }
+.doc-heading-sm { font-family: var(--font-doc); font-size: 28px; line-height: 1.38; font-weight: 800; }
+.doc-subheading { font-family: var(--font-doc); font-size: 20px; line-height: 1.4; font-weight: 600; }
+.doc-body { font-family: var(--font-doc); font-size: 16px; line-height: 1.5; font-weight: 400; }
