@@ -96,6 +96,9 @@ a:hover { color: var(--accent-press); }
 .scene { position: absolute; inset: 0; opacity: 0; visibility: hidden; transform: translateX(18px);
   transition: opacity .45s ease, transform .45s cubic-bezier(.2, .8, .2, 1), visibility 0s linear .45s; }
 .scene.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+/* Until the script has set up a tutorial, show its first scene so the phone is never blank. */
+.tutorial:not(.is-ready) .scene[data-scene="0"] { opacity: 1; visibility: visible; transform: none; }
+.tutorial:not(.is-ready) .tut-caption, .tutorial:not(.is-ready) .tut-controls { display: none; }
 .scene.is-past { transform: translateX(-18px); }
 .scene .hf-tap { z-index: 40; opacity: 0; animation: none; }
 .scene.is-on .hf-tap { animation: hf-tap 1.6s ease-out .7s infinite; }
