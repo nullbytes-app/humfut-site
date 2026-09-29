@@ -621,3 +621,29 @@ html:not(.js) .board-controls { display: none; }
 .policy section + section { margin-top: var(--space-40); }
 .policy h2 { margin: 0 0 var(--space-12); font-size: 26px; line-height: 1.2; letter-spacing: -.015em; color: var(--ink); }
 @media (max-width: 860px) { .policy { grid-template-columns: 1fr; } .policy-toc { display: none; } }
+
+/* ---------- Join the beta (TestFlight invite request) ---------- */
+.beta-hero { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: var(--space-40); align-items: center; }
+@media (max-width: 900px) { .beta-hero { grid-template-columns: 1fr; } }
+.beta-form { background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-float); padding: var(--space-24); display: grid; gap: var(--space-12); }
+.beta-form-head { display: flex; align-items: center; gap: var(--space-12); margin-bottom: var(--space-4); }
+.beta-form-head h2 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.01em; color: var(--ink); }
+.beta-form .field { display: grid; gap: 6px; font-size: 14px; font-weight: 600; color: var(--ink); }
+.beta-form .field small { font-weight: 400; color: var(--muted); }
+.beta-form input[type="email"], .beta-form input[type="text"] { font: inherit; font-size: 17px; font-weight: 400; color: var(--ink); background: var(--canvas); border: 1.5px solid var(--hairline); border-radius: 12px; padding: 12px 14px; width: 100%; box-sizing: border-box; }
+.beta-form input:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.beta-form input[aria-invalid="true"] { border-color: #d9483c; }
+.beta-form .field-help { margin: -6px 0 0; font-size: 13px; line-height: 1.45; color: var(--muted); }
+.beta-form .field-err { margin: -4px 0 0; font-size: 13px; color: #d9483c; font-weight: 600; }
+.beta-form .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: var(--ink-2); cursor: pointer; }
+.beta-form .check input { width: 18px; height: 18px; margin: 1px 0 0; accent-color: var(--accent); flex: none; }
+.beta-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.beta-submit { justify-self: start; border: 0; cursor: pointer; font: inherit; }
+.beta-submit[disabled] { opacity: .6; cursor: progress; }
+.beta-form .form-msg { margin: 0; min-height: 1.4em; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.beta-form .form-msg.ok { color: var(--ink); }
+.beta-form .form-msg.bad { color: #d9483c; font-weight: 600; }
+.beta-done { display: grid; gap: var(--space-12); justify-items: start; }
+.beta-done .tick { width: 48px; height: 48px; border-radius: 50%; background: var(--app-ready); color: #fff; display: grid; place-items: center; font-size: 24px; font-weight: 800; }
+.beta-done h2 { margin: 0; font-size: 24px; color: var(--ink); }
+.beta-done p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2); }
