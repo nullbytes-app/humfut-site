@@ -13,10 +13,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/components.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/mockups.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/site.css?v=09dd3c80">
+<link rel="stylesheet" href="assets/tokens.css?v=791b7192">
+<link rel="stylesheet" href="assets/components.css?v=791b7192">
+<link rel="stylesheet" href="assets/mockups.css?v=791b7192">
+<link rel="stylesheet" href="assets/site.css?v=791b7192">
 <script>document.documentElement.classList.add('js');</script>
 <script>
   // Light by default. Apply a saved Dark or System choice before first paint; System follows the device.
@@ -233,245 +233,22 @@
     <div class="section-head center reveal">
       <span class="hf-kicker">How to add sounds</span>
       <h2 class="heading-xl">Three ways to get any sound in.</h2>
-      <p class="lede">Pick a way and watch it play through, one step at a time. Tap a step to jump to it.</p>
+      <p class="lede">Pick where your sound is. Then tap along on the iPhone, one real step at a time.</p>
     </div>
-    <div class="hf-tabs" role="tablist" aria-label="Ways to add a sound">
-      <button class="hf-tab" role="tab" id="tab-share" aria-controls="tut-share" aria-selected="true"><span class="hf-num">1</span>Share from a soundboard site</button>
-      <button class="hf-tab" role="tab" id="tab-capture" aria-controls="tut-capture" aria-selected="false" tabindex="-1"><span class="hf-num">2</span>Capture from YouTube or any app</button>
-      <button class="hf-tab" role="tab" id="tab-files" aria-controls="tut-files" aria-selected="false" tabindex="-1"><span class="hf-num">3</span>Import from Files</button>
+<div class="af" data-addsounds>
+    <div class="ways" role="tablist" aria-label="Where is your sound?">
+      <button class="way" role="tab" aria-selected="true" data-way="share" id="tab-share"><span class="way-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span><b>From a soundboard site</b><small>Share it to HumFut</small></span></button>
+      <button class="way" role="tab" aria-selected="false" data-way="capture" id="tab-capture"><span class="way-ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg></span><span><b>From a video or any app</b><small>Capture it as it plays</small></span></button>
+      <button class="way" role="tab" aria-selected="false" data-way="files" id="tab-files"><span class="way-ico"><svg viewBox="0 0 24 24"><path d="M3 7.5a2 2 0 0 1 2-2h4.5l2 2.5H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span><b>From your Files</b><small>Add an audio file</small></span></button>
     </div>
-    <div class="tutorial" id="tut-share" role="tabpanel" aria-labelledby="tab-share" data-tutorial>
-      <div class="hf-preview" aria-hidden="true">
-        <div class="phone">
-          <div class="screen">
-            <div class="island"></div>
-            <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i></span></div>
 
-            <div class="scene" data-scene="0">
-              <div class="app-body">
-                <div class="browser-bar">🔒 <b>soundboard site</b> · popular</div>
-                <div class="sb-site-title">Popular sounds</div>
-                <div class="sb-grid">
-                  <div class="sb-btn"><i style="--c:#e5484d"></i>FAAAH</div>
-                  <div class="sb-btn"><i style="--c:#3e63dd"></i>Wait a minute…</div>
-                  <div class="sb-btn"><i style="--c:#f76b15"></i>Vine boom</div>
-                  <div class="sb-btn"><i style="--c:#12a594"></i>Bruh</div>
-                  <div class="sb-btn"><i style="--c:#8e4ec6"></i>Sad trombone</div>
-                  <div class="sb-btn"><i style="--c:#ffc53d"></i>Airhorn</div>
-                  <div class="sb-btn"><i style="--c:#30a46c"></i>Ba dum tss</div>
-                  <div class="sb-btn"><i style="--c:#d6409f"></i>Oh no no no</div>
-                  <div class="sb-btn"><i style="--c:#0090ff"></i>Crickets</div>
-                </div>
-              </div>
-              <span class="hf-tap" style="left:52px;top:160px"></span>
-            </div>
-
-            <div class="scene" data-scene="1">
-              <div class="app-body">
-                <div class="browser-bar">🔒 <b>soundboard site</b> · faaah</div>
-                <div class="sound-page">
-                  <div class="sb-btn"><i class="big-btn" style="--c:#e5484d"></i></div>
-                  <h4>FAAAH</h4>
-                  <p>0:02 · the one everyone’s using</p>
-                  <div class="sp-actions"><span>▶︎ Play</span><span>⬇︎ Download</span><span class="hot">⬆︎ Share</span></div>
-                </div>
-              </div>
-              <span class="hf-tap" style="left:228px;top:318px"></span>
-            </div>
-
-            <div class="scene" data-scene="2">
-              <div class="dim-bg"></div>
-              <div class="sheet">
-                <div class="grab"></div>
-                <div class="sheet-file"><span class="ficon">🎵</span><div><b>FAAAH.mp3</b><small>Audio · 38 KB</small></div></div>
-                <div class="share-apps">
-                  <div><i></i>AirDrop</div><div><i></i>Messages</div>
-                  <div class="humfut"><i><img src="assets/icons/icon-128.png" alt=""></i>HumFut</div>
-                  <div><i></i>Notes</div>
-                </div>
-                <div class="sheet-rows"><div>Copy</div><div>Save to Files</div></div>
-              </div>
-              <span class="hf-tap" style="left:172px;top:432px"></span>
-            </div>
-
-            <div class="scene" data-scene="3">
-              <div class="dim-bg"></div>
-              <div class="sheet">
-                <div class="grab"></div>
-                <div class="toast" style="box-shadow:none;border:0;padding:6px 0 4px">
-                  <span class="tick">✓</span>
-                  <div>Added to your Library from Share.<small>“FAAAH” keeps its own name</small></div>
-                </div>
-              </div>
-            </div>
-
-            <div class="scene reactions-bg" data-scene="4">
-              <div class="app-body">
-                <div class="status-card"><div class="st"><span class="dot"></span>On.<span class="chev">⌄</span></div><p>Ready — tap a Reaction to play it on the call</p></div>
-                <div class="coll-h" style="margin-top:6px">Bangers <span>⌄</span></div>
-                <div class="pads">
-                  <div class="pad is-firing" style="--pad:var(--pad-orange)"><span class="new-badge">NEW</span><span class="nm">FAAAH</span><span class="emo">😱</span></div>
-                  <div class="pad" style="--pad:var(--pad-teal)"><span class="nm">Wait a minute…</span><span class="emo">🤨</span></div>
-                  <div class="pad" style="--pad:var(--pad-rose)"><span class="nm">Sad trombone</span><span class="emo">🎺</span></div>
-                  <div class="pad" style="--pad:var(--pad-ochre)"><span class="nm">Vine boom</span><span class="emo">💥</span></div>
-                </div>
-                <div class="toast"><span class="tick">▶︎</span><div>FAAAH is playing into the call.<small>They hear it now</small></div></div>
-              </div>
-              <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span class="on"><svg><use href="#t-react"/></svg>Reactions</span><span><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="tut-caption" aria-hidden="true"><b class="js-cap-n"></b><span class="js-cap-t"></span></p>
-      <div class="tut-copy">
-        <p class="caption" style="margin:0 0 var(--space-8);color:var(--muted)">Way 1 · about 10 seconds</p>
-        <h3 class="heading">From a soundboard site, straight to a Pad.</h3>
-        <p>Every classic internet sound is already on a soundboard site somewhere. Open it in Chrome or Safari and send it to HumFut with the Share button.</p>
-        <ol class="hf-steps">
-          <li class="hf-step" data-step="0" data-dur="3200"><span class="hf-num">1</span><div><strong>Open a soundboard site</strong><span class="hf-step-body">In Chrome or Safari, find the sound you want, like FAAAH.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="1" data-dur="3000"><span class="hf-num">2</span><div><strong>Tap Share on the sound</strong><span class="hf-step-body">Open the sound’s page, then tap its Share button.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="2" data-dur="3200"><span class="hf-num">3</span><div><strong>Choose HumFut</strong><span class="hf-step-body">It’s right there in the share sheet with your other apps.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="3" data-dur="2600"><span class="hf-num">4</span><div><strong>It’s in your Library</strong><span class="hf-step-body">A small card confirms it, and the sound keeps its own name.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="4" data-dur="3800"><span class="hf-num">5</span><div><strong>Put it on a Pad and fire it</strong><span class="hf-step-body">On your next call, one tap and they hear it.</span></div><i class="hf-bar"></i></li>
-        </ol>
-        <div class="tut-controls"><button type="button" class="tut-toggle js-toggle">Pause</button><span class="js-status">Playing step by step</span></div>
+    <div class="flow">
+      <div class="mp" aria-label="iPhone showing the steps" role="group"><div class="phone"><div class="screen"><div class="screens"></div><span class="ring" aria-hidden="true"></span></div></div></div>
+      <div class="steps-side">
+        <ol class="steps"></ol>
+        <div class="foot"><button type="button" class="btn js-show">Show me</button><button type="button" class="btn js-reset">Start over</button><span class="status" aria-live="polite"></span></div>
       </div>
     </div>
-    <div class="tutorial" id="tut-capture" role="tabpanel" aria-labelledby="tab-capture" data-tutorial hidden>
-      <div class="hf-preview" aria-hidden="true">
-        <div class="phone">
-          <div class="screen">
-            <div class="island"></div>
-
-            <div class="scene" data-scene="0">
-              <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i></span></div>
-              <div class="app-body">
-                <div class="glass-row"><span class="glass-btn hot">Add a sound</span><span class="glass-btn hot">Capture</span></div>
-                <div class="search"><svg><use href="#t-search"/></svg>Search</div>
-                <div class="lib-seg"><span class="on">Clips</span><span>Tracks</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>FAAAH</span><small>0:02<b>On Reactions</b></small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>Vine boom</span><small>0:01</small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>Laugh</span><small>0:01<b>Starter sound</b></small></div><span class="plus">+</span></div>
-              </div>
-              <span class="hf-tap" style="left:230px;top:68px"></span>
-              <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span><svg><use href="#t-react"/></svg>Reactions</span><span class="on"><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
-            </div>
-
-            <div class="scene" data-scene="1">
-              <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i></span></div>
-              <div class="dim-bg"></div>
-              <div class="sheet bcast">
-                <div class="grab"></div>
-                <div class="rec-glyph"><i></i></div>
-                <h5>Screen Broadcast</h5>
-                <p>HumFut only keeps the app audio. Video and microphone are thrown away.</p>
-                <div class="opt"><span>HumFut Capture</span><span>✓</span></div>
-                <span class="start">Start Sharing</span>
-              </div>
-              <span class="hf-tap" style="left:139px;top:545px"></span>
-            </div>
-
-            <div class="scene" data-scene="2">
-              <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i></span></div>
-              <div class="centered"><div class="countdown"><span>3</span></div></div>
-            </div>
-
-            <div class="scene" data-scene="3">
-              <div class="video-app">
-                <div class="statusbar" style="color:#fff"><span class="sb-time pill-rec">● 0:04</span><span class="sb-icons"><i></i><i></i></span></div>
-                <div class="video-frame"><span class="play"></span><span class="caption">“Wait a minute… who are you?”</span></div>
-                <div class="video-scrub"><i></i></div>
-                <div class="video-meta"><b>The funniest 2-second clips</b>A video app like YouTube<div class="rowskel"></div><div class="rowskel"></div></div>
-                <div class="listening"><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>HumFut is capturing</div>
-              </div>
-              <span class="hf-tap" style="left:58px;top:24px"></span>
-            </div>
-
-            <div class="scene" data-scene="4">
-              <div class="statusbar"><span>9:42</span><span class="sb-icons"><i></i><i></i></span></div>
-              <div class="app-body">
-                <div class="search"><svg><use href="#t-search"/></svg>Search</div>
-                <div class="lib-seg"><span class="on">Clips</span><span>Tracks</span></div>
-                <div class="lib-row fresh"><span class="ri"></span><div class="t"><span><i></i>Capture 28 Sep 9.42.10 PM</span><small>0:02<b>Not on Reactions</b></small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>FAAAH</span><small>0:02<b>On Reactions</b></small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>Vine boom</span><small>0:01</small></div><span class="plus">+</span></div>
-                <div class="toast" style="margin-top:10px"><span class="tick">✓</span><div>Captured. It’s in your Library marked New.<small>Put it on a Pad to adjust where it starts and ends.</small></div></div>
-              </div>
-              <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span><svg><use href="#t-react"/></svg>Reactions</span><span class="on"><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="tut-caption" aria-hidden="true"><b class="js-cap-n"></b><span class="js-cap-t"></span></p>
-      <div class="tut-copy">
-        <p class="caption" style="margin:0 0 var(--space-8);color:var(--muted)">Way 2 · audio from your other apps</p>
-        <h3 class="heading">Hear it in a video? Capture it.</h3>
-        <p>That iconic line in a YouTube video, a sound effect in a game, a moment in a podcast: if it plays on your iPhone, HumFut can keep it.</p>
-        <ol class="hf-steps">
-          <li class="hf-step" data-step="0" data-dur="2800"><span class="hf-num">1</span><div><strong>Tap Capture in your Library</strong><span class="hf-step-body">In HumFut, open Library and tap the capture button.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="1" data-dur="3000"><span class="hf-num">2</span><div><strong>Choose Start Sharing</strong><span class="hf-step-body">This is Apple’s own screen. HumFut keeps only the app audio.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="2" data-dur="3200"><span class="hf-num">3</span><div><strong>Wait for the 3-second countdown</strong><span class="hf-step-body">Then switch to the app you want to capture from.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="3" data-dur="4200"><span class="hf-num">4</span><div><strong>Play the moment, then tap the red bar</strong><span class="hf-step-body">The red bar means HumFut is capturing. It stops by itself after 60 seconds.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="4" data-dur="3800"><span class="hf-num">5</span><div><strong>It’s waiting in your Library</strong><span class="hf-step-body">Marked New, with the silence trimmed off both ends. Tap + to put it on Reactions, then hold the Pad to name it.</span></div><i class="hf-bar"></i></li>
-        </ol>
-        <div class="tut-controls"><button type="button" class="tut-toggle js-toggle">Pause</button><span class="js-status">Playing step by step</span></div>
-      </div>
-    </div>
-    <div class="tutorial" id="tut-files" role="tabpanel" aria-labelledby="tab-files" data-tutorial hidden>
-      <div class="hf-preview" aria-hidden="true">
-        <div class="phone">
-          <div class="screen">
-            <div class="island"></div>
-            <div class="statusbar"><span>9:41</span><span class="sb-icons"><i></i><i></i></span></div>
-
-            <div class="scene" data-scene="0">
-              <div class="app-body">
-                <div class="glass-row"><span class="glass-btn hot">Add a sound</span><span class="glass-btn">Capture</span></div>
-                <div class="search"><svg><use href="#t-search"/></svg>Search</div>
-                <div class="lib-seg"><span class="on">Clips</span><span>Tracks</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>Wait a minute…</span><small>0:02</small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>FAAAH</span><small>0:02</small></div><span class="plus">+</span></div>
-              </div>
-              <span class="hf-tap" style="left:132px;top:68px"></span>
-              <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span><svg><use href="#t-react"/></svg>Reactions</span><span class="on"><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
-            </div>
-
-            <div class="scene" data-scene="1">
-              <div class="app-body">
-                <div class="app-title" style="font-size:22px;font-weight:700;margin-top:4px">Downloads</div>
-                <div class="lib-row"><span class="ri file"></span><div class="t"><span>airhorn.mp3</span><small>41 KB</small></div></div>
-                <div class="lib-row hl"><span class="ri file"></span><div class="t"><span>crickets.m4a</span><small>96 KB</small></div></div>
-                <div class="lib-row"><span class="ri file"></span><div class="t"><span>lobby-jazz.mp3</span><small>3:12 · 4.1 MB</small></div></div>
-                <div class="lib-row"><span class="ri file"></span><div class="t"><span>sad-trombone.wav</span><small>210 KB</small></div></div>
-              </div>
-              <span class="hf-tap" style="left:150px;top:152px"></span>
-            </div>
-
-            <div class="scene" data-scene="2">
-              <div class="app-body">
-                <div class="search"><svg><use href="#t-search"/></svg>Search</div>
-                <div class="lib-seg"><span class="on">Clips</span><span>Tracks</span></div>
-                <div class="lib-row fresh"><span class="ri"></span><div class="t"><span><i></i>Crickets</span><small>0:04<b>Not on Reactions</b></small></div><span class="plus">+</span></div>
-                <div class="lib-row"><span class="ri"></span><div class="t"><span>Wait a minute…</span><small>0:02</small></div><span class="plus">+</span></div>
-                <div class="toast" style="margin-top:10px"><span class="tick">i</span><div>Longer than 30 seconds?<small>Trim it to a Clip, or use it as a Track for music.</small></div></div>
-              </div>
-              <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span><svg><use href="#t-react"/></svg>Reactions</span><span class="on"><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="tut-caption" aria-hidden="true"><b class="js-cap-n"></b><span class="js-cap-t"></span></p>
-      <div class="tut-copy">
-        <p class="caption" style="margin:0 0 var(--space-8);color:var(--muted)">Way 3 · files you already have</p>
-        <h3 class="heading">Got the file? Add it from Files.</h3>
-        <p>Downloaded sounds, AirDropped clips and music you own all work. Short sounds become Clips for your Pads, longer ones become Tracks for background music.</p>
-        <ol class="hf-steps">
-          <li class="hf-step" data-step="0" data-dur="2800"><span class="hf-num">1</span><div><strong>Tap Add a sound</strong><span class="hf-step-body">In your HumFut Library.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="1" data-dur="3000"><span class="hf-num">2</span><div><strong>Pick the audio file</strong><span class="hf-step-body">From iCloud Drive, Downloads or any Files location.</span></div><i class="hf-bar"></i></li>
-          <li class="hf-step" data-step="2" data-dur="3800"><span class="hf-num">3</span><div><strong>Clip or Track</strong><span class="hf-step-body">Clips are up to 30 seconds. Anything longer can be a Track.</span></div><i class="hf-bar"></i></li>
-        </ol>
-        <div class="tut-controls"><button type="button" class="tut-toggle js-toggle">Pause</button><span class="js-status">Playing step by step</span></div>
-      </div>
     </div>
   </div>
 </section>
@@ -539,7 +316,7 @@
     </div>
     <div class="section-head reveal">
       <h2 class="heading-xl">Fire from your wrist.</h2>
-      <p class="lede">Leave your iPhone on the table and play Pads from Apple Watch. Swipe between Collections, adjust levels, or tap the square to stop everything. Your library stays in sync between your own two devices.</p>
+      <p class="lede">Leave your iPhone on the table and play Pads from Apple Watch. Swipe between Collections, adjust levels, or tap the square to stop everything. Your Pads and Collections show up on the Watch; the sound always plays from your iPhone.</p>
     </div>
   </div>
 </section>
@@ -554,13 +331,13 @@
     </div>
     <div class="trust">
       <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="mic-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-nudge"><rect x="12" y="4" width="8" height="14" rx="4"/><path d="M7.5 15a8.5 8.5 0 0 0 17 0M16 23.5V28M12 28h8"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>Never uses your microphone</h3></div><p>HumFut never records a call and never listens to one. It only adds the sounds you choose.</p></article>
-      <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="cloud-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-nudge"><path d="M10 24.5h12.5a5 5 0 0 0 .6-9.96A7 7 0 0 0 9.6 15.2 4.7 4.7 0 0 0 10 24.5z"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>Nothing leaves your iPhone</h3></div><p>No servers and no analytics. Your sounds stay on your iPhone and Apple Watch. <a href="privacy.html">Privacy Policy</a></p></article>
+      <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="cloud-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-nudge"><path d="M10 24.5h12.5a5 5 0 0 0 .6-9.96A7 7 0 0 0 9.6 15.2 4.7 4.7 0 0 0 10 24.5z"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>Nothing leaves your devices</h3></div><p>No servers and no analytics. Your sounds stay on your iPhone. <a href="privacy.html">Privacy Policy</a></p></article>
       <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="eye-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-blink"><path d="M3 16s4.8-8.5 13-8.5S29 16 29 16s-4.8 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="3.5"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>No account, no tracking</h3></div><p>No sign-in, no ads and no tracking of any kind.</p></article>
     </div>
     <div class="price reveal">
       <div>
         <h3 class="heading">Your first 3 calls are free.</h3>
-        <p>After that, one purchase lets the other person hear HumFut on every call, forever, and it works with Family Sharing. Building your library and trying sounds on your own speaker are always free.</p>
+        <p>After that, one purchase lets the other person hear HumFut on every call, forever. No subscription. Building your library and trying sounds on your own speaker are always free.</p>
       </div>
       <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-small">Download on the</span><span class="hf-store-big">App Store</span></span></a>
     </div>
@@ -607,12 +384,13 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=09dd3c80" defer></script>
-<script src="assets/anim-icons.js?v=09dd3c80" defer></script>
-<script src="assets/phone.js?v=09dd3c80" defer></script>
-<script src="assets/hero.js?v=09dd3c80" defer></script>
-<script src="assets/tincan.js?v=09dd3c80" defer></script>
-<script src="assets/story.js?v=09dd3c80" defer></script>
-<script src="assets/effects.js?v=09dd3c80" defer></script>
+<script src="assets/site.js?v=791b7192" defer></script>
+<script src="assets/anim-icons.js?v=791b7192" defer></script>
+<script src="assets/phone.js?v=791b7192" defer></script>
+<script src="assets/hero.js?v=791b7192" defer></script>
+<script src="assets/tincan.js?v=791b7192" defer></script>
+<script src="assets/addsounds.js?v=791b7192" defer></script>
+<script src="assets/story.js?v=791b7192" defer></script>
+<script src="assets/effects.js?v=791b7192" defer></script>
 </body>
 </html>

@@ -4,21 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Support — HumFut</title>
-<meta name="description" content="Help with HumFut: how to add sounds, requirements, FAQ and how to reach us.">
+<meta name="description" content="Help with HumFut: set up, adding sounds, what the status means, music, Apple Watch, the unlock, and fixes.">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/components.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/mockups.css?v=09dd3c80">
-<link rel="stylesheet" href="assets/site.css?v=09dd3c80">
+<link rel="stylesheet" href="assets/tokens.css?v=791b7192">
+<link rel="stylesheet" href="assets/components.css?v=791b7192">
+<link rel="stylesheet" href="assets/mockups.css?v=791b7192">
+<link rel="stylesheet" href="assets/site.css?v=791b7192">
 <script>document.documentElement.classList.add('js');</script>
 <script>
   // Light by default. Apply a saved Dark or System choice before first paint; System follows the device.
   (function () { try { var t = localStorage.getItem('humfut-theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system') document.documentElement.removeAttribute('data-theme'); } catch (e) {} })();
 </script>
 </head>
-<body class="doc-page">
+<body>
 <a class="skip" href="#main">Skip to content</a>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.2-1.2 3-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.5-1-2.5-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></symbol>
@@ -57,97 +57,133 @@
 </header>
 
 <main id="main">
-<section class="doc-hero">
-  <div class="doc-wrap">
-    <h1 class="doc-display">How can we help?</h1>
-    <p>HumFut: Sounds for Calls · nullBytes</p>
+<section class="band band-canvas page-hero">
+  <div class="wrap">
+    <span class="hf-kicker">Support</span>
+    <h1>How can we help?</h1>
+    <p class="lede">Answers for HumFut: Sounds for Calls, written from how the app actually works.</p>
+    <nav class="topic-pads" aria-label="Support topics">
+      <a class="hf-bpad" href="#setup" style="--pad:var(--pad-teal)"><span class="hf-ai" data-icon="toggle"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="10" width="26" height="12" rx="6"/><circle class="ai-toggle" cx="10" cy="16" r="3.5" fill="currentColor" stroke="none"/></svg></span><span class="hf-bpad-label">Get set up</span></a>
+      <a class="hf-bpad" href="#add" style="--pad:var(--pad-orange)"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span><span class="hf-bpad-label">Add sounds</span></a>
+      <a class="hf-bpad" href="#on-a-call" style="--pad:var(--pad-blue)"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span><span class="hf-bpad-label">On a call</span></a>
+      <a class="hf-bpad" href="#music" style="--pad:var(--pad-ochre)"><span class="hf-ai" data-icon="sliders"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M8 5v22M16 5v22M24 5v22"/><circle cx="8" cy="19" r="3" fill="var(--ai-bg, var(--surface))"/><circle class="ai-nudge" cx="16" cy="11" r="3" fill="var(--ai-bg, var(--surface))"/><circle cx="24" cy="17" r="3" fill="var(--ai-bg, var(--surface))"/></svg></span><span class="hf-bpad-label">Music and levels</span></a>
+      <a class="hf-bpad" href="#watch" style="--pad:var(--pad-olive)"><span class="hf-ai" data-icon="watch"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="8.5" y="8" width="15" height="16" rx="4.5"/><path d="M12 8V4.5h8V8M12 24v3.5h8V24"/><path class="ai-eq" d="M13 18.5v-3"/><path class="ai-eq" d="M16 19.5v-6" style="--d:.1s"/><path class="ai-eq" d="M19 18.5v-3" style="--d:.2s"/></svg></span><span class="hf-bpad-label">Apple Watch</span></a>
+      <a class="hf-bpad" href="#unlock" style="--pad:var(--pad-rose)"><span class="hf-ai" data-icon="bag"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-lift" d="M12 12V9.5a4 4 0 0 1 8 0V12"/><path d="M6.5 12h19l-1.5 14.5a2 2 0 0 1-2 1.8H10a2 2 0 0 1-2-1.8z"/></svg></span><span class="hf-bpad-label">Unlock and restore</span></a>
+      <a class="hf-bpad" href="#fix" style="--pad:var(--pad-blue)"><span class="hf-ai" data-icon="help"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="13" style="--o:.35"/><g class="ai-nudge"><path d="M12.5 12.5a3.5 3.5 0 1 1 5 3.2c-1 .5-1.5 1.2-1.5 2.3v.8"/><path d="M16 23.2v.3"/></g></svg></span><span class="hf-bpad-label">Fix a problem</span></a>
+      <a class="hf-bpad" href="#contact" style="--pad:var(--pad-teal)"><span class="hf-ai" data-icon="mail"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="4.5" y="8" width="23" height="16" rx="3"/><path class="ai-draw" d="M5.5 9.5l10.5 8 10.5-8" style="--len:27"/></svg></span><span class="hf-bpad-label">Email us</span></a>
+    </nav>
   </div>
 </section>
-<div class="doc-wrap doc">
-  <div class="hf-doc-panel">
-    <p>HumFut lets you type what you want to say and have it spoken into a live call, for moments when speaking out loud isn't an option. You can also drop in reactions, your own sounds, and background music, all mixed into the same call.</p>
-    <p>It works on an iPhone running iOS 26 or later, during a live call in Phone, FaceTime, WhatsApp, Zoom or another calling app, using the "Microphone Injection" permission Apple built for adding audio to a call.</p>
-  </div>
 
-  <h2 id="add-sounds" class="doc-heading">Adding your own sounds</h2>
-  <p>There are three ways to get a sound into HumFut. Every sound lands in your Library first, and from there you can put it on a Pad. <a href="./#add-sounds">Watch the animated walkthroughs</a>.</p>
-  <div class="howto">
-    <div data-ai-host>
-      <span class="hf-feature-icon"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span></span>
-      <h3 class="doc-subheading">Share from a website or app</h3>
-      <ol>
-        <li>Open the sound's page on a soundboard site in Chrome or Safari.</li>
-        <li>Tap <strong>Share</strong>.</li>
-        <li>Choose <strong>HumFut</strong>. A card confirms it was added.</li>
-      </ol>
+<section class="band band-surface" id="setup">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">Get set up.</h2>
+      <p class="lede">Three things, once. After that it’s call, Turn On, tap.</p>
     </div>
-    <div data-ai-host>
-      <span class="hf-feature-icon"><span class="hf-ai" data-icon="capture"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-draw" cx="16" cy="16" r="11" style="--len:69.2"/><circle class="ai-pulse" cx="16" cy="16" r="5" fill="currentColor" stroke="none"/></svg></span></span>
-      <h3 class="doc-subheading">Capture from another app</h3>
-      <ol>
-        <li>In HumFut's Library, tap the capture button.</li>
-        <li>Choose <strong>Start Sharing</strong> and wait for the 3-second countdown.</li>
-        <li>Play the sound in the other app, then tap the red bar to stop.</li>
-      </ol>
-    </div>
-    <div data-ai-host>
-      <span class="hf-feature-icon"><span class="hf-ai" data-icon="import"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 13.5a2 2 0 0 1 2-2h5.5l2.5 3H26a2 2 0 0 1 2 2V25a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><g class="ai-drop"><path d="M16 2.5V12"/><path d="M12.5 8.5L16 12l3.5-3.5"/></g></svg></span></span>
-      <h3 class="doc-subheading">Import from Files</h3>
-      <ol>
-        <li>In your Library, tap <strong>Add a sound</strong>.</li>
-        <li>Pick an audio file from Files.</li>
-        <li>Clips are up to 30 seconds. Longer files can be Tracks.</li>
-      </ol>
+    <div class="card-grid">
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span></span><p class="caption">Step 1</p><h3>An iPhone with iOS 26</h3><p>HumFut runs on iPhone with iOS 26 or later. If an iPhone can’t add audio to calls, HumFut says so straight away: “This iPhone can’t do Call Sounds.”</p></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="toggle"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="10" width="26" height="12" rx="6"/><circle class="ai-toggle" cx="10" cy="16" r="3.5" fill="currentColor" stroke="none"/></svg></span></span><p class="caption">Step 2</p><h3>Allow what iOS asks for</h3><p>The welcome screens walk you through the two things iOS has to allow: <strong>Injection in Settings</strong>, and <strong>Call audio</strong>, which HumFut asks for when you tap <strong>Allow call audio</strong>.</p><p>Say no and your Pads still play on your own phone. Nothing reaches a call until both are on. If one is off later, tap <strong>Open Settings</strong> in HumFut. It takes you straight to the Accessibility setting that lets apps add audio to calls.</p></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span></span><p class="caption">Step 3</p><h3>Call, then Turn On</h3><p>Start a call the way you always do. When HumFut shows <strong>Supported Call detected.</strong>, tap <strong>Turn On</strong>, then tap a Pad.</p><p>Call Sounds turn off by themselves when the call ends, so you turn them on for each call.</p></div>
     </div>
   </div>
-  <p>To change a sound, hold its Pad: you can rename it, pick a colour or emoji, set where it starts and ends, or move it to another Collection.</p>
+</section>
 
-  <h2 class="doc-heading">Requirements</h2>
-  <ul>
-    <li>iPhone with iOS 26 or later</li>
-    <li>A live call in Phone, FaceTime, WhatsApp, Zoom or another calling app (audio is only added while a call is actually connected)</li>
-    <li>The Microphone Injection permission, granted once during onboarding</li>
-    <li>Optional: a paired Apple Watch, for playing sounds and adjusting levels from your wrist</li>
-  </ul>
-
-  <h2 class="doc-heading">Frequently asked questions</h2>
-
-  <h3 class="doc-subheading">I can't hear sounds on the call</h3>
-  <p>Make sure Call Sounds is turned on and you're in a live call — HumFut only adds audio to the call while one is actually connected. Check that you granted the Microphone Injection permission when asked (Settings → HumFut, if you need to review it). Also note that call audio is unavailable while you're screen sharing, and that ending the call disarms injection until your next call.</p>
-
-  <h3 class="doc-subheading">The call app muted me and now nothing plays</h3>
-  <p>This is expected. HumFut's audio travels over the same call uplink your voice does, so muting the call also mutes anything HumFut adds. Unmute the call to hear HumFut again.</p>
-
-  <h3 class="doc-subheading">HumFut doesn't appear when I tap Share</h3>
-  <p>HumFut appears in the share sheet when what you're sharing is an audio file. On a soundboard site, open the sound's own page and share from there. If HumFut says to open the app first, open HumFut once so it can finish setting up, then share again.</p>
-
-  <h3 class="doc-subheading">How long can a sound be?</h3>
-  <p>A Clip for a Pad can be up to 30 seconds. A capture stops on its own after 60 seconds and HumFut keeps the first 30 seconds of sound, with silence trimmed from the ends. Longer audio can be added as a Track and played as background music.</p>
-
-  <h3 class="doc-subheading">Why didn't HumFut add my sound?</h3>
-  <p>HumFut is for sounds that are obviously not real — airhorns, laugh tracks, sound clips, music. Sounds that imitate an emergency, an official, or a real person's voice can deceive the person on your call, so HumFut doesn't carry them. It also won't add sirens, phone-menu tones or ringtones, and it tells you why when it refuses a file.</p>
-
-  <h3 class="doc-subheading">How does background music work?</h3>
-  <p>Import a longer audio file as a Track, then play it from the Track strip. You can pause it, stop it or loop it, and set two levels: how loud it is for the other person (They hear) and how loud it is for you (You hear).</p>
-
-  <h3 class="doc-subheading">What does the unlock buy?</h3>
-  <p>New installs get 3 free calls with Call Sounds turned on, where the other person can hear you. After that, a single one-time purchase (with Family Sharing support) lets the other person hear you — Speak, Reactions and music alike — on every call after that, forever. Typing phrases, trying sounds on your own speaker, and editing your library and collections are always free, whether or not you've unlocked. You can restore a previous purchase from Settings → Unlock HumFut → Restore Purchases.</p>
-
-  <h3 class="doc-subheading">How do I add my own sounds, or capture audio from another app?</h3>
-  <p>To add your own sounds: import an audio file from Files, or use the Share button in another app and choose HumFut. To capture audio playing in another app: open Capture in HumFut, start a broadcast using Apple's system picker, then play the sound in the other app — HumFut keeps the captured clip in your library with silence trimmed from the ends. See <a href="#add-sounds">Adding your own sounds</a> above for step-by-step guides.</p>
-
-  <h3 class="doc-subheading">Does it record my calls?</h3>
-  <p><strong>No.</strong> HumFut never uses your microphone, never records a call, and never listens to one. It only adds its own audio — your typed phrases, sounds and music — into the call using Apple's microphone-injection capability. "Capture" is a separate, user-started feature for capturing audio from another app on your own device; it has nothing to do with your calls.</p>
-
-  <h2 class="doc-heading">Still need help?</h2>
-  <div class="contact">
-    <p>Email us and we'll get back to you.</p>
-    <a class="hf-doc-button" href="mailto:ravi@nullbytes.app">ravi@nullbytes.app</a>
+<section class="band band-canvas" id="add">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">Get a sound in, then put it on a Pad.</h2>
+      <p class="lede">Every sound lands in your Library first. <a class="hf-link" href="./#add-sounds">Try each way on the iPhone</a></p>
+    </div>
+    <div class="card-grid">
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span></span><p class="caption">Share</p><h3>From a soundboard site</h3><ol><li>In Safari or Chrome, open the sound’s own page.</li><li>Tap the sound’s <strong>Share</strong> button and choose <strong>HumFut</strong>.</li><li>A card says “Got it. HumFut will finish adding this the next time you open the app.” It closes by itself.</li><li>Open HumFut. The sound is in Library, marked New.</li></ol></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="capture"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-draw" cx="16" cy="16" r="11" style="--len:69.2"/><circle class="ai-pulse" cx="16" cy="16" r="5" fill="currentColor" stroke="none"/></svg></span></span><p class="caption">Capture</p><h3>From a video or any app</h3><ol><li>In Library, tap <strong>Capture</strong>, then the red record button.</li><li>Your iPhone’s Screen Sharing card opens with HumFut Capture ticked. Tap <strong>Start Sharing</strong>.</li><li>After the 3-second countdown, play the sound in any app.</li><li>Tap the red indicator at the top of the screen, then <strong>Stop</strong>. Back in HumFut: “Captured. It’s in your Library marked New.”</li></ol><p>Capture stops by itself at 60 seconds and keeps the first 30 seconds, with the silence trimmed.</p></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="import"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 13.5a2 2 0 0 1 2-2h5.5l2.5 3H26a2 2 0 0 1 2 2V25a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><g class="ai-drop"><path d="M16 2.5V12"/><path d="M12.5 8.5L16 12l3.5-3.5"/></g></svg></span></span><p class="caption">Import</p><h3>From your Files</h3><ol><li>In Library, tap <strong>Add a sound</strong>.</li><li>Pick an audio file in Files: Downloads, iCloud Drive or anywhere else.</li><li>Up to 30 seconds becomes a Clip, marked New. Anything longer becomes a Track, for background music.</li></ol></div>
+    </div>
+    <div class="card-grid two" style="margin-top:var(--space-24)">
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="collections"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect class="ai-pop" x="5" y="5" width="9.5" height="9.5" rx="2.5"/><rect class="ai-pop" x="17.5" y="5" width="9.5" height="9.5" rx="2.5" style="--d:.08s"/><rect class="ai-pop" x="5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.16s"/><rect class="ai-pop" x="17.5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.24s"/></svg></span></span><h3>Put it on a Pad</h3><p>In Library, under <strong>Clips</strong>, tap <strong>+</strong> next to the sound (<strong>Add to Reactions</strong>). It becomes a Pad on your Reactions board. Sounds not on a Pad yet say “Not on Reactions”.</p><p>Tracks play from Library and don’t go on a Pad.</p></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="pencil"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-slide"><path d="M20 5.5l6.5 6.5L13 25.5H6.5V19z"/><path d="M17.5 8l6.5 6.5"/></g><path class="ai-draw" d="M4 29.5h13" style="--len:13;--d:.1s"/></svg></span></span><h3>Change a Pad</h3><p>Hold a Pad to open <strong>Edit Reaction</strong>: Name, Colour, Icon, Volume, Play range (where it starts and ends), Move to position, Move to Collection and Remove.</p><p>Long-press a Collection header on Reactions to create a Collection. Rename, reorder or delete Collections in Settings → Manage Collections.</p></div>
+    </div>
   </div>
+</section>
 
-  <h2 class="doc-heading">Privacy</h2>
-  <p>HumFut collects no data — see our <a href="privacy.html">Privacy Policy</a> for details.</p>
-</div>
+<section class="band band-surface" id="on-a-call">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">What HumFut is telling you.</h2>
+      <p class="lede">The status at the top of HumFut always says whether the other person can hear you. These are its own words.</p>
+    </div>
+    <div class="status-list reveal">
+      <div class="status-item"><div class="status-chip "><b><i></i>Checking…</b><span>Confirming the call before anything can be turned on.</span></div><p>HumFut is checking the call. It takes a moment.</p></div>
+      <div class="status-item"><div class="status-chip "><b><i></i>Ready</b><span>Supported Call detected.</span></div><p>A call HumFut can use is connected. Tap <strong>Turn On</strong>.</p></div>
+      <div class="status-item"><div class="status-chip on"><b><i></i>On.</b><span>Ready — tap a Reaction to play it on the call</span></div><p>Whatever you play now goes into the call, mixed with your voice. <strong>Stop</strong> silences everything.</p></div>
+      <div class="status-item"><div class="status-chip on"><b><i></i>On.</b><span>Laugh is playing into the call.</span></div><p>The other person is hearing that sound right now.</p></div>
+      <div class="status-item"><div class="status-chip no"><b><i></i>Not ready</b><span>Call Sounds aren’t available right now. This needs a Supported Call — and won’t work while you’re screen sharing.</span></div><p>There’s no call HumFut can use, or you’re sharing your screen. If you turned it on early, it starts when the call does.</p></div>
+      <div class="status-item"><div class="status-chip no"><b><i></i>Not ready</b><span>HumFut doesn’t have your permission for Call audio.</span></div><p>Tap <strong>Open Settings</strong> and allow it.</p></div>
+    </div>
+    <div class="doc-col reveal" style="margin-top:var(--space-40)">
+      <h3>Which calls work?</h3>
+      <p>Calls your iPhone lets apps add audio to: Phone, FaceTime and calling apps like WhatsApp and Zoom. iOS decides which calls qualify. When it can, HumFut says <strong>Supported Call detected.</strong></p>
+      <h3>Good to know</h3>
+      <ul>
+        <li>If your mic is muted in the call app, Call Sounds are muted too, so the other person hears nothing from HumFut.</li>
+        <li>Sharing your screen pauses Call Sounds.</li>
+        <li>On a Bluetooth headset, sound goes out in mono at lower quality. Everything still plays.</li>
+        <li>The person on your call isn’t told: there’s no tone or announcement on their end. Keep it to sounds that are obviously not real.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band band-canvas" id="music">
+  <div class="wrap">
+    <div class="card-grid two">
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="sliders"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M8 5v22M16 5v22M24 5v22"/><circle cx="8" cy="19" r="3" fill="var(--ai-bg, var(--surface))"/><circle class="ai-nudge" cx="16" cy="11" r="3" fill="var(--ai-bg, var(--surface))"/><circle cx="24" cy="17" r="3" fill="var(--ai-bg, var(--surface))"/></svg></span></span><h3>Music and levels</h3><p>Files longer than 30 seconds become <strong>Tracks</strong>. Play one from Library’s now-playing strip, with Play, Pause, Stop, Loop, and <strong>Mix</strong> for its level against your Reactions. It’s heard on the call when Call Sounds are on.</p><p>In the Levels sheet, <strong>They hear</strong> sets how loud everything is for the other person, and moving it changes what you hear too. What only you hear is your iPhone’s side volume buttons; HumFut never changes them.</p></div>
+      <div id="watch"><div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="watch"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="8.5" y="8" width="15" height="16" rx="4.5"/><path d="M12 8V4.5h8V8M12 24v3.5h8V24"/><path class="ai-eq" d="M13 18.5v-3"/><path class="ai-eq" d="M16 19.5v-6" style="--d:.1s"/><path class="ai-eq" d="M19 18.5v-3" style="--d:.2s"/></svg></span></span><h3>Apple Watch</h3><p>The HumFut Watch app needs watchOS 26 and your iPhone within reach. Sound always plays from your iPhone.</p><ul><li>One page per Collection: tap a Pad to play or stop it.</li><li><strong>Stop</strong> silences everything.</li><li>Turn Call Sounds on or off.</li><li>On the Levels page, turn the Digital Crown to set <strong>They hear</strong>, and play or pause your Track.</li></ul><p>If your iPhone is out of reach, the Watch says “Can’t reach your iPhone. Nothing was sent.”</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-surface" id="unlock">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">3 free calls, then a one-time unlock.</h2>
+    </div>
+    <div class="doc-col reveal">
+      <p>A call counts once sound actually goes into it. Turning on before a call starts, or off and on again in the same call, doesn’t use another. Settings → <strong>Unlock HumFut</strong> shows how many you’ve used.</p>
+      <p>After 3 calls, <strong>Turn On</strong> opens <strong>Unlock unlimited calls</strong>. It’s a one-time purchase, not a subscription, and it lets callers hear everything from HumFut on every call: Reactions, your sounds, music and typed Speak phrases. Trying Pads on your own speaker and editing your Library stay free.</p>
+      <p><strong>Restore a purchase:</strong> Settings → Unlock HumFut → <strong>Restore Purchases</strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="band band-canvas" id="fix">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">Fix a problem.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>The other person can’t hear my sounds.</summary><div><p>Check that HumFut’s status says <strong>On.</strong> and the call is connected. Then check that your mic isn’t muted in the call app (that mutes Call Sounds too) and that you aren’t sharing your screen.</p><p>If it says “Your last call ended. Turn Call Sounds on again for this call.”, tap <strong>Turn On</strong>: Call Sounds turn off at the end of every call.</p></div></details>
+      <details><summary>I can’t hear what I’m sending.</summary><div><p>Your media volume may be down. HumFut says “Media volume is down — you can’t hear what you’re sending. Use the volume buttons on the side.”</p></div></details>
+      <details><summary>HumFut doesn’t show up when I tap Share.</summary><div><p>HumFut appears when what you share is an audio file. On a soundboard site, open the sound’s own page and use its Share button. If HumFut says “Open HumFut once to finish setting up, then share this again.”, do just that.</p></div></details>
+      <details><summary>I shared a sound but it isn’t in my Library.</summary><div><p>Shared sounds finish adding when you next open HumFut. Open the app and look in Library for the sound marked New.</p></div></details>
+      <details><summary>My capture didn’t keep anything.</summary><div><p>If HumFut says “Nothing was captured”, start again and play the sound while the red indicator is showing. Capture only keeps audio from other apps, and it stops by itself at 60 seconds.</p></div></details>
+      <details><summary>Why won’t HumFut add a sound?</summary><div><p>HumFut checks every sound on your iPhone and won’t add one that sounds like an emergency siren, an automated phone menu or dial tones, or a phone ringtone, because playing it into a call could be taken as real. Tap <strong>What’s this?</strong> in HumFut to read more, or choose another file.</p><p>“HumFut can’t play this file.” or “This file is damaged and won’t play.” means the file itself won’t open. Try a different audio file.</p></div></details>
+      <details><summary>“HumFut couldn’t set up its audio.”</summary><div><p>Turn Call Sounds off and on again. If it happens again, another audio app may be holding the audio: close it, or restart HumFut.</p></div></details>
+      <details><summary>How do I delete a sound or a Pad?</summary><div><p>To delete a sound, swipe left on it in Library and tap <strong>Delete</strong>. If it’s on a Pad, that Pad goes too. To take a sound off Reactions but keep it, hold its Pad and tap <strong>Remove</strong>. Settings → Storage shows the space your sounds use and can remove the starter sounds.</p></div></details>
+      <details><summary>What’s the Speak tab?</summary><div><p>Type what you want to say and tap <strong>Speak</strong>: HumFut speaks it into the call on your iPhone. It needs Call Sounds on. Your pinned phrases and recent ones are kept for next time.</p></div></details>
+      <details><summary>Does HumFut record my calls?</summary><div><p><strong>No.</strong> HumFut never uses your microphone, never records a call and never listens to one. Capture is separate: it only keeps audio from another app that you start and stop yourself. <a href="privacy.html">Read the Privacy Policy</a></p></div></details>
+    </div>
+  </div>
+</section>
+
+<section class="band band-surface contact-band" id="contact">
+  <div class="wrap reveal">
+    <h2 class="heading-xl">Still stuck? Email us.</h2>
+    <p class="lede">Tell us your iPhone model, your iOS version and what HumFut’s status says. If you can, attach Settings → Diagnostics → Export.</p>
+    <a class="mail-btn" href="mailto:ravi@nullbytes.app"><span class="hf-ai" data-icon="mail"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="4.5" y="8" width="23" height="16" rx="3"/><path class="ai-draw" d="M5.5 9.5l10.5 8 10.5-8" style="--len:27"/></svg></span>ravi@nullbytes.app</a>
+  </div>
+</section>
 </main>
 
 <footer class="hf-footer">
@@ -165,7 +201,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=09dd3c80" defer></script>
-<script src="assets/anim-icons.js?v=09dd3c80" defer></script>
+<script src="assets/site.js?v=791b7192" defer></script>
+<script src="assets/anim-icons.js?v=791b7192" defer></script>
 </body>
 </html>
