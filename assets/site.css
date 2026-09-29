@@ -111,14 +111,21 @@ a:hover { color: var(--accent-press); }
 @keyframes scrub { to { width: 62%; } }
 
 /* Features: Things cards on canvas */
-.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-16); }
-.features .hf-feature.wide { grid-column: span 2; }
-.sound-names { display: flex; flex-wrap: wrap; gap: var(--space-8); margin-top: var(--space-16); padding: 0; list-style: none; }
-.sound-names li { font-size: 15px; font-weight: 600; color: var(--ink-2); }
-.sound-names li:not(:last-child)::after { content: " \00B7"; color: var(--fog); }
-.subhead { margin: 56px 0 var(--space-16); color: var(--ink); }
-@media (max-width: 900px) { .features { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 600px) { .features { grid-template-columns: 1fr; } .features .hf-feature.wide { grid-column: auto; } }
+/* How it works: three numbered steps under the signal flow */
+.how-steps { list-style: none; margin: var(--space-40) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-24); }
+.how-steps li { display: grid; gap: var(--space-8); align-content: start; }
+.how-steps .hf-feature-icon { margin-bottom: var(--space-8); }
+.how-steps .caption { margin: 0; color: var(--muted); }
+.how-steps h3 { margin: 0; color: var(--ink); }
+.how-steps li > p:last-child { margin: 0; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+@media (max-width: 760px) { .how-steps { grid-template-columns: 1fr; } }
+.how-steps .reveal:nth-child(2), .trust .reveal:nth-child(2) { transition-delay: .08s; }
+.how-steps .reveal:nth-child(3), .trust .reveal:nth-child(3) { transition-delay: .16s; }
+
+/* Soundboard section */
+.js .hf-board:not(.is-ready) .hf-detail + .hf-detail { display: none; }
+.board-controls { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-16); align-items: center; margin: var(--space-16) 0 0; font-size: 15px; color: var(--muted); }
+html:not(.js) .board-controls { display: none; }
 
 /* Two-column text + product mockup (Things: tilted mockup) */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -126,9 +133,9 @@ a:hover { color: var(--accent-press); }
 .checks { list-style: none; padding: 0; margin: var(--space-24) 0 0; display: grid; gap: var(--space-16); }
 .checks li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-12); }
 .checks .dot { width: 28px; height: 28px; border-radius: var(--radius-icon); background: var(--accent); color: var(--on-accent); display: grid; place-items: center; }
-.checks .dot svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.checks .dot .hf-ai { --ai-size: 20px; --ai-bg: var(--accent); }
 .checks b { display: block; font-size: 17px; line-height: 1.3; color: var(--ink); }
-.checks span { font-size: 15px; color: var(--muted); }
+.checks li div span { font-size: 15px; color: var(--muted); }
 .tilt { transform: rotate(3deg); }
 .tilt-left { transform: rotate(-3deg); }
 .mock-stage { position: relative; display: grid; place-items: center; }
@@ -175,8 +182,6 @@ a:hover { color: var(--accent-press); }
 .js .reveal { opacity: 0; transform: translateY(20px); filter: blur(6px);
   transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1), filter .8s ease; }
 .js .reveal.is-in { opacity: 1; transform: none; filter: none; }
-.features .reveal:nth-child(3n+2) { transition-delay: .08s; }
-.features .reveal:nth-child(3n) { transition-delay: .16s; }
 
 /* ---------- Effects (assets/effects.js) ---------- */
 /* Sonar Grid: canvas behind the hero and the closing band */
@@ -239,6 +244,8 @@ a:hover { color: var(--accent-press); }
 .howto h3 { margin-top: 0; }
 .howto ol { margin: 0; font-size: 15px; }
 @media (max-width: 760px) { .howto { grid-template-columns: 1fr; } }
+.doc .hf-doc-panel.with-icon { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+.howto .hf-feature-icon { margin-bottom: var(--space-12); }
 .contact { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; }
 
 @media (prefers-reduced-motion: reduce) {

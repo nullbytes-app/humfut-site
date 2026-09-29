@@ -13,10 +13,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=7bd40db4">
-<link rel="stylesheet" href="assets/components.css?v=7bd40db4">
-<link rel="stylesheet" href="assets/mockups.css?v=7bd40db4">
-<link rel="stylesheet" href="assets/site.css?v=7bd40db4">
+<link rel="stylesheet" href="assets/tokens.css?v=70d3befa">
+<link rel="stylesheet" href="assets/components.css?v=70d3befa">
+<link rel="stylesheet" href="assets/mockups.css?v=70d3befa">
+<link rel="stylesheet" href="assets/site.css?v=70d3befa">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -35,9 +35,9 @@
   <div class="wrap">
     <a class="nav-brand" href="./"><img class="hf-app-icon" src="assets/icons/icon-128.png" alt="" width="32" height="32">HumFut</a>
     <nav class="nav-links" aria-label="Main">
+      <a href="#how-it-works">How it works</a>
+      <a href="#soundboard">Soundboard</a>
       <a href="#add-sounds">Add sounds</a>
-      <a href="#features">Features</a>
-      <a href="#music">Music</a>
       <a href="support.html">Support</a>
     </nav>
     <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-big">Get the app</span></span></a>
@@ -50,7 +50,7 @@
   <div class="wrap">
     <img class="hf-app-icon" src="assets/icons/icon-192.png" alt="HumFut app icon" width="120" height="120">
     <h1 class="display">One tap. They hear it.</h1>
-    <p class="lede">The perfect FAAAH. A well-timed “wait a minute…”. The sad trombone after your friend’s joke. HumFut puts the internet’s favourite sounds on big Pads and plays them straight into your Phone and FaceTime calls.</p>
+    <p class="lede">HumFut is a soundboard for your Phone and FaceTime calls. Tap a Pad and the person you’re talking to hears it: the perfect FAAAH, a well-timed “wait a minute…”, the sad trombone after your friend’s joke.</p>
     <div class="hero-actions">
       <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-small">Download on the</span><span class="hf-store-big">App Store</span></span></a>
       <a class="hf-link" href="#add-sounds">See how to add sounds</a>
@@ -87,7 +87,102 @@
   </div>
 </section>
 
-<section class="band band-surface" id="add-sounds">
+<section class="band band-surface" id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">Your chats have reactions. Your calls just have voices.</h2>
+      <p class="lede">In the group chat you’d answer good news with a GIF or a tapback. On a call, all you have is your voice. HumFut gives calls their own reactions: sounds the other person actually hears.</p>
+    </div>
+    <div class="hf-why reveal" data-inview aria-hidden="true">
+      <div class="hf-why-card hf-chat">
+        <h3>In the group chat</h3>
+        <div class="hf-bubble them w-b1"><small>Priya</small>We got the apartment!!!<span class="hf-tapbacks w-tap"><span>❤️</span><span>😂</span><span>‼️</span></span></div>
+        <div class="hf-gif w-gif"><i></i><i></i><i></i><i></i><i></i><i></i><b>GIF</b></div>
+        <div class="hf-bubble me w-b3">NO WAY 🎉</div>
+      </div>
+      <div class="hf-why-card hf-callcard">
+        <h3>On the call</h3>
+        <div class="hf-call-who"><span class="hf-avatar">P</span><div><b>Priya</b><span>Phone · 12:04</span></div></div>
+        <p class="hf-call-said">“We got the apartment!!!”</p>
+        <div class="hf-call-voice"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="hf-call-status"><span class="is-before">Just your two voices.</span><span class="is-after">Priya hears the applause.</span></div>
+        <div class="hf-call-pads"><span class="is-fired" style="--pad:var(--pad-teal)">Applause</span><span style="--pad:var(--pad-orange)">FAAAH</span><span style="--pad:var(--pad-blue)">Vine boom</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band band-canvas" id="how-it-works">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <h2 class="heading-xl">How it works.</h2>
+      <p class="lede">HumFut mixes the sound into your call, right alongside your voice. The person on the other end hears it on any phone, with nothing to install.</p>
+    </div>
+    <div class="hf-flow reveal" data-inview data-ai-manual aria-hidden="true">
+      <div class="hf-flow-node">
+        <h3>You</h3>
+        <p class="hf-flow-sub">iPhone with HumFut</p>
+        <div class="hf-flow-row"><span class="hf-ai" data-icon="mic"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="12" y="4" width="8" height="14" rx="4"/><path d="M7.5 15a8.5 8.5 0 0 0 17 0M16 23.5V28M12 28h8"/><path class="ai-wave" d="M26.5 9.5a8 8 0 0 1 0 8"/><path class="ai-wave" d="M5.5 9.5a8 8 0 0 0 0 8" style="--d:.12s"/></svg></span>Your voice<span class="hf-flow-voice"><i></i><i></i><i></i><i></i><i></i></span></div>
+        <span class="hf-flow-pad">FAAAH</span>
+      </div>
+      <div class="hf-flow-track">
+        <span class="hf-flow-label">Phone or FaceTime call</span>
+        <span class="hf-flow-dot"></span><span class="hf-flow-dot"></span><span class="hf-flow-dot"></span><span class="hf-flow-dot"></span>
+        <span class="hf-flow-packet">FAAAH</span>
+      </div>
+      <div class="hf-flow-node hf-flow-them">
+        <h3>Them</h3>
+        <p class="hf-flow-sub">Any phone. No app needed.</p>
+        <div class="hf-flow-row"><span class="hf-ai" data-icon="speaker"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5 12.5h5l7-6v19l-7-6H5z"/><path class="ai-wave" d="M21 12a5.5 5.5 0 0 1 0 8"/><path class="ai-wave" d="M24.5 8.5a10.5 10.5 0 0 1 0 15" style="--d:.15s"/></svg></span>Your voice, and then</div>
+        <span class="hf-flow-hears">FAAAH</span>
+      </div>
+    </div>
+    <ol class="how-steps">
+      <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span></span><p class="caption">Step 1</p><h3 class="heading-sm">Call like you always do</h3><p>Start a Phone or FaceTime call as usual. HumFut never places a call itself.</p></li>
+      <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="toggle"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="10" width="26" height="12" rx="6"/><circle class="ai-toggle" cx="10" cy="16" r="3.5" fill="currentColor" stroke="none"/></svg></span></span><p class="caption">Step 2</p><h3 class="heading-sm">Turn on Call Sounds</h3><p>One switch in HumFut. It uses the iOS permission Apple built for adding audio to calls, and never your microphone.</p></li>
+      <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span></span><p class="caption">Step 3</p><h3 class="heading-sm">Tap a Pad</h3><p>The sound goes into the call with your voice, and they hear it straight away. Try any Pad on your own speaker first.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="band band-surface" id="soundboard">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2 class="heading-xl">A soundboard for your calls.</h2>
+      <p class="lede">Every Pad below is something HumFut does. Press one to send it into the call and see what it does.</p>
+    </div>
+    <div class="hf-board reveal" data-board data-inview data-ai-manual>
+      <div class="hf-bpads" role="group" aria-label="What HumFut does. Press a Pad, or use the number keys 1 to 9.">
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-orange)" data-feature="reactions" data-sound="FAAAH" data-pad="pad-orange" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span><span class="hf-bpad-label">Reactions</span><span class="hf-bpad-key" aria-hidden="true">1</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-teal)" data-feature="share" data-sound="Vine boom" data-pad="pad-teal" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span><span class="hf-bpad-label">Share it in</span><span class="hf-bpad-key" aria-hidden="true">2</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-rose)" data-feature="capture" data-sound="Wait a minute…" data-pad="pad-rose" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="capture"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-draw" cx="16" cy="16" r="11" style="--len:69.2"/><circle class="ai-pulse" cx="16" cy="16" r="5" fill="currentColor" stroke="none"/></svg></span><span class="hf-bpad-label">Capture it</span><span class="hf-bpad-key" aria-hidden="true">3</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-blue)" data-feature="import" data-sound="Airhorn" data-pad="pad-blue" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="import"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 13.5a2 2 0 0 1 2-2h5.5l2.5 3H26a2 2 0 0 1 2 2V25a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><g class="ai-drop"><path d="M16 2.5V12"/><path d="M12.5 8.5L16 12l3.5-3.5"/></g></svg></span><span class="hf-bpad-label">Import files</span><span class="hf-bpad-key" aria-hidden="true">4</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-ochre)" data-feature="music" data-sound="Lobby jazz" data-pad="pad-ochre" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="music"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-sway"><path d="M12 22.5V8.5l13-3V19"/><circle cx="9" cy="22.5" r="3"/><circle cx="22" cy="19" r="3"/></g></svg></span><span class="hf-bpad-label">Music</span><span class="hf-bpad-key" aria-hidden="true">5</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-olive)" data-feature="collections" data-sound="Ba dum tss" data-pad="pad-olive" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="collections"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect class="ai-pop" x="5" y="5" width="9.5" height="9.5" rx="2.5"/><rect class="ai-pop" x="17.5" y="5" width="9.5" height="9.5" rx="2.5" style="--d:.08s"/><rect class="ai-pop" x="5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.16s"/><rect class="ai-pop" x="17.5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.24s"/></svg></span><span class="hf-bpad-label">Collections</span><span class="hf-bpad-key" aria-hidden="true">6</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-teal)" data-feature="customise" data-sound="Bruh" data-pad="pad-teal" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="pencil"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-slide"><path d="M20 5.5l6.5 6.5L13 25.5H6.5V19z"/><path d="M17.5 8l6.5 6.5"/></g><path class="ai-draw" d="M4 29.5h13" style="--len:13;--d:.1s"/></svg></span><span class="hf-bpad-label">Make it yours</span><span class="hf-bpad-key" aria-hidden="true">7</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-orange)" data-feature="preview" data-sound="Crickets" data-pad="pad-orange" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="headphones"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5.5 21v-4a10.5 10.5 0 0 1 21 0v4"/><rect x="4" y="19.5" width="6" height="9" rx="2.5"/><rect x="22" y="19.5" width="6" height="9" rx="2.5"/><path class="ai-eq" d="M13.5 26v-6"/><path class="ai-eq" d="M16 26v-8" style="--d:.1s"/><path class="ai-eq" d="M18.5 26v-5" style="--d:.2s"/></svg></span><span class="hf-bpad-label">Try it first</span><span class="hf-bpad-key" aria-hidden="true">8</span></button>
+          <button type="button" class="hf-bpad" style="--pad:var(--pad-blue)" data-feature="watch" data-sound="Sad trombone" data-pad="pad-blue" aria-pressed="false" aria-controls="board-panel"><span class="hf-ai" data-icon="watch"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="8.5" y="8" width="15" height="16" rx="4.5"/><path d="M12 8V4.5h8V8M12 24v3.5h8V24"/><path class="ai-eq" d="M13 18.5v-3"/><path class="ai-eq" d="M16 19.5v-6" style="--d:.1s"/><path class="ai-eq" d="M19 18.5v-3" style="--d:.2s"/></svg></span><span class="hf-bpad-label">Apple Watch</span><span class="hf-bpad-key" aria-hidden="true">9</span></button>
+      </div>
+      <div class="hf-board-panel" id="board-panel" aria-live="off">
+        <div class="hf-callstrip" aria-hidden="true"><span class="hf-call-dot"></span>On a call with Sam<span class="hf-live"><i></i><i></i><i></i><i></i><i></i></span><time>04:12</time></div>
+        <p class="hf-lane-title" aria-hidden="true">Sent into the call</p>
+        <ul class="hf-lane" aria-hidden="true"><li class="hf-chip" style="--pad:var(--pad-teal)"><span class="hf-chip-swatch"></span><b>Mm-hm</b><span class="hf-chip-meta">earlier</span></li><li class="hf-chip" style="--pad:var(--pad-ochre)"><span class="hf-chip-swatch"></span><b>Laugh</b><span class="hf-chip-meta">earlier</span></li></ul>
+          <div class="hf-detail" data-for="reactions"><div class="hf-detail-head"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span><h3>Reactions, one tap away</h3></div><p>Your sounds live on big, colourful Pads. Tap one and the other person hears it instantly, mixed right into the call.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Starts with Laugh, Mm-hm, Applause, Sigh, One moment and Bye</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Add the internet’s favourites: FAAAH, Bruh, Vine boom</li></ul></div>
+          <div class="hf-detail" data-for="share"><div class="hf-detail-head"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span><h3>Share from any soundboard</h3></div><p>Found the perfect sound on a soundboard site? Tap Share, choose HumFut, and it lands in your Library with its own name.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Works from Chrome and Safari</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Apps that share audio files work too</li></ul><a class="hf-link" href="#add-sounds" data-open-tab="tab-share">See it step by step</a></div>
+          <div class="hf-detail" data-for="capture"><div class="hf-detail-head"><span class="hf-ai" data-icon="capture"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-draw" cx="16" cy="16" r="11" style="--len:69.2"/><circle class="ai-pulse" cx="16" cy="16" r="5" fill="currentColor" stroke="none"/></svg></span><h3>Capture from your apps</h3></div><p>Hear it in a video, a game or a podcast? Start a capture, play it, and HumFut keeps the sound with the silence trimmed off.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Stops by itself after 60 seconds</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Keeps only the app’s audio, never video or your microphone</li></ul><a class="hf-link" href="#add-sounds" data-open-tab="tab-capture">See it step by step</a></div>
+          <div class="hf-detail" data-for="import"><div class="hf-detail-head"><span class="hf-ai" data-icon="import"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M4 13.5a2 2 0 0 1 2-2h5.5l2.5 3H26a2 2 0 0 1 2 2V25a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><g class="ai-drop"><path d="M16 2.5V12"/><path d="M12.5 8.5L16 12l3.5-3.5"/></g></svg></span><h3>Import from Files</h3></div><p>Already have an MP3 or M4A? Add it from Files. Up to 30 seconds becomes a Clip for a Pad; anything longer becomes a Track.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Downloads, iCloud Drive and AirDrop</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Long files play as background music</li></ul><a class="hf-link" href="#add-sounds" data-open-tab="tab-files">See it step by step</a></div>
+          <div class="hf-detail" data-for="music"><div class="hf-detail-head"><span class="hf-ai" data-icon="music"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-sway"><path d="M12 22.5V8.5l13-3V19"/><circle cx="9" cy="22.5" r="3"/><circle cx="22" cy="19" r="3"/></g></svg></span><h3>Music under the call</h3></div><p>Play a Track under the whole call and loop it. Your Reactions play on top.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Two levels: They hear and You hear</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Start with the built-in Ambience</li></ul><a class="hf-link" href="#music">More about music</a></div>
+          <div class="hf-detail" data-for="collections"><div class="hf-detail-head"><span class="hf-ai" data-icon="collections"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect class="ai-pop" x="5" y="5" width="9.5" height="9.5" rx="2.5"/><rect class="ai-pop" x="17.5" y="5" width="9.5" height="9.5" rx="2.5" style="--d:.08s"/><rect class="ai-pop" x="5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.16s"/><rect class="ai-pop" x="17.5" y="17.5" width="9.5" height="9.5" rx="2.5" style="--d:.24s"/></svg></span><h3>Collections</h3></div><p>One set of Pads for game night, another for work calls. Collapse the ones you’re not using.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Search when you have lots of Pads</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Swipe between them on Apple Watch</li></ul></div>
+          <div class="hf-detail" data-for="customise"><div class="hf-detail-head"><span class="hf-ai" data-icon="pencil"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-slide"><path d="M20 5.5l6.5 6.5L13 25.5H6.5V19z"/><path d="M17.5 8l6.5 6.5"/></g><path class="ai-draw" d="M4 29.5h13" style="--len:13;--d:.1s"/></svg></span><h3>Make it yours</h3></div><p>Hold a Pad to rename it, give it one of six colours and any emoji, or move it to another Collection.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Trim exactly where it starts and ends</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Set how loud each sound plays</li></ul></div>
+          <div class="hf-detail" data-for="preview"><div class="hf-detail-head"><span class="hf-ai" data-icon="headphones"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M5.5 21v-4a10.5 10.5 0 0 1 21 0v4"/><rect x="4" y="19.5" width="6" height="9" rx="2.5"/><rect x="22" y="19.5" width="6" height="9" rx="2.5"/><path class="ai-eq" d="M13.5 26v-6"/><path class="ai-eq" d="M16 26v-8" style="--d:.1s"/><path class="ai-eq" d="M18.5 26v-5" style="--d:.2s"/></svg></span><h3>Try it before they hear it</h3></div><p>Hear any Pad on your own speaker first, so you know it’s the one. Trying sounds is always free.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Works with no call at all</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Nothing goes into a call until Call Sounds is on</li></ul></div>
+          <div class="hf-detail" data-for="watch"><div class="hf-detail-head"><span class="hf-ai" data-icon="watch"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="8.5" y="8" width="15" height="16" rx="4.5"/><path d="M12 8V4.5h8V8M12 24v3.5h8V24"/><path class="ai-eq" d="M13 18.5v-3"/><path class="ai-eq" d="M16 19.5v-6" style="--d:.1s"/><path class="ai-eq" d="M19 18.5v-3" style="--d:.2s"/></svg></span><h3>Fire from your wrist</h3></div><p>Play Pads, change levels and stop everything from Apple Watch while your iPhone stays on the table.</p><ul class="hf-facts"><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Swipe between Collections</li><li><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span>Tap the square to stop all sounds</li></ul><a class="hf-link" href="#watch">See the Watch app</a></div>
+      </div>
+    </div>
+    <p class="board-controls"><span class="js-board-status">Playing a demo</span><button type="button" class="tut-toggle js-board-toggle">Pause demo</button></p>
+  </div>
+</section>
+
+<section class="band band-canvas" id="add-sounds">
   <div class="wrap">
     <div class="section-head center reveal">
       <span class="hf-kicker">How to add sounds</span>
@@ -335,40 +430,19 @@
   </div>
 </section>
 
-<section class="band band-canvas" id="features">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2 class="heading-xl">A soundboard for your calls.</h2>
-      <p class="lede">Bring in any sound you love, put it on a Pad, and drop it into a live Phone or FaceTime call at exactly the right moment.</p>
-    </div>
-    <div class="features">
-      <article class="hf-feature reveal wide"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><h3>Reactions, one tap away</h3></div><p>Your sounds live on big, colourful Pads. Tap one and the other person hears it instantly, mixed right into the call. Try any Pad on your own speaker first.</p><ul class="sound-names" aria-label="Example sounds"><li>FAAAH</li><li>Wait a minute…</li><li>Vine boom</li><li>Bruh</li><li>Sad trombone</li><li>Ba dum tss</li><li>Crickets</li></ul></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12v8h16v-8M12 3v12M7 8l5-5 5 5"/></svg></span><h3>Share from any soundboard</h3></div><p>Found the perfect sound on a soundboard site? Tap Share, pick HumFut, done. It keeps its name.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Capture from your apps</h3></div><p>That line from a video, a clip from a game: play it and HumFut keeps it, with the silence trimmed off.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><h3>Music under the call</h3></div><p>Play a background Track, loop it, and set how loud it is for them and for you.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h6l2 2h10v10H3z"/></svg></span><h3>Import from Files</h3></div><p>Already have an MP3 or M4A? Add it from Files as a short Clip or a long Track.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span><h3>Collections</h3></div><p>One set of Pads for game night, another for family calls. Collapse the ones you’re not using.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="3"/><path d="M9 6V2h6v4M9 18v4h6v-4"/></svg></span><h3>Apple Watch</h3></div><p>Fire Pads, change levels and stop everything from your wrist while your iPhone stays put.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Private by design</h3></div><p>Never uses your microphone, never records or listens to a call. No account, no ads, no tracking.</p></article>
-    </div>
-    <h3 class="heading subhead reveal">Then make it yours: hold a Pad.</h3>
-    <div class="features">
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16v4z"/></svg></span><h3>Name it</h3></div><p>Call it whatever you’ll recognise mid-call.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="8" cy="10" r="1"/><circle cx="12" cy="7" r="1"/><circle cx="16" cy="10" r="1"/></svg></span><h3>Colour and emoji</h3></div><p>Six Pad colours and any emoji, so you can find it without reading.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16M8 3v8M16 13v8"/></svg></span><h3>Trim the timing</h3></div><p>Set exactly where the sound starts and ends, and how loud it plays.</p></article>
-    </div>
-  </div>
-</section>
+
+
+
 
 <section class="band band-surface" id="music">
   <div class="wrap split">
     <div class="section-head reveal">
       <h2 class="heading-xl">Set the vibe under the whole call.</h2>
       <p class="lede">Play a Track behind everything: lobby jazz while they wait, dramatic drums for the big reveal, rain for a chill catch-up. Your Reactions play on top.</p>
-      <ul class="checks">
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Loop it, pause it, stop it</b><span>Transport controls sit right on the Track strip.</span></div></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Two levels: They hear and You hear</b><span>Keep the music soft for them and even softer in your own ear.</span></div></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Bring your own Tracks</b><span>Import music you own, or start with the built-in Ambience.</span></div></li>
+      <ul class="checks" data-ai-host>
+        <li><span class="dot"><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span></span><div><b>Loop it, pause it, stop it</b><span>Transport controls sit right on the Track strip.</span></div></li>
+        <li><span class="dot"><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span></span><div><b>Two levels: They hear and You hear</b><span>Keep the music soft for them and even softer in your own ear.</span></div></li>
+        <li><span class="dot"><span class="hf-ai" data-icon="check"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-draw" d="M7 16.5l6 6L25 10" style="--len:26"/></svg></span></span><div><b>Bring your own Tracks</b><span>Import music you own, or start with the built-in Ambience.</span></div></li>
       </ul>
     </div>
     <div class="mock-stage reveal" aria-hidden="true">
@@ -397,7 +471,7 @@
   </div>
 </section>
 
-<section class="band band-canvas">
+<section class="band band-canvas" id="watch">
   <div class="wrap split watch-split">
     <div class="watch-pair reveal" aria-hidden="true">
       <div class="watch">
@@ -424,16 +498,18 @@
   </div>
 </section>
 
-<section class="band band-surface" id="how-it-works">
+
+
+<section class="band band-surface" id="privacy">
   <div class="wrap">
     <div class="section-head reveal">
-      <h2 class="heading-xl">Built on Apple’s own call audio.</h2>
-      <p class="lede">HumFut uses the iOS permission made for adding audio to calls. Turn on Call Sounds during a live Phone or FaceTime call and your Pads go straight in.</p>
+      <h2 class="heading-xl">Private by design.</h2>
+      <p class="lede">HumFut adds sounds to your call and does nothing else with it. It doesn’t listen, record or send anything anywhere.</p>
     </div>
     <div class="trust">
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M9 9v3a3 3 0 0 0 5 2M15 10V5a3 3 0 0 0-6 0M5 11a7 7 0 0 0 12 3M12 18v3"/></svg></span><h3>Never uses your microphone</h3></div><p>HumFut never records a call and never listens to one. It only adds the sounds you choose.</p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18M8 8a5 5 0 0 0-2 9h11M13 7a5 5 0 0 1 6 7"/></svg></span><h3>Nothing leaves your iPhone</h3></div><p>No servers, no analytics, no account. Your sounds stay on your iPhone and Apple Watch. <a href="privacy.html">Privacy Policy</a></p></article>
-      <article class="hf-feature reveal"><div class="hf-feature-head"><span class="hf-feature-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 0 0 6 6L16 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg></span><h3>You place the call</h3></div><p>Call from the Phone or FaceTime app as usual. HumFut never places a call itself.</p></article>
+      <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="mic-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-nudge"><rect x="12" y="4" width="8" height="14" rx="4"/><path d="M7.5 15a8.5 8.5 0 0 0 17 0M16 23.5V28M12 28h8"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>Never uses your microphone</h3></div><p>HumFut never records a call and never listens to one. It only adds the sounds you choose.</p></article>
+      <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="cloud-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-nudge"><path d="M10 24.5h12.5a5 5 0 0 0 .6-9.96A7 7 0 0 0 9.6 15.2 4.7 4.7 0 0 0 10 24.5z"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>Nothing leaves your iPhone</h3></div><p>No servers and no analytics. Your sounds stay on your iPhone and Apple Watch. <a href="privacy.html">Privacy Policy</a></p></article>
+      <article class="hf-feature reveal" data-ai-host><div class="hf-feature-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="eye-off"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-blink"><path d="M3 16s4.8-8.5 13-8.5S29 16 29 16s-4.8 8.5-13 8.5S3 16 3 16z"/><circle cx="16" cy="16" r="3.5"/></g><path class="ai-draw ai-cut" d="M5 5l22 22" style="--len:31.2;--d:.15s"/><path class="ai-draw" d="M5 5l22 22" style="--len:31.2;--d:.15s"/></svg></span></span><h3>No account, no tracking</h3></div><p>No sign-in, no ads and no tracking of any kind.</p></article>
     </div>
     <div class="price reveal">
       <div>
@@ -473,6 +549,7 @@
   <div class="wrap">
     <span class="footer-brand"><img class="hf-app-icon" src="assets/icons/icon-128.png" alt="" width="32" height="32">HumFut</span>
     <nav aria-label="Footer">
+      <a href="#how-it-works">How it works</a>
       <a href="#add-sounds">How to add sounds</a>
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -483,7 +560,9 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=7bd40db4" defer></script>
-<script src="assets/effects.js?v=7bd40db4" defer></script>
+<script src="assets/site.js?v=70d3befa" defer></script>
+<script src="assets/anim-icons.js?v=70d3befa" defer></script>
+<script src="assets/story.js?v=70d3befa" defer></script>
+<script src="assets/effects.js?v=70d3befa" defer></script>
 </body>
 </html>
