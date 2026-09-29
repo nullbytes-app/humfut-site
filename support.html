@@ -8,11 +8,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/components.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/mockups.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/site.css?v=8ab04a71">
+<link rel="stylesheet" href="assets/tokens.css?v=bbb91e58">
+<link rel="stylesheet" href="assets/components.css?v=bbb91e58">
+<link rel="stylesheet" href="assets/mockups.css?v=bbb91e58">
+<link rel="stylesheet" href="assets/site.css?v=bbb91e58">
 <script>document.documentElement.classList.add('js');</script>
+<script>
+  // Apply a saved Light/Dark choice before first paint; "System" follows the device.
+  (function () { try { var t = localStorage.getItem('humfut-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
 </head>
 <body class="doc-page">
 <a class="skip" href="#main">Skip to content</a>
@@ -36,6 +40,18 @@
       <a href="support.html" aria-current="page">Support</a>
       <a href="privacy.html">Privacy</a>
     </nav>
+    <div class="theme" data-theme-menu>
+      <button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list" aria-label="Appearance: System">
+        <svg class="ti ti-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+        <svg class="ti ti-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="ti ti-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="theme-list" id="theme-list" role="menu" aria-label="Appearance" hidden>
+        <button type="button" role="menuitemradio" aria-checked="true" data-set-theme="system">System</button>
+        <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="light">Light</button>
+        <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="dark">Dark</button>
+      </div>
+    </div>
     <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-big">Get the app</span></span></a>
   </div>
 </header>
@@ -149,7 +165,7 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=8ab04a71" defer></script>
-<script src="assets/anim-icons.js?v=8ab04a71" defer></script>
+<script src="assets/site.js?v=bbb91e58" defer></script>
+<script src="assets/anim-icons.js?v=bbb91e58" defer></script>
 </body>
 </html>
