@@ -163,10 +163,23 @@ a:hover { color: var(--accent-press); }
 .tc-phone .phone { transform: scale(var(--s)); transform-origin: 0 0; }
 .tc-them .tc-phone { transition: transform .5s cubic-bezier(.2, 1.6, .4, 1); }
 .tc.is-heard .tc-them .tc-phone { transform: translateY(-10px) rotate(1.5deg); transition-duration: .18s; }
-.tc-pad { appearance: none; font: inherit; text-align: left; cursor: pointer; width: 100%; }
-.tc-pad:hover { filter: brightness(1.06); }
-.tc-pad:active { transform: scale(.95); }
-.tc-pad:focus-visible { outline: 3px solid var(--tap-ring); outline-offset: 2px; }
+.pad-btn { appearance: none; font: inherit; text-align: left; cursor: pointer; width: 100%; }
+.pad-btn:active { transform: scale(.95); }
+.pad-btn:focus-visible { outline: 3px solid var(--tap-ring); outline-offset: 2px; }
+/* Hovering a Pad previews the app's playback fill */
+@media (hover: hover) {
+  .pad-btn:hover { filter: brightness(1.06); }
+  .pad-btn:hover:not(.is-firing)::before { animation: progress 1.4s cubic-bezier(.3, .1, .3, 1) forwards; }
+}
+/* The status card and dock, as the app draws them when Call Sounds is off */
+.screen .status-card { transition: background .3s ease, border-color .3s ease; }
+.screen.is-off .status-card { background: rgba(255, 255, 255, .07); border-color: rgba(255, 255, 255, .12); }
+.dock button { appearance: none; border: 0; font: inherit; cursor: pointer; }
+.dock .off { font-weight: 700; font-size: 14px; color: #111; }
+.dock button:focus-visible { outline: 3px solid var(--tap-ring); outline-offset: 2px; }
+.dock .stop:hover { background: rgba(255, 255, 255, .18); }
+.tc.is-off .tc-you .island.call .wave i { animation-play-state: paused; }
+.tc-hint-t.is-note { color: var(--ink); font-weight: 600; }
 .tc-add { --pad: #4a4a50; background: rgba(255, 255, 255, .06); border: 1.5px dashed rgba(255, 255, 255, .25); color: rgba(255, 255, 255, .55); }
 .tc-add .nm { font-size: 12px; font-weight: 600; text-shadow: none; }
 .tc-add .emo { font-size: 20px; }

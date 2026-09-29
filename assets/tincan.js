@@ -8,22 +8,36 @@
   var you = tc.querySelector('.tc-you .tc-phone'), them = tc.querySelector('.tc-them .tc-phone');
   var word = tc.querySelector('.tc-word'), hearsT = tc.querySelector('.tc-hears-t'), time = tc.querySelector('.tc-time');
   var mute = tc.querySelector('.tc-mute');
-  var ver = (document.querySelector('script[src*="tincan.js"]').src.split('?')[1] || '');
-  var clips = {}, playing = null, muted = false, touched = false, inView = false;
+  var phone = window.HumFutPhone, screen = tc.querySelector('.tc-you .screen');
+  var power = tc.querySelector('.tc-power'), stopBtn = tc.querySelector('.tc-stop'), hint = tc.querySelector('.tc-hint-t');
+  var HINT = hint.textContent, on = true, touched = false, inView = false, hintT = null;
   var N = 56, off = new Float32Array(N), vel = new Float32Array(N), pulses = [], ptr = null, W = 0, H = 0, dpr = 1, A, B;
 
   var ICON_ON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L13 5v14l-5.5-4.5H4z" fill="currentColor"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
   var ICON_OFF = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L13 5v14l-5.5-4.5H4z" fill="currentColor"/><path d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
-  function setMute(m) { muted = m; mute.setAttribute('aria-pressed', m ? 'true' : 'false'); mute.innerHTML = (m ? ICON_OFF : ICON_ON) + (m ? 'Sound off' : 'Sound on'); if (m && playing) playing.pause(); }
+  function setMute(m) { phone.muted = m; mute.setAttribute('aria-pressed', m ? 'true' : 'false'); mute.innerHTML = (m ? ICON_OFF : ICON_ON) + (m ? 'Sound off' : 'Sound on'); if (m) phone.stop(); }
   setMute(false);
-  mute.addEventListener('click', function () { setMute(!muted); });
+  mute.addEventListener('click', function () { setMute(!phone.muted); });
 
-  function clip(name) {
-    if (!clips[name]) { clips[name] = new Audio('assets/sounds/' + name + '.mp3' + (ver ? '?' + ver : '')); clips[name].preload = 'auto'; }
-    return clips[name];
+  // Turn Off / Turn On, as in the app's dock. Off, a Pad still plays on your own speaker but nothing goes into the call.
+  function note(text) {
+    clearTimeout(hintT);
+    hint.textContent = text || HINT; hint.classList.toggle('is-note', !!text);
+    if (text) hintT = setTimeout(function () { note(null); }, 3800);
   }
-  // Let iPhones play through the ring/silent switch, like a video would.
-  try { if (navigator.audioSession) navigator.audioSession.type = 'playback'; } catch (e) {}
+  function setOn(v) {
+    on = v; tc.classList.toggle('is-off', !on);
+    power.textContent = on ? 'Turn Off' : 'Turn On'; power.setAttribute('aria-pressed', on ? 'true' : 'false');
+    phone.status(screen, on, null);
+    if (!on) { tc.classList.remove('is-heard'); word.classList.remove('is-on'); note('Call Sounds is off. Tap a Pad: only you will hear it.'); } else note('Call Sounds is on. Mom hears your Pads again.');
+  }
+  power.addEventListener('click', function () { touched = true; setOn(!on); });
+  stopBtn.addEventListener('click', function () {
+    phone.stop(); pulses = []; tc.classList.remove('is-heard', 'is-sending');
+    tc.querySelectorAll('.tc-pad.is-firing').forEach(function (p) { p.classList.remove('is-firing'); });
+    phone.status(screen, on, null);
+  });
+
 
   // ---- geometry ----
   function size() {
@@ -72,8 +86,9 @@
     g.stroke();
     var live = getComputedStyle(tc).getPropertyValue('--live');
     pulses.forEach(function (q) {
-      var f = Math.min(1, q.p), i = Math.round(f * (N - 1)), p = base(f);
+      var f = Math.min(q.stopAt || 1, q.p), i = Math.round(f * (N - 1)), p = base(f);
       g.save(); g.shadowColor = live; g.shadowBlur = 18 * dpr; g.fillStyle = live;
+      if (q.stopAt) { g.globalAlpha = Math.max(0, 1 - (q.p - q.stopAt) / .35); g.shadowBlur = 0; g.fillStyle = ink; }
       g.beginPath(); g.ellipse(p.x, p.y + off[i], 15 * dpr, 9 * dpr, 0, 0, 7); g.fill(); g.restore();
     });
   }
@@ -83,6 +98,7 @@
       pulses = pulses.filter(function (q) {
         q.p = (now - q.t0) / 420;
         var i = Math.max(1, Math.min(N - 2, Math.round(q.p * (N - 1))));
+        if (q.stopAt) return q.p < q.stopAt + .35; // Call Sounds is off: it never leaves your phone
         vel[i] -= 3.2 * dpr;
         if (q.p >= 1) { arrive(q); return false; }
         return true;
@@ -100,25 +116,25 @@
     clearTimeout(heardTimer);
     heardTimer = setTimeout(function () { tc.classList.remove('is-heard', 'is-sending'); }, q.dur);
   }
+  var statusT = null;
   function send(pad, withSound) {
-    var name = pad.dataset.name, dur = 1900;
-    tc.querySelectorAll('.tc-pad.is-firing').forEach(function (p) { p.classList.remove('is-firing'); });
-    void pad.offsetWidth; pad.classList.add('is-firing');
-    tc.classList.add('is-sending');
-    if (withSound && !muted) {
-      var a = clip(pad.dataset.sound);
-      if (playing && playing !== a) playing.pause();
-      playing = a; a.currentTime = 0;
-      var pr = a.play(); if (pr && pr.catch) pr.catch(function () {});
-      if (a.duration) dur = Math.max(1600, a.duration * 1000);
-    }
-    setTimeout(function () { pad.classList.remove('is-firing'); }, dur);
+    var name = pad.dataset.name, dur = withSound ? phone.play(pad.dataset.sound) : 1900;
+    tc.querySelectorAll('.tc-pad.is-firing').forEach(function (p) { if (p !== pad) p.classList.remove('is-firing'); });
+    phone.fire(pad, dur);
+    phone.status(screen, on, on ? name : null);
+    clearTimeout(statusT); statusT = setTimeout(function () { phone.status(screen, on, null); }, dur);
     var q = { name: name, dur: dur, t0: performance.now(), p: 0 };
+    if (!on) {
+      note('Only you heard ' + name + '. Call Sounds is off, so Mom hears nothing.');
+      if (!reduce) { q.stopAt = .12; pulses.push(q); }
+      return;
+    }
+    tc.classList.add('is-sending');
     if (reduce) arrive(q); else pulses.push(q);
   }
   tc.querySelectorAll('.tc-pad').forEach(function (pad) {
     pad.addEventListener('click', function () { touched = true; send(pad, true); });
-    pad.addEventListener('pointerenter', function () { clip(pad.dataset.sound); }, { once: true });
+    pad.addEventListener('pointerenter', function () { phone.preload(pad.dataset.sound); }, { once: true });
   });
 
   // Pluck the cord.
@@ -128,7 +144,7 @@
 
   // Until the visitor taps, the call demos itself, silently.
   var n = 0, pads = tc.querySelectorAll('.tc-pad');
-  if (!reduce) setInterval(function () { if (inView && !touched && !document.hidden) send(pads[n++ % pads.length], false); }, 4200);
+  if (!reduce) setInterval(function () { if (inView && !touched && on && !document.hidden) send(pads[n++ % pads.length], false); }, 4200);
   var secs = 192;
   setInterval(function () { if (inView) { secs++; time.textContent = Math.floor(secs / 60) + ':' + ('0' + secs % 60).slice(-2); } }, 1000);
 
