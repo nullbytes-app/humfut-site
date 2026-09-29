@@ -7,16 +7,24 @@
 //   2. A KV namespace is bound as BETA_SIGNUPS: every request is also saved there (email, first name, time, status),
 //      so nothing is lost if Apple's API is down or not set up yet. Response: { status: "listed" } when not invited.
 //   3. RESEND_API_KEY is set (and BETA_FROM, a sender on a domain verified in Resend, e.g. "HumFut beta <beta@nullbytes.app>"):
-//      every request is emailed to BETA_NOTIFY_TO (default humfut-support@nullbytes.app), with Reply-To set to the
+//      every request is emailed to BETA_NOTIFY_TO (default: the support address), with Reply-To set to the
 //      tester's address, saying whether Apple already sent the invite or it still needs adding by hand.
 //   4. TURNSTILE_SECRET is set: the Cloudflare Turnstile check on the form must pass.
 // None of 1-3 configured: { status: "unavailable" } with 503, and the page offers the support email instead.
+//
+// Where replies go. The support address is SUPPORT_EMAIL (default humfut-support@nullbytes.app).
+//   - Email to the owner about a request: to BETA_NOTIFY_TO (default: the support address), Reply-To the requester.
+//   - Email to a requester (confirmation or follow-up), if one is ever added: always through mailRequester(), which
+//     sets Reply-To to the support address, so replies reach support and never beta@.
+// The TestFlight invite itself is sent by Apple, not by this function.
 //
 // GET /api/beta returns { turnstileSiteKey } (from TURNSTILE_SITE_KEY) so the page can show Turnstile only when set up.
 
 const JSON_HEADERS = { 'content-type': 'application/json; charset=utf-8', 'cache-control': 'no-store' };
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 const EMAIL = /^[^\s@<>()[\]\\,;:"]{1,64}@[^\s@<>()[\]\\,;:"]{1,190}\.[A-Za-z]{2,}$/;
+const DEFAULT_SUPPORT_EMAIL = 'humfut-support@nullbytes.app';
+const supportEmail = (env) => env.SUPPORT_EMAIL || DEFAULT_SUPPORT_EMAIL;
 
 export async function onRequestGet({ env }) {
   return reply({ turnstileSiteKey: env.TURNSTILE_SITE_KEY || null });
@@ -82,18 +90,31 @@ export async function onRequestPost({ request, env }) {
   return reply({ status });
 }
 
-// Emails the request to the support inbox through Resend (https://resend.com/docs/api-reference/emails/send-email).
+// Emails the request to the owner (BETA_NOTIFY_TO, default the support address). Replying answers the requester.
 async function notifySupport(env, s) {
-  const to = env.BETA_NOTIFY_TO || 'humfut-support@nullbytes.app';
+  const to = env.BETA_NOTIFY_TO || supportEmail(env);
   const what = s.status === 'invited'
     ? (s.detail === 'already-a-tester' ? 'Already a tester in the TestFlight group. Nothing to do.' : 'Added to the TestFlight group. Apple has emailed the invite. Nothing to do.')
     : 'Not invited yet. Add this email as an external tester in App Store Connect → TestFlight.' + (s.ascReady && s.detail ? '\n\nApple’s API said: ' + s.detail : '');
   const text = ['New HumFut TestFlight request', '', 'Email: ' + s.email, 'First name: ' + (s.firstName || '(not given)'), 'Requested: ' + s.requestedAt, '', what, '', 'Reply to this email to write to them.'].join('\n');
+  return sendMail(env, { to, replyTo: s.email, subject: 'TestFlight request: ' + s.email + (s.status === 'invited' ? ' (invited)' : ' (to invite)'), text });
+}
+
+// Any email to a requester (a confirmation or a follow-up) must go through here: replies land in the support inbox.
+// Not called today: the only email a requester gets is Apple's TestFlight invite.
+function mailRequester(env, { to, subject, text }) {
+  return sendMail(env, { to, replyTo: supportEmail(env), subject, text });
+}
+
+// Sends one email through Resend (https://resend.com/docs/api-reference/emails/send-email) from BETA_FROM.
+// replyTo is required so every email says where replies go. The API key is never logged.
+async function sendMail(env, { to, replyTo, subject, text }) {
+  if (!replyTo) throw new Error('sendMail needs replyTo');
   try {
     const r = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: { authorization: 'Bearer ' + env.RESEND_API_KEY, 'content-type': 'application/json' },
-      body: JSON.stringify({ from: env.BETA_FROM, to: [to], reply_to: s.email, subject: 'TestFlight request: ' + s.email + (s.status === 'invited' ? ' (invited)' : ' (to invite)'), text })
+      body: JSON.stringify({ from: env.BETA_FROM, to: [to], reply_to: replyTo, subject, text })
     });
     return r.ok;
   } catch (e) { return false; }
