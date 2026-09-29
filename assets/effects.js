@@ -252,7 +252,7 @@
   });
 
   // ---------- Magnet: App Store buttons in hero, price and closing ----------
-  var magnets = document.querySelectorAll('.hero-actions .hf-store, .price .hf-store, .closing .hf-store');
+  var magnets = document.querySelectorAll('.hx-actions .hf-store, .price .hf-store, .closing .hf-store');
   var PAD = 60, STRENGTH = 6;
   window.addEventListener('pointermove', function (e) {
     magnets.forEach(function (el) {

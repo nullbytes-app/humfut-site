@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HumFut: Sounds for Calls</title>
-<meta name="description" content="Fire the internet's favourite sounds into your Phone and FaceTime calls. Share them in from a soundboard site, capture them from your other apps, and play music under the whole call.">
+<meta name="description" content="Fire the internet's favourite sounds into any call: Phone, FaceTime, WhatsApp, Zoom and more. Share them in from a soundboard site, capture them from your other apps, and play music under the whole call.">
 <meta name="theme-color" content="#f2f5f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0d0021" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="HumFut: Sounds for Calls">
-<meta property="og:description" content="One tap, and they hear it. Reactions, your own sounds and background music for Phone and FaceTime calls.">
+<meta property="og:description" content="One tap, and they hear it. Reactions, your own sounds and background music for any call you're on.">
 <meta property="og:image" content="https://nullbytes-app.github.io/humfut-site/assets/icons/icon-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=70d3befa">
-<link rel="stylesheet" href="assets/components.css?v=70d3befa">
-<link rel="stylesheet" href="assets/mockups.css?v=70d3befa">
-<link rel="stylesheet" href="assets/site.css?v=70d3befa">
+<link rel="stylesheet" href="assets/tokens.css?v=a3739b8c">
+<link rel="stylesheet" href="assets/components.css?v=a3739b8c">
+<link rel="stylesheet" href="assets/mockups.css?v=a3739b8c">
+<link rel="stylesheet" href="assets/site.css?v=a3739b8c">
 <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -46,44 +46,42 @@
 
 <main id="main">
 
-<section class="hero band-canvas">
-  <div class="wrap">
-    <img class="hf-app-icon" src="assets/icons/icon-192.png" alt="HumFut app icon" width="120" height="120">
-    <h1 class="display">One tap. They hear it.</h1>
-    <p class="lede">HumFut is a soundboard for your Phone and FaceTime calls. Tap a Pad and the person you’re talking to hears it: the perfect FAAAH, a well-timed “wait a minute…”, the sad trombone after your friend’s joke.</p>
-    <div class="hero-actions">
-      <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-small">Download on the</span><span class="hf-store-big">App Store</span></span></a>
-      <a class="hf-link" href="#add-sounds">See how to add sounds</a>
+<section class="hx" data-hx>
+  <div class="hx-stage hero">
+    <p class="hx-word" aria-hidden="true"><span>FAAAH.</span></p>
+    <div class="hx-copy">
+      <h1 class="hx-line">Now you can say it on a call.</h1>
+      <p class="hx-sub">Tap a sound on your iPhone and whoever you’re talking to hears it. Works on Phone, FaceTime, WhatsApp, Zoom and any other call.</p>
+      <div class="hx-actions">
+        <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-small">Download on the</span><span class="hf-store-big">App Store</span></span></a>
+        <a class="hf-link" href="#how-it-works">See how it works</a>
+      </div>
     </div>
-    <p class="caption">iPhone with iOS 26 or later · First 3 calls free · No account, no tracking</p>
-    <div class="hero-stage" aria-hidden="true">
+    <div class="hx-phone hero-stage" aria-hidden="true">
       <div class="phone">
         <div class="screen reactions-bg">
-          <div class="island call"><span>📞 4:12</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="island call"><span>📞 2:14</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
           <div class="statusbar"><span>10:15</span><span class="sb-icons"><i></i><i class="batt"></i></span></div>
           <div class="app-body">
             <div class="status-card"><div class="st"><span class="dot"></span>On.<span class="chev">⌄</span></div><p>Ready — tap a Reaction to play it on the call</p></div>
             <div class="glass-row"><span class="glass-btn round"><svg><use href="#t-levels"/></svg></span><span class="glass-btn round"><svg><use href="#t-search"/></svg></span></div>
-            <div class="coll-h">Bangers <span>⌄</span></div>
-            <div class="pads" id="hero-pads">
-              <div class="pad" data-name="FAAAH" style="--pad:var(--pad-orange)"><span class="nm">FAAAH</span><span class="emo">😱</span></div>
-              <div class="pad" data-name="Wait a minute…" style="--pad:var(--pad-teal)"><span class="nm">Wait a minute…</span><span class="emo">🤨</span></div>
-              <div class="pad" data-name="Sad trombone" style="--pad:var(--pad-rose)"><span class="nm">Sad trombone</span><span class="emo">🎺</span></div>
-              <div class="pad" data-name="Vine boom" style="--pad:var(--pad-ochre)"><span class="nm">Vine boom</span><span class="emo">💥</span></div>
-              <div class="pad" data-name="Bruh" style="--pad:var(--pad-blue)"><span class="nm">Bruh</span><span class="emo">😐</span></div>
-              <div class="pad" data-name="Ba dum tss" style="--pad:var(--pad-olive)"><span class="nm">Ba dum tss</span><span class="emo">🥁</span></div>
-              <div class="pad" data-name="Airhorn" style="--pad:var(--pad-ochre)"><span class="nm">Airhorn</span><span class="emo">📯</span></div>
-              <div class="pad" data-name="Crickets" style="--pad:var(--pad-orange)"><span class="nm">Crickets</span><span class="emo">🦗</span></div>
+            <div class="coll-h">Family <span>⌄</span></div>
+            <div class="pads">
+              <div class="pad hx-target" style="--pad:var(--pad-teal)"><span class="nm">Applause</span><span class="emo">👏</span><span class="hf-tap hx-tap"></span></div>
+              <div class="pad" style="--pad:var(--pad-ochre)"><span class="nm">Laugh</span><span class="emo">😂</span></div>
+              <div class="pad" style="--pad:var(--pad-orange)"><span class="nm">FAAAH</span><span class="emo">😱</span></div>
+              <div class="pad" style="--pad:var(--pad-olive)"><span class="nm">Ba dum tss</span><span class="emo">🥁</span></div>
+              <div class="pad" style="--pad:var(--pad-rose)"><span class="nm">Sad trombone</span><span class="emo">🎺</span></div>
+              <div class="pad" style="--pad:var(--pad-blue)"><span class="nm">Bye</span><span class="emo">👋</span></div>
             </div>
           </div>
           <div class="dock"><span class="off">Turn Off</span><span class="stop"><i></i></span></div>
           <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span class="on"><svg><use href="#t-react"/></svg>Reactions</span><span><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
         </div>
       </div>
-      <div class="hf-float f1"><span class="hf-float-art"><svg viewBox="0 0 16 16"><path d="M4 2l10 6-10 6z"/></svg></span><div><strong id="hero-toast">FAAAH</strong><span class="hf-float-meta">is playing into the call</span></div></div>
-      <div class="hf-float f2"><div><strong>They hear it</strong><span class="hf-float-meta">mixed right into the call</span></div><span class="hf-live"><i></i><i></i><i></i><i></i><i></i></span></div>
-      <div class="hf-float f3"><div><strong>Lobby jazz</strong><span class="hf-float-meta">looping under the call</span></div></div>
     </div>
+    <div class="hf-float hx-card hx-heard" aria-live="polite"><span class="hf-float-art">M</span><div><strong>Mom heard that.</strong><span class="hf-float-meta">Applause · just now</span></div></div>
+    <div class="hx-card hx-reply" aria-hidden="true"><div class="hf-bubble them"><small>Mom</small>Ha! Who’s clapping?</div></div>
   </div>
 </section>
 
@@ -126,7 +124,7 @@
         <span class="hf-flow-pad">FAAAH</span>
       </div>
       <div class="hf-flow-track">
-        <span class="hf-flow-label">Phone or FaceTime call</span>
+        <span class="hf-flow-label">The call, in any app</span>
         <span class="hf-flow-dot"></span><span class="hf-flow-dot"></span><span class="hf-flow-dot"></span><span class="hf-flow-dot"></span>
         <span class="hf-flow-packet">FAAAH</span>
       </div>
@@ -138,7 +136,7 @@
       </div>
     </div>
     <ol class="how-steps">
-      <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span></span><p class="caption">Step 1</p><h3 class="heading-sm">Call like you always do</h3><p>Start a Phone or FaceTime call as usual. HumFut never places a call itself.</p></li>
+      <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span></span><p class="caption">Step 1</p><h3 class="heading-sm">Call like you always do</h3><p>Start a call the way you always do: Phone, FaceTime, WhatsApp, Zoom or any other app. HumFut never places a call itself.</p></li>
       <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="toggle"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="3" y="10" width="26" height="12" rx="6"/><circle class="ai-toggle" cx="10" cy="16" r="3.5" fill="currentColor" stroke="none"/></svg></span></span><p class="caption">Step 2</p><h3 class="heading-sm">Turn on Call Sounds</h3><p>One switch in HumFut. It uses the iOS permission Apple built for adding audio to calls, and never your microphone.</p></li>
       <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span></span><p class="caption">Step 3</p><h3 class="heading-sm">Tap a Pad</h3><p>The sound goes into the call with your voice, and they hear it straight away. Try any Pad on your own speaker first.</p></li>
     </ol>
@@ -527,7 +525,7 @@
       <h2 class="heading-xl">Quick answers.</h2>
     </div>
     <div class="faq">
-      <details><summary>Which calls does it work with?</summary><div><p>Live Phone and FaceTime calls on an iPhone running iOS 26 or later. HumFut adds audio only while a call is connected, and it pauses while you’re screen sharing.</p></div></details>
+      <details><summary>Which calls does it work with?</summary><div><p>Any call on an iPhone running iOS 26 or later: Phone, FaceTime, WhatsApp, Zoom and other calling apps. HumFut adds audio only while a call is connected, and it pauses while you’re screen sharing.</p></div></details>
       <details><summary>I don’t see HumFut when I tap Share.</summary><div><p>HumFut shows up when what you’re sharing is an audio file. On a soundboard site, open the sound’s own page and share from there. Also open HumFut once after installing it, so it can finish setting up.</p></div></details>
       <details><summary>How long can a sound be?</summary><div><p>Clips for your Pads can be up to 30 seconds. A capture stops by itself after 60 seconds and keeps the first 30 seconds of sound. Anything longer can be imported as a Track for background music.</p></div></details>
       <details><summary>Why did HumFut refuse a sound?</summary><div><p>HumFut is for sounds that are obviously not real: airhorns, laugh tracks, funny clips, music. It won’t add sounds that could be mistaken for something real on a call, like sirens, phone-menu tones or ringtones.</p></div></details>
@@ -560,9 +558,10 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=70d3befa" defer></script>
-<script src="assets/anim-icons.js?v=70d3befa" defer></script>
-<script src="assets/story.js?v=70d3befa" defer></script>
-<script src="assets/effects.js?v=70d3befa" defer></script>
+<script src="assets/site.js?v=a3739b8c" defer></script>
+<script src="assets/anim-icons.js?v=a3739b8c" defer></script>
+<script src="assets/hero.js?v=a3739b8c" defer></script>
+<script src="assets/story.js?v=a3739b8c" defer></script>
+<script src="assets/effects.js?v=a3739b8c" defer></script>
 </body>
 </html>
