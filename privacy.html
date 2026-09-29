@@ -8,10 +8,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=791b7192">
-<link rel="stylesheet" href="assets/components.css?v=791b7192">
-<link rel="stylesheet" href="assets/mockups.css?v=791b7192">
-<link rel="stylesheet" href="assets/site.css?v=791b7192">
+<link rel="stylesheet" href="assets/tokens.css?v=d33e0487">
+<link rel="stylesheet" href="assets/components.css?v=d33e0487">
+<link rel="stylesheet" href="assets/mockups.css?v=d33e0487">
+<link rel="stylesheet" href="assets/site.css?v=d33e0487">
 <script>document.documentElement.classList.add('js');</script>
 <script>
   // Light by default. Apply a saved Dark or System choice before first paint; System follows the device.
@@ -52,7 +52,7 @@
         <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="dark">Dark</button>
       </div>
     </div>
-    <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-big">Get the app</span></span></a>
+    <a class="hf-store js-appstore" href="beta.html"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-big">Get the app</span></span></a>
   </div>
 </header>
 
@@ -92,10 +92,10 @@
 
 <section class="band band-canvas">
   <div class="wrap policy">
-    <nav class="policy-toc" aria-label="On this page"><b>On this page</b><a href="#does">What HumFut does</a><a href="#collect">Data we collect</a><a href="#device">What stays on your iPhone</a><a href="#processing">On-device processing</a><a href="#capture">Capture</a><a href="#watch">Apple Watch</a><a href="#diagnostics">Diagnostics you share</a><a href="#purchases">Purchases</a><a href="#delete">Deleting your data</a><a href="#children">Children</a><a href="#changes">Changes</a><a href="#contact">Contact</a></nav>
+    <nav class="policy-toc" aria-label="On this page"><b>On this page</b><a href="#does">What HumFut does</a><a href="#collect">Data we collect</a><a href="#device">What stays on your iPhone</a><a href="#processing">On-device processing</a><a href="#capture">Capture</a><a href="#watch">Apple Watch</a><a href="#diagnostics">Diagnostics you share</a><a href="#purchases">Purchases</a><a href="#delete">Deleting your data</a><a href="#beta">Joining the beta</a><a href="#children">Children</a><a href="#changes">Changes</a><a href="#contact">Contact</a></nav>
     <div class="doc-col">
       <section id="does"><h2>What HumFut does</h2><p>HumFut plays sounds, music and typed phrases into a live call on your iPhone, using the permission Apple built for adding audio to calls. It never places a call, never uses your microphone, never records a call and never listens to one.</p></section>
-      <section id="collect"><h2>Data we collect</h2><p><strong>None.</strong> HumFut has no network code of any kind and no third-party code: no analytics, crash-reporting or advertising software. Its privacy manifest declares no collected data and no tracking, and its App Store privacy label is “Data Not Collected”.</p><p>We never receive your sounds, the phrases you type, your contacts, your location or anything about your calls.</p></section>
+      <section id="collect"><h2>Data we collect</h2><p><strong>None.</strong> HumFut has no network code of any kind and no third-party code: no analytics, crash-reporting or advertising software. Its privacy manifest declares no collected data and no tracking, and its App Store privacy label is “Data Not Collected”.</p><p>We never receive your sounds, the phrases you type, your contacts, your location or anything about your calls.</p><p>This is about the app. If you ask to join the beta on this website, see <a href="#beta">Joining the beta</a>.</p></section>
       <section id="device"><h2>What stays on your iPhone</h2><p>HumFut keeps what it needs in a private storage area on your iPhone that only HumFut and its Share and Capture extensions can open (Apple calls it an App Group):</p><ul><li><strong>Your sounds</strong>, the Clips and Tracks you import, share in or capture, plus your Pads and Collections.</li><li><strong>Your phrases</strong> for Speak: the ones you pin, and your 20 most recent typed phrases, saved automatically so you can use them again.</li><li><strong>A small capture log</strong> HumFut keeps for troubleshooting, capped at 32 KB. It never leaves your iPhone unless you share it.</li></ul><p>Your settings, such as the opening tab, the They hear level and which tips you’ve seen, are kept in the app’s ordinary on-device storage.</p><p>A counter of your free calls is kept in your iPhone’s Keychain, for this device only and never synced, so it survives reinstalling the app, like a purchase does.</p></section>
       <section id="processing"><h2>On-device processing</h2><p>Speak turns your typed phrases into speech with Apple’s on-device speech synthesizer. When you add a sound, HumFut checks it with Apple’s on-device sound analysis so it doesn’t carry sirens, phone-menu tones or ringtones. Both happen entirely on your iPhone.</p></section>
       <section id="capture"><h2>Capture</h2><p>Capture uses Apple’s screen sharing, which you start and stop yourself. HumFut keeps only the audio from the app you’re playing: the video and your microphone are never saved, and the microphone switch is hidden. A capture stops by itself at 60 seconds and keeps at most the first 30 seconds of sound.</p></section>
@@ -103,6 +103,7 @@
       <section id="diagnostics"><h2>Diagnostics you choose to share</h2><p>Settings → Diagnostics → <strong>Export</strong> creates a short text summary of HumFut’s state: its version, audio settings, whether Call Sounds are on, the levels, free calls used and whether it’s unlocked. It’s only created when you tap Export, and only goes where you send it from the share sheet. It never contains audio, phrases or anything from your calls.</p></section>
       <section id="purchases"><h2>Purchases</h2><p>The one-time unlock is sold and processed by Apple through the App Store. HumFut never sees your payment details. Apple only tells the app whether it’s unlocked. See Apple’s <a href="https://www.apple.com/legal/privacy/">Privacy Policy</a>.</p></section>
       <section id="delete"><h2>Deleting your data</h2><ul><li>Delete a sound by swiping left on it in Library.</li><li>Remove the starter sounds in Settings → Storage.</li><li>Remove phrases, Pads and Collections in the app.</li><li>Deleting HumFut removes everything it stored, except the Keychain counter of free calls described above.</li></ul></section>
+      <section id="beta"><h2>Joining the beta (this website)</h2><p>Everything above is about the HumFut app. This website has one form: <a href="beta.html">Join the beta</a>. If you use it, we receive the email address you enter and, if you give it, your first name. We use them only to invite you to test HumFut on TestFlight and to reply to you about the beta.</p><ul><li>Your request is sent to our support inbox and kept in our Cloudflare account. Cloudflare hosts this website.</li><li>To send the invite, we add your email and first name to HumFut’s tester list in Apple’s App Store Connect, and Apple emails you the TestFlight invite.</li><li>While you test, Apple’s TestFlight shows us your tester email and name, when you installed and opened the beta, and any crash reports, screenshots or feedback you choose to send. See Apple’s <a href="https://www.apple.com/legal/privacy/data/en/testflight/">TestFlight &amp; Privacy</a>.</li><li>We don’t use your email for anything else, and we don’t sell or share it with anyone else.</li><li>To have it removed, email <a href="mailto:humfut-support@nullbytes.app">humfut-support@nullbytes.app</a>. We also delete beta requests when the beta ends.</li></ul></section>
       <section id="children"><h2>Children</h2><p>HumFut doesn’t collect information from anyone, including children.</p></section>
       <section id="changes"><h2>Changes to this policy</h2><p>If what this policy describes ever changes, we’ll update this page and its effective date.</p></section>
       <section id="contact"><h2>Contact</h2><p>Questions about privacy: <a href="mailto:humfut-support@nullbytes.app">humfut-support@nullbytes.app</a>.</p></section>
@@ -120,13 +121,13 @@
       <a href="support.html">Support</a>
       <a href="privacy.html">Privacy Policy</a>
       <a href="mailto:humfut-support@nullbytes.app">Contact</a>
-      <a class="js-appstore" href="https://apps.apple.com/app/id6815140274">App Store</a>
+      <a class="js-appstore" href="beta.html">App Store</a>
     </nav>
     <span>© 2026 nullBytes. HumFut is not affiliated with any site or app shown as an example.</span>
   </div>
 </footer>
 
-<script src="assets/site.js?v=791b7192" defer></script>
-<script src="assets/anim-icons.js?v=791b7192" defer></script>
+<script src="assets/site.js?v=d33e0487" defer></script>
+<script src="assets/anim-icons.js?v=d33e0487" defer></script>
 </body>
 </html>
