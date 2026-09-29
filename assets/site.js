@@ -4,6 +4,44 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+  // ---------- Appearance: System, Light or Dark ----------
+  (function () {
+    var menu = document.querySelector('[data-theme-menu]');
+    if (!menu) return;
+    var btn = menu.querySelector('.theme-btn'), list = menu.querySelector('.theme-list');
+    var items = list.querySelectorAll('[data-set-theme]');
+    var root = document.documentElement, dark = window.matchMedia('(prefers-color-scheme: dark)');
+    var LABEL = { system: 'System', light: 'Light', dark: 'Dark' };
+    function saved() { try { return localStorage.getItem('humfut-theme') || 'system'; } catch (e) { return 'system'; } }
+    function apply(choice) {
+      if (choice === 'light' || choice === 'dark') root.setAttribute('data-theme', choice); else root.removeAttribute('data-theme');
+      menu.dataset.choice = choice;
+      btn.setAttribute('aria-label', 'Appearance: ' + LABEL[choice]);
+      items.forEach(function (b) { b.setAttribute('aria-checked', b.dataset.setTheme === choice ? 'true' : 'false'); });
+      var isDark = choice === 'dark' || (choice === 'system' && dark.matches);
+      document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.setAttribute('content', isDark ? '#0d0021' : '#f2f5f7'); });
+    }
+    function open(v) {
+      list.hidden = !v; btn.setAttribute('aria-expanded', v ? 'true' : 'false');
+      if (v) (list.querySelector('[aria-checked="true"]') || items[0]).focus();
+    }
+    btn.addEventListener('click', function () { open(list.hidden); });
+    items.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        var c = b.dataset.setTheme;
+        try { if (c === 'system') localStorage.removeItem('humfut-theme'); else localStorage.setItem('humfut-theme', c); } catch (e) {}
+        apply(c); open(false); btn.focus();
+      });
+      b.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); items[(i + (e.key === 'ArrowDown' ? 1 : items.length - 1)) % items.length].focus(); }
+      });
+    });
+    menu.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !list.hidden) { open(false); btn.focus(); } });
+    document.addEventListener('click', function (e) { if (!menu.contains(e.target)) open(false); });
+    if (dark.addEventListener) dark.addEventListener('change', function () { apply(menu.dataset.choice); });
+    apply(saved());
+  })();
+
   // ---------- Scroll reveals ----------
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion.matches) {

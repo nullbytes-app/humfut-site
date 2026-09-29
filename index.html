@@ -13,11 +13,15 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/components.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/mockups.css?v=8ab04a71">
-<link rel="stylesheet" href="assets/site.css?v=8ab04a71">
+<link rel="stylesheet" href="assets/tokens.css?v=a6a48e23">
+<link rel="stylesheet" href="assets/components.css?v=a6a48e23">
+<link rel="stylesheet" href="assets/mockups.css?v=a6a48e23">
+<link rel="stylesheet" href="assets/site.css?v=a6a48e23">
 <script>document.documentElement.classList.add('js');</script>
+<script>
+  // Apply a saved Light/Dark choice before first paint; "System" follows the device.
+  (function () { try { var t = localStorage.getItem('humfut-theme'); if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t); } catch (e) {} })();
+</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -40,6 +44,18 @@
       <a href="#add-sounds">Add sounds</a>
       <a href="support.html">Support</a>
     </nav>
+    <div class="theme" data-theme-menu>
+      <button type="button" class="theme-btn" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list" aria-label="Appearance: System">
+        <svg class="ti ti-system" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+        <svg class="ti ti-light" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <svg class="ti ti-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="theme-list" id="theme-list" role="menu" aria-label="Appearance" hidden>
+        <button type="button" role="menuitemradio" aria-checked="true" data-set-theme="system">System</button>
+        <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="light">Light</button>
+        <button type="button" role="menuitemradio" aria-checked="false" data-set-theme="dark">Dark</button>
+      </div>
+    </div>
     <a class="hf-store js-appstore" href="https://apps.apple.com/app/id6815140274"><svg viewBox="0 0 24 24"><use href="#i-apple"/></svg><span class="hf-store-lines"><span class="hf-store-big">Get the app</span></span></a>
   </div>
 </header>
@@ -57,26 +73,26 @@
         <a class="hf-link" href="#how-it-works">See how it works</a>
       </div>
     </div>
-    <div class="hx-phone hero-stage" aria-hidden="true">
+    <div class="hx-phone hero-stage">
       <div class="phone">
         <div class="screen reactions-bg">
-          <div class="island call"><span>📞 2:14</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-          <div class="statusbar"><span>10:15</span><span class="sb-icons"><i></i><i class="batt"></i></span></div>
+          <div class="island call" aria-hidden="true"><span>📞 2:14</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+          <div class="statusbar" aria-hidden="true"><span>10:15</span><span class="sb-icons"><i></i><i class="batt"></i></span></div>
           <div class="app-body">
-            <div class="status-card"><div class="st"><span class="dot"></span>On.<span class="chev">⌄</span></div><p>Ready — tap a Reaction to play it on the call</p></div>
-            <div class="glass-row"><span class="glass-btn round"><svg><use href="#t-levels"/></svg></span><span class="glass-btn round"><svg><use href="#t-search"/></svg></span></div>
-            <div class="coll-h">Family <span>⌄</span></div>
-            <div class="pads">
-              <div class="pad hx-target" style="--pad:var(--pad-teal)"><span class="nm">Applause</span><span class="emo">👏</span><span class="hf-tap hx-tap"></span></div>
-              <div class="pad" style="--pad:var(--pad-ochre)"><span class="nm">Laugh</span><span class="emo">😂</span></div>
-              <div class="pad" style="--pad:var(--pad-orange)"><span class="nm">FAAAH</span><span class="emo">😱</span></div>
-              <div class="pad" style="--pad:var(--pad-olive)"><span class="nm">Ba dum tss</span><span class="emo">🥁</span></div>
-              <div class="pad" style="--pad:var(--pad-rose)"><span class="nm">Sad trombone</span><span class="emo">🎺</span></div>
-              <div class="pad" style="--pad:var(--pad-blue)"><span class="nm">Bye</span><span class="emo">👋</span></div>
+            <div class="status-card"><div class="st"><span class="dot" aria-hidden="true"></span><span class="st-word">On.</span><span class="chev" aria-hidden="true">⌄</span></div><p class="st-reason" aria-live="polite">Ready — tap a Reaction to play it on the call</p></div>
+            <div class="glass-row" aria-hidden="true"><span class="glass-btn round"><svg><use href="#t-levels"/></svg></span><span class="glass-btn round"><svg><use href="#t-search"/></svg></span></div>
+            <div class="coll-h" aria-hidden="true">Family <span>⌄</span></div>
+            <div class="pads" role="group" aria-label="Try a Reaction">
+              <button type="button" class="pad hx-target pad-btn hx-pad" style="--pad:var(--pad-teal)" data-sound="applause" data-name="Applause"><span class="nm">Applause</span><span class="emo" aria-hidden="true">👏</span><span class="hf-tap hx-tap"></span></button>
+              <button type="button" class="pad pad-btn hx-pad" style="--pad:var(--pad-ochre)" data-sound="laugh" data-name="Laugh"><span class="nm">Laugh</span><span class="emo" aria-hidden="true">😂</span></button>
+              <button type="button" class="pad pad-btn hx-pad" style="--pad:var(--pad-orange)" data-sound="faaah" data-name="FAAAH"><span class="nm">FAAAH</span><span class="emo" aria-hidden="true">😱</span></button>
+              <button type="button" class="pad pad-btn hx-pad" style="--pad:var(--pad-olive)" data-sound="badumtss" data-name="Ba dum tss"><span class="nm">Ba dum tss</span><span class="emo" aria-hidden="true">🥁</span></button>
+              <button type="button" class="pad pad-btn hx-pad" style="--pad:var(--pad-rose)" data-sound="sadtrombone" data-name="Sad trombone"><span class="nm">Sad trombone</span><span class="emo" aria-hidden="true">🎺</span></button>
+              <button type="button" class="pad pad-btn hx-pad" style="--pad:var(--pad-blue)" data-sound="bye" data-name="Bye"><span class="nm">Bye</span><span class="emo" aria-hidden="true">👋</span></button>
             </div>
           </div>
-          <div class="dock"><span class="off">Turn Off</span><span class="stop"><i></i></span></div>
-          <div class="tabbar"><span><svg><use href="#t-speak"/></svg>Speak</span><span class="on"><svg><use href="#t-react"/></svg>Reactions</span><span><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
+          <div class="dock" aria-hidden="true"><span class="off">Turn Off</span><span class="stop"><i></i></span></div>
+          <div class="tabbar" aria-hidden="true"><span><svg><use href="#t-speak"/></svg>Speak</span><span class="on"><svg><use href="#t-react"/></svg>Reactions</span><span><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
         </div>
       </div>
     </div>
@@ -126,16 +142,16 @@
               <div class="island call" aria-hidden="true"><span>📞 3:12</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
               <div class="statusbar" aria-hidden="true"><span>9:41</span><span class="sb-icons"><i></i><i class="batt"></i></span></div>
               <div class="app-body">
-                <div class="status-card" aria-hidden="true"><div class="st"><span class="dot"></span>On.<span class="chev">⌄</span></div><p>Ready — tap a Reaction to play it on the call</p></div>
+                <div class="status-card"><div class="st"><span class="dot" aria-hidden="true"></span><span class="st-word">On.</span><span class="chev" aria-hidden="true">⌄</span></div><p class="st-reason" aria-live="polite">Ready — tap a Reaction to play it on the call</p></div>
                 <div class="coll-h" aria-hidden="true">Family <span>⌄</span></div>
                 <div class="pads" role="group" aria-label="Tap a Pad to hear what they hear">
-                  <button type="button" class="pad tc-pad" style="--pad:var(--pad-ochre)" data-sound="laugh" data-name="Laugh"><span class="nm">Laugh</span><span class="emo" aria-hidden="true">😂</span></button>
-                  <button type="button" class="pad tc-pad" style="--pad:var(--pad-orange)" data-sound="faaah" data-name="FAAAH"><span class="nm">FAAAH</span><span class="emo" aria-hidden="true">😱</span></button>
-                  <button type="button" class="pad tc-pad" style="--pad:var(--pad-teal)" data-sound="applause" data-name="Applause"><span class="nm">Applause</span><span class="emo" aria-hidden="true">👏</span></button>
+                  <button type="button" class="pad pad-btn tc-pad" style="--pad:var(--pad-ochre)" data-sound="laugh" data-name="Laugh"><span class="nm">Laugh</span><span class="emo" aria-hidden="true">😂</span></button>
+                  <button type="button" class="pad pad-btn tc-pad" style="--pad:var(--pad-orange)" data-sound="faaah" data-name="FAAAH"><span class="nm">FAAAH</span><span class="emo" aria-hidden="true">😱</span></button>
+                  <button type="button" class="pad pad-btn tc-pad" style="--pad:var(--pad-teal)" data-sound="applause" data-name="Applause"><span class="nm">Applause</span><span class="emo" aria-hidden="true">👏</span></button>
                   <div class="pad tc-add" aria-hidden="true"><span class="nm">Add a sound</span><span class="emo">＋</span></div>
                 </div>
               </div>
-              <div class="dock" aria-hidden="true"><span class="off">Turn Off</span><span class="stop"><i></i></span></div>
+              <div class="dock"><button type="button" class="off tc-power" aria-pressed="true">Turn Off</button><button type="button" class="stop tc-stop" aria-label="Stop"><i></i></button></div>
               <div class="tabbar" aria-hidden="true"><span><svg><use href="#t-speak"/></svg>Speak</span><span class="on"><svg><use href="#t-react"/></svg>Reactions</span><span><svg><use href="#t-lib"/></svg>Library</span><span><svg><use href="#t-set"/></svg>Settings</span></div>
             </div>
           </div>
@@ -164,7 +180,7 @@
         </div>
       </div>
       <p class="tc-word" aria-live="polite"></p>
-      <p class="tc-hint"><span>Tap a Pad on the iPhone to hear what Mom hears.</span> <button type="button" class="tc-mute" aria-pressed="false">Sound on</button></p>
+      <p class="tc-hint"><span class="tc-hint-t" aria-live="polite">Tap a Pad on the iPhone to hear what Mom hears. Then try Turn Off.</span> <button type="button" class="tc-mute" aria-pressed="false">Sound on</button></p>
     </div>
     <ol class="how-steps">
       <li class="reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="phone"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path class="ai-shake" d="M8 4h4.5l2 5-2.5 1.8a12 12 0 0 0 7.2 7.2l1.8-2.5 5 2V22a3 3 0 0 1-3 3C13.1 25 5 16.9 5 7a3 3 0 0 1 3-3z"/><path class="ai-wave" d="M20 5a7.5 7.5 0 0 1 7 7"/><path class="ai-wave" d="M20 9.2a3.4 3.4 0 0 1 2.8 2.8" style="--d:.12s"/></svg></span></span><p class="caption">Step 1</p><h3 class="heading-sm">Call like you always do</h3><p>Start a call the way you always do: Phone, FaceTime, WhatsApp, Zoom or any other app. HumFut never places a call itself.</p></li>
@@ -586,15 +602,16 @@
       <a class="js-appstore" href="https://apps.apple.com/app/id6815140274">App Store</a>
     </nav>
     <span>© 2026 nullBytes. HumFut is not affiliated with any site or app shown as an example.</span>
-    <span class="footer-credits">Demo sounds: applause by <a href="https://commons.wikimedia.org/wiki/File:277021_sandermotions_applause-2.wav">Sandermotions</a> (CC0); laughter by <a href="https://freesound.org/people/lonemonk/">lonemonk</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>, trimmed.</span>
+    <span class="footer-credits">Demo sounds, trimmed: applause by <a href="https://commons.wikimedia.org/wiki/File:277021_sandermotions_applause-2.wav">Sandermotions</a> (CC0); laughter by <a href="https://freesound.org/people/lonemonk/">lonemonk</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>; rimshot by <a href="https://commons.wikimedia.org/wiki/File:Kevin_MacLeod_assorted_rimshots_-_Kdum-keesh.wav">Kevin MacLeod</a>, <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>; sad trombone by <a href="https://commons.wikimedia.org/wiki/File:Sad_Trombone.wav">Sad Tromboner</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</span>
   </div>
 </footer>
 
-<script src="assets/site.js?v=8ab04a71" defer></script>
-<script src="assets/anim-icons.js?v=8ab04a71" defer></script>
-<script src="assets/hero.js?v=8ab04a71" defer></script>
-<script src="assets/tincan.js?v=8ab04a71" defer></script>
-<script src="assets/story.js?v=8ab04a71" defer></script>
-<script src="assets/effects.js?v=8ab04a71" defer></script>
+<script src="assets/site.js?v=a6a48e23" defer></script>
+<script src="assets/anim-icons.js?v=a6a48e23" defer></script>
+<script src="assets/phone.js?v=a6a48e23" defer></script>
+<script src="assets/hero.js?v=a6a48e23" defer></script>
+<script src="assets/tincan.js?v=a6a48e23" defer></script>
+<script src="assets/story.js?v=a6a48e23" defer></script>
+<script src="assets/effects.js?v=a6a48e23" defer></script>
 </body>
 </html>

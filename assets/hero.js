@@ -6,7 +6,8 @@
   var target = hero.querySelector('.hx-target');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var words = ['FAAAH.', 'Bruh.', 'Wait a minute…', 'Ba dum tss.'];
-  var w = 0, fired = false;
+  var w = 0, fired = false, manualUntil = 0;
+  var screen = hero.querySelector('.hx-phone .screen'), hp = window.HumFutPhone;
 
   function setWord(text) {
     word.classList.add('is-out');
@@ -34,12 +35,25 @@
   fit(); place();
   window.addEventListener('resize', function () { fit(); place(); });
   window.addEventListener('load', place);
+  // Every Pad on the hero iPhone works: hover shows the playback fill, a tap plays it.
+  hero.querySelectorAll('.hx-pad').forEach(function (pad) {
+    pad.addEventListener('pointerenter', function () { hp.preload(pad.dataset.sound); }, { once: true });
+    pad.addEventListener('click', function () {
+      var name = pad.dataset.name, ms = hp.play(pad.dataset.sound);
+      hp.fire(pad, ms); hp.status(screen, true, name);
+      manualUntil = Date.now() + ms;
+      setWord(name + '.');
+      document.dispatchEvent(new CustomEvent('humfut:pad-fired'));
+      clearTimeout(pad._statusT);
+      pad._statusT = setTimeout(function () { if (Date.now() >= manualUntil - 20) hp.status(screen, true, null); }, ms);
+    });
+  });
   if (reduce) {
     hero.classList.add('is-heard', 'is-reply'); target.classList.add('is-firing');
     return;
   }
   setInterval(function () {
-    if (fired || parseFloat(hero.style.getPropertyValue('--r') || 0) > .3) return;
+    if (fired || Date.now() < manualUntil || parseFloat(hero.style.getPropertyValue('--r') || 0) > .3) return;
     w = (w + 1) % words.length; setWord(words[w]);
     document.dispatchEvent(new CustomEvent('humfut:pad-fired'));
   }, 2200);
@@ -56,6 +70,7 @@
     if (nowFired !== fired) {
       fired = nowFired;
       target.classList.toggle('is-firing', fired);
+      if (Date.now() >= manualUntil) hp.status(screen, true, fired ? 'Applause' : null);
       if (fired) { setWord('Applause.'); document.dispatchEvent(new CustomEvent('humfut:pad-fired')); }
     }
     hero.classList.toggle('is-heard', p >= .6);
