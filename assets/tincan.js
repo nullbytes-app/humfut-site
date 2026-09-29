@@ -26,7 +26,7 @@
     if (text) hintT = setTimeout(function () { note(null); }, 3800);
   }
   function setOn(v) {
-    on = v; tc.classList.toggle('is-off', !on);
+    on = v; tc.classList.toggle('is-off', !on); tc.classList.remove('is-silent'); clearTimeout(silentT);
     power.textContent = on ? 'Turn Off' : 'Turn On'; power.setAttribute('aria-pressed', on ? 'true' : 'false');
     phone.status(screen, on, null);
     if (!on) { tc.classList.remove('is-heard'); word.classList.remove('is-on'); note('Call Sounds is off. Tap a Pad: only you will hear it.'); } else note('Call Sounds is on. Mom hears your Pads again.');
@@ -88,9 +88,26 @@
     pulses.forEach(function (q) {
       var f = Math.min(q.stopAt || 1, q.p), i = Math.round(f * (N - 1)), p = base(f);
       g.save(); g.shadowColor = live; g.shadowBlur = 18 * dpr; g.fillStyle = live;
-      if (q.stopAt) { g.globalAlpha = Math.max(0, 1 - (q.p - q.stopAt) / .35); g.shadowBlur = 0; g.fillStyle = ink; }
+      if (q.stopAt) {
+        // Call Sounds is off: the pulse hits a stop sign, bounces back and fades. It never reaches Mom.
+        var back = Math.max(0, q.p - q.stopAt), fb = Math.max(0, q.stopAt - back * .5);
+        p = base(fb); i = Math.round(fb * (N - 1));
+        g.globalAlpha = Math.max(0, 1 - back / .9); g.shadowBlur = 0; g.fillStyle = ink;
+      }
       g.beginPath(); g.ellipse(p.x, p.y + off[i], 15 * dpr, 9 * dpr, 0, 0, 7); g.fill(); g.restore();
     });
+  }
+  function blockSign(now) {
+    var until = blockUntil - now; if (until <= 0) return;
+    var age = 1650 - until; if (age < 126) return; // appears when the pulse reaches it
+    var t = .3, i = Math.round(t * (N - 1)), p = base(t), r = 14 * dpr, red = '#e0453a';
+    var pop = Math.min(1, (age - 126) / 140), shake = age < 520 ? Math.sin(now / 18) * 3 * dpr : 0;
+    g.save(); g.globalAlpha = Math.min(1, until / 300); g.translate(p.x + shake, p.y + off[i]); g.scale(pop, pop);
+    g.fillStyle = getComputedStyle(tc).getPropertyValue('--canvas') || '#fff';
+    g.beginPath(); g.arc(0, 0, r, 0, 7); g.fill();
+    g.lineWidth = 3.5 * dpr; g.strokeStyle = red; g.beginPath(); g.arc(0, 0, r, 0, 7); g.stroke();
+    g.beginPath(); g.moveTo(-r * .7, -r * .7); g.lineTo(r * .7, r * .7); g.stroke();
+    g.restore();
   }
   function loop(now) {
     if (inView && !document.hidden) {
@@ -98,12 +115,12 @@
       pulses = pulses.filter(function (q) {
         q.p = (now - q.t0) / 420;
         var i = Math.max(1, Math.min(N - 2, Math.round(q.p * (N - 1))));
-        if (q.stopAt) return q.p < q.stopAt + .35; // Call Sounds is off: it never leaves your phone
+        if (q.stopAt) return q.p < q.stopAt + .9; // Call Sounds is off: it never reaches Mom
         vel[i] -= 3.2 * dpr;
         if (q.p >= 1) { arrive(q); return false; }
         return true;
       });
-      draw(now);
+      draw(now); blockSign(now);
     }
     requestAnimationFrame(loop);
   }
@@ -116,7 +133,7 @@
     clearTimeout(heardTimer);
     heardTimer = setTimeout(function () { tc.classList.remove('is-heard', 'is-sending'); }, q.dur);
   }
-  var statusT = null;
+  var statusT = null, silentT = null, blockUntil = 0;
   function send(pad, withSound) {
     var name = pad.dataset.name, dur = withSound ? phone.play(pad.dataset.sound) : 1900;
     tc.querySelectorAll('.tc-pad.is-firing').forEach(function (p) { if (p !== pad) p.classList.remove('is-firing'); });
@@ -126,9 +143,17 @@
     var q = { name: name, dur: dur, t0: performance.now(), p: 0 };
     if (!on) {
       note('Only you heard ' + name + '. Call Sounds is off, so Mom hears nothing.');
-      if (!reduce) { q.stopAt = .12; pulses.push(q); }
+      if (!reduce) { q.stopAt = .3; pulses.push(q); blockUntil = performance.now() + 150 + 1500; }
+      clearTimeout(silentT);
+      silentT = setTimeout(function () {
+        tc.classList.add('is-silent');
+        word.textContent = 'Mom hears nothing.'; word.classList.add('is-muted');
+        word.classList.remove('is-on'); void word.offsetWidth; word.classList.add('is-on');
+        silentT = setTimeout(function () { tc.classList.remove('is-silent'); }, Math.max(1800, dur));
+      }, reduce ? 0 : 420);
       return;
     }
+    word.classList.remove('is-muted'); tc.classList.remove('is-silent');
     tc.classList.add('is-sending');
     if (reduce) arrive(q); else pulses.push(q);
   }
