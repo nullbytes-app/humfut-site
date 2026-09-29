@@ -22,8 +22,18 @@
     var room = document.documentElement.clientWidth * 0.94, wide = word.getBoundingClientRect().width;
     if (wide > room) word.style.fontSize = (parseFloat(getComputedStyle(word).fontSize) * room / wide).toFixed(1) + 'px';
   }
-  fit();
-  window.addEventListener('resize', fit);
+  // Start the phone far enough down that its top clears the copy, however short the window.
+  var stage = hero.querySelector('.hx-stage'), copy = hero.querySelector('.hx-copy'), phone = hero.querySelector('.hx-phone');
+  function place() {
+    hero.style.removeProperty('--hx-drop');
+    var cs = getComputedStyle(hero), s0 = parseFloat(cs.getPropertyValue('--hx-s0')) || 1;
+    var base = window.innerHeight * (parseFloat(cs.getPropertyValue('--hx-drop')) || 60) / 100;
+    var need = copy.offsetTop + copy.offsetHeight + 24 - (stage.clientHeight - phone.offsetHeight * s0) / 2;
+    if (need > base) hero.style.setProperty('--hx-drop', Math.ceil(need) + 'px');
+  }
+  fit(); place();
+  window.addEventListener('resize', function () { fit(); place(); });
+  window.addEventListener('load', place);
   if (reduce) {
     hero.classList.add('is-heard', 'is-reply'); target.classList.add('is-firing');
     return;
