@@ -12,9 +12,10 @@
     var items = list.querySelectorAll('[data-set-theme]');
     var root = document.documentElement, dark = window.matchMedia('(prefers-color-scheme: dark)');
     var LABEL = { system: 'System', light: 'Light', dark: 'Dark' };
-    function saved() { try { return localStorage.getItem('humfut-theme') || 'system'; } catch (e) { return 'system'; } }
+    // Light is the default; System and Dark are saved when chosen.
+    function saved() { try { var t = localStorage.getItem('humfut-theme'); return t === 'dark' || t === 'system' ? t : 'light'; } catch (e) { return 'light'; } }
     function apply(choice) {
-      if (choice === 'light' || choice === 'dark') root.setAttribute('data-theme', choice); else root.removeAttribute('data-theme');
+      if (choice === 'system') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', choice);
       menu.dataset.choice = choice;
       btn.setAttribute('aria-label', 'Appearance: ' + LABEL[choice]);
       items.forEach(function (b) { b.setAttribute('aria-checked', b.dataset.setTheme === choice ? 'true' : 'false'); });
@@ -29,7 +30,7 @@
     items.forEach(function (b, i) {
       b.addEventListener('click', function () {
         var c = b.dataset.setTheme;
-        try { if (c === 'system') localStorage.removeItem('humfut-theme'); else localStorage.setItem('humfut-theme', c); } catch (e) {}
+        try { if (c === 'light') localStorage.removeItem('humfut-theme'); else localStorage.setItem('humfut-theme', c); } catch (e) {}
         apply(c); open(false); btn.focus();
       });
       b.addEventListener('keydown', function (e) {
