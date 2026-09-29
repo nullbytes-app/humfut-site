@@ -48,11 +48,11 @@ a:hover { color: var(--accent-press); }
 @media (max-width: 520px) { .section-head h2.heading-xl { font-size: 30px; } }
 
 /* ---------- The hero: 260vh of scroll, one sticky stage ---------- */
-.hx { --r: 0; position: relative; height: 260vh; }
+.hx { --r: 0; --hx-size: clamp(84px, min(19vw, 24vh), 270px); --hx-drop: 60vh; --hx-s0: .9; --hx-ds: .1; position: relative; height: 260vh; }
 .hx-stage { isolation: isolate; position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
 .hx-word {
   position: absolute; left: 0; right: 0; top: 11%; margin: 0; text-align: center; pointer-events: none;
-  font-size: clamp(84px, 19vw, 270px); line-height: .9; font-weight: 800; letter-spacing: -.055em; color: var(--ink); white-space: nowrap;
+  font-size: var(--hx-size); line-height: .9; font-weight: 800; letter-spacing: -.055em; color: var(--ink); white-space: nowrap;
   opacity: calc(1 - var(--r) * .9); transform: translateY(calc(var(--r) * -4vh)) scale(calc(1 - var(--r) * .12));
 }
 .hx-word span { display: inline-block; transition: opacity .35s ease, filter .35s ease, transform .35s ease; }
@@ -60,15 +60,16 @@ a:hover { color: var(--accent-press); }
 .hx-word span.is-in { animation: hx-in .55s cubic-bezier(.2, .8, .2, 1) both; }
 @keyframes hx-in { from { opacity: 0; filter: blur(12px); transform: translateY(.14em); } to { opacity: 1; filter: none; transform: none; } }
 .hx-copy {
-  position: absolute; left: 0; right: 0; top: calc(11% + clamp(84px, 19vw, 270px) * .95 + 8px); text-align: center; padding-inline: var(--space-24);
-  opacity: calc(1 - var(--r) * 1.7); transform: translateY(calc(var(--r) * -40px));
+  position: absolute; left: 0; right: 0; top: calc(11% + var(--hx-size) * .95 + 8px); text-align: center; padding-inline: var(--space-24);
+  opacity: calc(1 - var(--r) * 3); transform: translateY(calc(var(--r) * -40px));
 }
 .hx-line { margin: 0 auto; font-size: clamp(26px, 3.4vw, 40px); line-height: 1.12; font-weight: 700; letter-spacing: -.02em; color: var(--ink); text-wrap: balance; }
 .hx-sub { margin: var(--space-12) auto 0; max-width: 34em; font-size: 18px; line-height: 1.55; color: var(--ink-2); text-wrap: balance; }
 .hx-actions { display: flex; flex-wrap: wrap; gap: var(--space-16) var(--space-24); justify-content: center; align-items: center; margin-top: var(--space-24); }
 .hx-phone {
   position: absolute; left: 50%; top: 50%;
-  transform: translate(-50%, calc(-50% + (1 - var(--r)) * 60vh)) scale(calc(.9 + var(--r) * .1));
+  /* Starts below the copy (hero.js sets --hx-drop) and eases in, so it never covers the text. */
+  transform: translate(-50%, calc(-50% + (1 - var(--r) * var(--r)) * var(--hx-drop))) scale(calc(var(--hx-s0) + var(--r) * var(--hx-ds)));
 }
 .hx-tap { left: 50%; top: 50%; opacity: 0; animation: none; }
 .hx.is-tapping .hx-tap { animation: hf-tap 1.4s ease-out infinite; }
@@ -82,7 +83,7 @@ a:hover { color: var(--accent-press); }
 @media (max-width: 760px) {
   .hx { height: 240vh; }
   .hx-sub { font-size: 16px; }
-  .hx-phone { transform: translate(-50%, calc(-50% + (1 - var(--r)) * 62vh)) scale(calc(.74 + var(--r) * .06)); }
+  .hx { --hx-drop: 62vh; --hx-s0: .74; --hx-ds: .06; }
   .hx-heard { right: auto; left: 12px; top: auto; bottom: 16%; }
   .hx-reply { left: auto; right: 12px; top: 16%; }
 }
