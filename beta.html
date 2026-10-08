@@ -9,10 +9,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
 <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
-<link rel="stylesheet" href="assets/tokens.css?v=8f24482d">
-<link rel="stylesheet" href="assets/components.css?v=8f24482d">
-<link rel="stylesheet" href="assets/mockups.css?v=8f24482d">
-<link rel="stylesheet" href="assets/site.css?v=8f24482d">
+<link rel="stylesheet" href="assets/tokens.css?v=1a3e2363">
+<link rel="stylesheet" href="assets/components.css?v=1a3e2363">
+<link rel="stylesheet" href="assets/mockups.css?v=1a3e2363">
+<link rel="stylesheet" href="assets/site.css?v=1a3e2363">
 <script>document.documentElement.classList.add('js');</script>
 <script>
   // Light by default. Apply a saved Dark or System choice before first paint; System follows the device.
@@ -68,16 +68,46 @@
     </div>
     <form class="beta-form reveal" id="beta-form" novalidate data-ai-host>
       <div class="beta-form-head"><span class="hf-feature-icon"><span class="hf-ai" data-icon="mail"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect x="4.5" y="8" width="23" height="16" rx="3"/><path class="ai-draw" d="M5.5 9.5l10.5 8 10.5-8" style="--len:27"/></svg></span></span><h2>Request an invite</h2></div>
+      <div class="name-row">
+        <label class="field"><span>First name</span>
+          <input type="text" name="firstName" autocomplete="given-name" maxlength="60" required aria-describedby="name-err">
+        </label>
+        <label class="field"><span>Last name</span>
+          <input type="text" name="lastName" autocomplete="family-name" maxlength="60" required aria-describedby="name-err">
+        </label>
+      </div>
+      <p class="field-err" id="name-err" role="alert" hidden></p>
       <label class="field"><span>Apple Account email</span>
         <input type="email" name="email" autocomplete="email" inputmode="email" required placeholder="you@icloud.com" aria-describedby="email-help email-err">
       </label>
       <p class="field-help" id="email-help">The email you sign in to the App Store with, so the invite matches your iPhone.</p>
       <p class="field-err" id="email-err" role="alert" hidden></p>
-      <label class="field"><span>First name <small>(optional)</small></span>
-        <input type="text" name="firstName" autocomplete="given-name" maxlength="60">
-      </label>
+      <details class="beta-more">
+        <summary>Tell us about you <small>(optional)</small></summary>
+        <p class="field-help">It helps us choose testers for each new build. Skip it if you like.</p>
+        <label class="field"><span>Why do you want to join, and how could you help?</span>
+          <textarea name="reason" rows="4" maxlength="1000" placeholder="For example: I use HumFut on most family calls and I’m happy to report bugs."></textarea>
+        </label>
+        <fieldset class="field">
+          <legend>What would you be up for?</legend>
+          <label class="check"><input type="checkbox" name="helps" value="real-calls"><span>Using beta builds on my real calls</span></label>
+          <label class="check"><input type="checkbox" name="helps" value="bugs"><span>Reporting bugs and crashes</span></label>
+          <label class="check"><input type="checkbox" name="helps" value="ideas"><span>Suggesting features and sounds</span></label>
+          <label class="check"><input type="checkbox" name="helps" value="survey"><span>Answering a short survey now and then</span></label>
+        </fieldset>
+        <fieldset class="field">
+          <legend>Which calls would you test it on?</legend>
+          <div class="chips-row">
+            <label class="chip-check"><input type="checkbox" name="calls" value="phone"><span>Phone</span></label>
+            <label class="chip-check"><input type="checkbox" name="calls" value="facetime"><span>FaceTime</span></label>
+            <label class="chip-check"><input type="checkbox" name="calls" value="whatsapp"><span>WhatsApp</span></label>
+            <label class="chip-check"><input type="checkbox" name="calls" value="zoom"><span>Zoom</span></label>
+            <label class="chip-check"><input type="checkbox" name="calls" value="other"><span>Other apps</span></label>
+          </div>
+        </fieldset>
+      </details>
       <label class="hp" aria-hidden="true">Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-      <label class="check"><input type="checkbox" name="consent" required aria-describedby="consent-err"><span>Send me a TestFlight invite. I’ve read how this email is used in the <a href="privacy.html#beta">Privacy Policy</a>.</span></label>
+      <label class="check"><input type="checkbox" name="consent" required aria-describedby="consent-err"><span>Send me a TestFlight invite. I’ve read how these details are used in the <a href="privacy.html#beta">Privacy Policy</a>.</span></label>
       <p class="field-err" id="consent-err" role="alert" hidden></p>
       <div class="turnstile-slot" hidden></div>
       <button type="submit" class="hf-store beta-submit"><span class="hf-store-lines"><span class="hf-store-big">Request an invite</span></span></button>
@@ -106,7 +136,7 @@
       <h2 class="heading-xl">Beta questions.</h2>
     </div>
     <div class="faq">
-      <details><summary>Why do you need my Apple Account email?</summary><div><p>TestFlight invites are tied to an email. Using the one you sign in to the App Store with means the invite opens straight into TestFlight on your iPhone.</p></div></details>
+      <details><summary>Why do you need my name and Apple Account email?</summary><div><p>TestFlight invites are tied to an email. Using the one you sign in to the App Store with means the invite opens straight into TestFlight on your iPhone. TestFlight also lists each tester by name, so we know who’s who.</p></div></details>
       <details><summary>Does it cost anything?</summary><div><p>No. TestFlight is free, and in-app purchases in a TestFlight build aren’t charged. They also don’t carry over to the App Store version.</p></div></details>
       <details><summary>How do I send feedback?</summary><div><p>Take a screenshot in HumFut and tap <strong>Share Beta Feedback</strong>, or open TestFlight and tap <strong>Send Beta Feedback</strong>. You can also email <a href="mailto:humfut-support@nullbytes.app">humfut-support@nullbytes.app</a>.</p></div></details>
       <details><summary>What does TestFlight share with us?</summary><div><p>Apple shows us your tester email and name, when you installed and opened the beta, and any crash reports or feedback you send through TestFlight. <a href="privacy.html#beta">More in the Privacy Policy</a></p></div></details>
@@ -134,8 +164,8 @@
   </div>
 </footer>
 
-<script src="assets/beta.js?v=8f24482d" defer></script>
-<script src="assets/site.js?v=8f24482d" defer></script>
-<script src="assets/anim-icons.js?v=8f24482d" defer></script>
+<script src="assets/beta.js?v=1a3e2363" defer></script>
+<script src="assets/site.js?v=1a3e2363" defer></script>
+<script src="assets/anim-icons.js?v=1a3e2363" defer></script>
 </body>
 </html>

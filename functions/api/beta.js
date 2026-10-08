@@ -4,7 +4,7 @@
 //   1. ASC_ISSUER_ID, ASC_KEY_ID, ASC_PRIVATE_KEY (the .p8 key text) and ASC_BETA_GROUP_ID are set:
 //      adds the email to that external TestFlight group through the App Store Connect API. Apple then emails the
 //      TestFlight invite itself. Response: { status: "invited" }.
-//   2. A KV namespace is bound as BETA_SIGNUPS: every request is also saved there (email, first name, time, status),
+//   2. A KV namespace is bound as BETA_SIGNUPS: every request is also saved there (email, name, optional answers, time, status),
 //      so nothing is lost if Apple's API is down or not set up yet. Response: { status: "listed" } when not invited.
 //   3. RESEND_API_KEY is set (and BETA_FROM, a sender on a domain verified in Resend, e.g. "HumFut beta <beta@nullbytes.app>"):
 //      every request is emailed to BETA_NOTIFY_TO (default: the support address), with Reply-To set to the
@@ -24,6 +24,11 @@ const JSON_HEADERS = { 'content-type': 'application/json; charset=utf-8', 'cache
 const reply = (body, status = 200) => new Response(JSON.stringify(body), { status, headers: JSON_HEADERS });
 const EMAIL = /^[^\s@<>()[\]\\,;:"]{1,64}@[^\s@<>()[\]\\,;:"]{1,190}\.[A-Za-z]{2,}$/;
 const DEFAULT_SUPPORT_EMAIL = 'humfut-support@nullbytes.app';
+// The optional "Tell us about you" answers. Only these values are accepted.
+const HELPS = { 'real-calls': 'Using beta builds on real calls', bugs: 'Reporting bugs and crashes', ideas: 'Suggesting features and sounds', survey: 'Answering a short survey now and then' };
+const CALLS = { phone: 'Phone', facetime: 'FaceTime', whatsapp: 'WhatsApp', zoom: 'Zoom', other: 'Other apps' };
+const pick = (v, allowed) => [...new Set([].concat(v || []).map(String))].filter((x) => Object.hasOwn(allowed, x));
+const clean = (v, max) => String(v || '').replace(/[\u0000-\u0008\u000B-\u001F\u007F]/g, '').trim().slice(0, max);
 const supportEmail = (env) => env.SUPPORT_EMAIL || DEFAULT_SUPPORT_EMAIL;
 
 export async function onRequestGet({ env }) {
@@ -43,7 +48,13 @@ export async function onRequestPost({ request, env }) {
   if (input.website) return reply({ status: 'listed' });
 
   const email = String(input.email || '').trim().toLowerCase();
-  const firstName = String(input.firstName || '').trim().slice(0, 60);
+  const firstName = clean(input.firstName, 60).replace(/\s+/g, ' ');
+  const lastName = clean(input.lastName, 60).replace(/\s+/g, ' ');
+  const reason = clean(input.reason, 1000);
+  const helps = pick(input.helps, HELPS), calls = pick(input.calls, CALLS);
+  if (!firstName || !lastName) {
+    return reply({ status: 'error', field: 'name', message: 'Please add your first and last name.' }, 400);
+  }
   if (!EMAIL.test(email) || email.length > 254) {
     return reply({ status: 'error', field: 'email', message: 'That doesn’t look like an email address.' }, 400);
   }
@@ -73,7 +84,7 @@ export async function onRequestPost({ request, env }) {
   let status = 'listed', detail = null;
   if (ascReady) {
     try {
-      const r = await inviteTester(env, email, firstName);
+      const r = await inviteTester(env, email, firstName, lastName);
       status = r.ok ? 'invited' : 'listed';
       detail = r.detail;
     } catch (e) {
@@ -82,8 +93,9 @@ export async function onRequestPost({ request, env }) {
   }
 
   const requestedAt = new Date().toISOString();
-  if (kv) await kv.put('signup:' + email, JSON.stringify({ email, firstName, requestedAt, status, detail }));
-  const mailed = mailReady ? await notifySupport(env, { email, firstName, requestedAt, status, detail, ascReady }) : false;
+  const signup = { email, firstName, lastName, reason, helps, calls, requestedAt, status, detail };
+  if (kv) await kv.put('signup:' + email, JSON.stringify(signup));
+  const mailed = mailReady ? await notifySupport(env, { ...signup, ascReady }) : false;
 
   // Kept somewhere (Apple, Cloudflare KV or the support inbox)? Then the request is safe.
   if (status !== 'invited' && !kv && !mailed) return reply({ status: 'unavailable' }, 503);
@@ -96,8 +108,15 @@ async function notifySupport(env, s) {
   const what = s.status === 'invited'
     ? (s.detail === 'already-a-tester' ? 'Already a tester in the TestFlight group. Nothing to do.' : 'Added to the TestFlight group. Apple has emailed the invite. Nothing to do.')
     : 'Not invited yet. Add this email as an external tester in App Store Connect → TestFlight.' + (s.ascReady && s.detail ? '\n\nApple’s API said: ' + s.detail : '');
-  const text = ['New HumFut TestFlight request', '', 'Email: ' + s.email, 'First name: ' + (s.firstName || '(not given)'), 'Requested: ' + s.requestedAt, '', what, '', 'Reply to this email to write to them.'].join('\n');
-  return sendMail(env, { to, replyTo: s.email, subject: 'TestFlight request: ' + s.email + (s.status === 'invited' ? ' (invited)' : ' (to invite)'), text });
+  const text = [
+    'New HumFut TestFlight request', '',
+    'Name: ' + s.firstName + ' ' + s.lastName, 'Email: ' + s.email, 'Requested: ' + s.requestedAt, '',
+    'Why they want to join, and how they could help:', s.reason || '(not answered)', '',
+    'Up for: ' + (s.helps.length ? s.helps.map((k) => HELPS[k]).join('; ') : '(not answered)'),
+    'Calls they’d test on: ' + (s.calls.length ? s.calls.map((k) => CALLS[k]).join(', ') : '(not answered)'), '',
+    what, '', 'Reply to this email to write to them.'
+  ].join('\n');
+  return sendMail(env, { to, replyTo: s.email, subject: 'TestFlight request: ' + s.firstName + ' ' + s.lastName + ' <' + s.email + '>' + (s.status === 'invited' ? ' (invited)' : ' (to invite)'), text });
 }
 
 // Any email to a requester (a confirmation or a follow-up) must go through here: replies land in the support inbox.
@@ -133,7 +152,7 @@ async function checkTurnstile(secret, token, ip) {
 // ---------- App Store Connect API ----------
 // Creates a beta tester in the external group. Apple sends the TestFlight invite email.
 // https://developer.apple.com/documentation/appstoreconnectapi/create_a_beta_tester
-async function inviteTester(env, email, firstName) {
+async function inviteTester(env, email, firstName, lastName) {
   const token = await ascToken(env);
   const res = await fetch('https://api.appstoreconnect.apple.com/v1/betaTesters', {
     method: 'POST',
@@ -141,7 +160,7 @@ async function inviteTester(env, email, firstName) {
     body: JSON.stringify({
       data: {
         type: 'betaTesters',
-        attributes: { email, ...(firstName ? { firstName } : {}) },
+        attributes: { email, firstName, lastName },
         relationships: { betaGroups: { data: [{ type: 'betaGroups', id: env.ASC_BETA_GROUP_ID }] } }
       }
     })
