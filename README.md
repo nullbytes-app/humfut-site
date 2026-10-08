@@ -8,7 +8,7 @@ Marketing, Support, Privacy Policy and beta sign-up pages for **HumFut: Sounds f
 
 ## Beta sign-ups (TestFlight invites)
 
-Every App Store button leads to `beta.html`, where people leave their Apple Account email. The form posts to `/api/beta`, which can do three things. Turn each on in Cloudflare → Workers & Pages → the HumFut project → **Settings**.
+HumFut is live on the [App Store](https://apps.apple.com/app/humfut-sounds-for-calls/id6815140274), and every App Store button goes there (the link has no country code, so Apple opens each visitor's own store). The TestFlight beta page, `beta.html`, is linked as "Join the beta" in every footer and from a Support FAQ. There, people leave their Apple Account email. The form posts to `/api/beta`, which can do three things. Turn each on in Cloudflare → Workers & Pages → the HumFut project → **Settings**.
 
 | What | Set up | Result |
 |---|---|---|
