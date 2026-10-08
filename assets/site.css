@@ -623,8 +623,10 @@ html:not(.js) .board-controls { display: none; }
 @media (max-width: 860px) { .policy { grid-template-columns: 1fr; } .policy-toc { display: none; } }
 
 /* ---------- Join the beta (TestFlight invite request) ---------- */
-.beta-hero { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: var(--space-40); align-items: center; }
-@media (max-width: 900px) { .beta-hero { grid-template-columns: 1fr; } }
+.beta-hero { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: var(--space-40); align-items: start; }
+/* Top-aligned, so opening the optional questions grows the form downwards without moving the text beside it. */
+.beta-hero > div:first-child { padding-top: var(--space-40); }
+@media (max-width: 900px) { .beta-hero { grid-template-columns: 1fr; } .beta-hero > div:first-child { padding-top: 0; } }
 .beta-form { background: var(--surface); border-radius: var(--radius-card); box-shadow: var(--shadow-float); padding: var(--space-24); display: grid; gap: var(--space-12); }
 .beta-form-head { display: flex; align-items: center; gap: var(--space-12); margin-bottom: var(--space-4); }
 .beta-form-head h2 { margin: 0; font-size: 22px; line-height: 1.2; letter-spacing: -.01em; color: var(--ink); }
@@ -647,7 +649,7 @@ html:not(.js) .board-controls { display: none; }
 .beta-done .tick { width: 48px; height: 48px; border-radius: 50%; background: var(--app-ready); color: #fff; display: grid; place-items: center; font-size: 24px; font-weight: 800; }
 .beta-done h2 { margin: 0; font-size: 24px; color: var(--ink); }
 .beta-done p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink-2); }
-.page-meta .hf-link { font-size: inherit; }
+.page-meta .hf-link { font-size: inherit; white-space: nowrap; }
 /* Beta form: name row and the optional "Tell us about you" questions */
 .beta-form .name-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); }
 @media (max-width: 420px) { .beta-form .name-row { grid-template-columns: 1fr; } }
