@@ -25,7 +25,7 @@
   var BASE_ROWS = ROW('Applause', '0:02 · Starter sound', { dim: true }) + ROW('Laugh', '0:01 · Starter sound', { dim: true });
   function BOARD(name, sound, pad, emo) {
     return '<div class="scr app reactions-bg">' + ISL + SB() + '<div class="body"><div class="coll-h2">Collection A</div><div class="pads2">' +
-      '<button class="pad pad-btn" style="--pad:var(--pad-teal)" data-sound="applause"><span class="nm">Applause</span><span class="emo">👏</span></button>' +
+      '<button class="pad pad-btn has-gif gif-confetti" style="--pad:var(--pad-teal)" data-sound="applause"><span class="pad-media" aria-hidden="true"></span><span class="nm">Applause</span><span class="emo">👏</span></button>' +
       '<button class="pad pad-btn" style="--pad:var(--pad-ochre)" data-sound="laugh"><span class="nm">Laugh</span><span class="emo">😂</span></button></div>' +
       '<div class="coll-h2">Collection B</div><div class="pads2"><button class="pad pad-btn newpad go" style="--pad:var(--' + pad + ')" data-sound="' + sound + '"><span class="nm">' + name + '</span><span class="emo">' + emo + '</span></button></div>' +
       '<div class="hold-tip">Hold a Pad to rename it, pick an emoji or set its Play range.</div></div>' + TABS('Reactions') + '</div>';

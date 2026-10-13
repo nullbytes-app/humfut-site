@@ -3,7 +3,7 @@
 Marketing, Support, Privacy Policy and beta sign-up pages for **HumFut: Sounds for Calls** (iOS), served by Cloudflare Pages at https://humfut.nullbytes.app.
 
 - `index.html`, `support.html`, `privacy.html`, `beta.html`: the pages (static HTML, no build step).
-- `assets/`: styles, scripts, icons and demo sounds. Asset links carry `?v=<hash>` for cache busting.
+- `assets/`: styles, scripts, icons, demo sounds, and `gifs/`: the two GIF Pad backgrounds in the phone mockups (our own drawings; each `.gif` has a `.jpg` key-frame still). Asset links carry `?v=<hash>` for cache busting.
 - `functions/api/beta.js`: the one server-side piece, a Cloudflare Pages Function behind the beta form.
 
 ## Beta sign-ups (TestFlight invites)
