@@ -109,6 +109,37 @@
   background: rgba(0, 0, 0, .35); color: #fff; border-radius: 999px; padding: 2px 6px;
 }
 
+/* GIF pads (1.4.0, TokensPadMedia.swift "Clear glass"): the GIF fills the Pad edge to edge on a
+   dark base, under a top highlight, a faint inner glow and a soft bottom scrim for the name.
+   At rest the Pad shows its key frame; while it plays, the GIF runs with the sound and the Pad
+   flashes its own colour. Reduce Motion keeps the still. The GIFs are our own drawings. */
+.pad.gif-confetti { --gif-still: url(gifs/confetti.jpg); --gif-play: url(gifs/confetti.gif); }
+.pad.gif-rain { --gif-still: url(gifs/rain.jpg); --gif-play: url(gifs/rain.gif); }
+.pad.has-gif { --gif: var(--gif-still); --scrim: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, .55)); background: #222; border-color: rgba(255, 255, 255, .16); }
+.pad.has-gif.is-firing { --gif: var(--gif-play); }
+.pad-media {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(60% 60% at 50% 0%, rgba(255, 255, 255, .14), transparent 60%),
+    var(--scrim), var(--gif) center / cover no-repeat, #222;
+  box-shadow: inset 0 0 14px rgba(255, 255, 255, .07);
+}
+.pad-media::after { content: ""; position: absolute; inset: 0; background: var(--pad); opacity: 0; }
+.pad.has-gif.is-firing .pad-media::after { animation: gif-flash .5s ease-out; }
+@keyframes gif-flash { from { opacity: .55; } to { opacity: 0; } }
+.pad.has-gif::before { z-index: 1; opacity: .45; }
+.pad.has-gif::after { z-index: 2; }
+.pad.has-gif .nm, .pad.has-gif .emo { z-index: 2; }
+.pad.has-gif .nm { text-shadow: 0 1px 6px rgba(0, 0, 0, .45); }
+.pad.has-gif .emo { filter: drop-shadow(0 0 3px rgba(0, 0, 0, .35)); }
+@media (prefers-contrast: more) {
+  .pad.has-gif { --scrim: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, .85)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pad.has-gif.is-firing { --gif: var(--gif-still); }
+  .pad.has-gif.is-firing .pad-media::after { animation: none; }
+}
+
 /* Turn Off bar + tab bar */
 .dock { position: absolute; left: 10px; right: 10px; bottom: 76px; z-index: 6; display: flex; gap: 8px; padding: 6px; border-radius: 999px; background: rgba(255, 255, 255, .12); border: 1px solid var(--glass-edge); backdrop-filter: blur(14px); }
 .dock .off { flex: 1; height: 38px; border-radius: 999px; background: #f2f2f2; color: #111; font-weight: 700; font-size: 14px; display: grid; place-items: center; }
