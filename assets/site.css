@@ -562,9 +562,10 @@ html:not(.js) .board-controls { display: none; }
 .page-hero h1 { margin: 0; max-width: 16ch; font-size: clamp(40px, 6vw, 56px); line-height: 1.02; font-weight: 700; letter-spacing: -.03em; color: var(--ink); text-wrap: balance; }
 .page-hero .lede { margin: var(--space-16) 0 0; max-width: 34em; }
 .page-meta { margin: var(--space-12) 0 0; color: var(--muted); font-size: 14px; }
-.topic-pads { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-12); margin-top: var(--space-40); }
+.topic-pads { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-12); margin-top: var(--space-40); }
 .topic-pads .hf-bpad { min-height: 112px; text-decoration: none; }
 .topic-pads .hf-bpad-label { font-size: 17px; }
+@media (min-width: 761px) and (max-width: 1023px) { .topic-pads .hf-bpad-label { font-size: 15px; } }
 @media (max-width: 760px) { .topic-pads { grid-template-columns: repeat(2, minmax(0, 1fr)); } .topic-pads .hf-bpad { min-height: 96px; } .topic-pads .hf-bpad:last-child:nth-child(odd) { grid-column: span 2; } }
 .doc-col { max-width: 720px; }
 .doc-col p, .doc-col li { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
