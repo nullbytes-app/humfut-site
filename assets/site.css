@@ -565,6 +565,7 @@ html:not(.js) .board-controls { display: none; }
 .topic-pads { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-12); margin-top: var(--space-40); }
 .topic-pads .hf-bpad { min-height: 112px; text-decoration: none; }
 .topic-pads .hf-bpad-label { font-size: 17px; }
+.topic-pads .hf-bpad:last-child:nth-child(5n+1) { grid-column: 1 / -1; }
 @media (min-width: 761px) and (max-width: 1023px) { .topic-pads .hf-bpad-label { font-size: 15px; } }
 @media (max-width: 760px) { .topic-pads { grid-template-columns: repeat(2, minmax(0, 1fr)); } .topic-pads .hf-bpad { min-height: 96px; } .topic-pads .hf-bpad:last-child:nth-child(odd) { grid-column: span 2; } }
 .doc-col { max-width: 720px; }
