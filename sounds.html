@@ -18,7 +18,38 @@
   // Light by default. Apply a saved Dark or System choice before first paint; System follows the device.
   (function () { try { var t = localStorage.getItem('humfut-theme'); if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark'); else if (t === 'system') document.documentElement.removeAttribute('data-theme'); } catch (e) {} })();
 </script>
-<style>@media (min-width: 861px) { .af .ways.ways-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }</style>
+<style>@media (min-width: 861px) { .af .ways.ways-two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.af .sbg { background: #0f1424; color: #e8eaf2; }
+.af .sbg .sbg-page { position: absolute; inset: 50px 0 64px; padding: 4px 12px; overflow: hidden; }
+.af .sbg-h { display: flex; align-items: center; justify-content: space-between; }
+.af .sbg-h b { font-size: 15px; font-weight: 800; background: linear-gradient(90deg, #a855f7, #ec4899); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.af .sbg-menu { display: grid; gap: 3px; } .af .sbg-menu i { display: block; width: 14px; height: 2px; border-radius: 1px; background: #cfd3e0; }
+.af .sbg-sun { width: 11px; height: 11px; border-radius: 50%; border: 2px solid #cfd3e0; }
+.af .sbg-search { margin: 10px 0 12px; padding: 8px 12px; border-radius: 12px; background: #1b2236; color: #7d859c; font-size: 11px; }
+.af .sbg-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px 6px; }
+.af .sbg-tile { display: flex; flex-direction: column; align-items: center; gap: 4px; min-width: 0; }
+.af .sbg-play { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-size: 14px; }
+.af .sbg-play.g1 { background: linear-gradient(135deg, #38bdf8, #3b5bdb); } .af .sbg-play.g2 { background: linear-gradient(135deg, #f472b6, #be123c); }
+.af .sbg-play.g3 { background: linear-gradient(135deg, #4ade80, #15803d); } .af .sbg-play.g4 { background: linear-gradient(135deg, #fbbf24, #c2410c); }
+.af .sbg-play.g5 { background: linear-gradient(135deg, #818cf8, #4338ca); } .af .sbg-play.g6 { background: linear-gradient(135deg, #2dd4bf, #0e7490); }
+.af .sbg-play.g7 { background: linear-gradient(135deg, #c084fc, #7e22ce); } .af .sbg-play.g8 { background: linear-gradient(135deg, #fb923c, #dc2626); }
+.af .sbg-play.g9 { background: linear-gradient(135deg, #34d399, #0f766e); }
+.af .sbg-nm { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; font-weight: 600; color: #f2f3f7; }
+.af .sbg-act { display: flex; gap: 8px; }
+.af .sbg-act i { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; }
+.af .sbg-act svg { width: 14px; height: 14px; fill: none; stroke: #cfd3e0; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.af .safari-bar.sbg-bar { background: rgba(44, 48, 62, .96); color: #cfd3e0; }
+.af .sbg-sheet { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 12px 22px; border-radius: 26px 26px 0 0; background: rgba(46, 50, 66, .97); color: #f2f2f7; }
+.af .sbg-file { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+.af .sbg-file .doc { width: 32px; height: 40px; border-radius: 4px; background: #f2f2f7; color: #8e8e93; font-size: 7px; font-weight: 700; display: grid; place-items: end center; padding-bottom: 4px; box-sizing: border-box; }
+.af .sbg-file b { display: block; font-size: 13px; } .af .sbg-file small { color: #a1a6b8; font-size: 11px; }
+.af .sbg-people, .af .sbg-apps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; padding: 12px 0; border-bottom: 1px solid rgba(255, 255, 255, .12); text-align: center; font-size: 10px; }
+.af .sbg-people .av { display: block; width: 44px; height: 44px; margin: 0 auto; border-radius: 50%; background: linear-gradient(180deg, #737a8c, #4a4f5c); }
+.af .sbg-people em { display: block; width: 30px; height: 6px; margin: 6px auto 0; border-radius: 3px; background: rgba(255, 255, 255, .18); }
+.af .sbg-apps i, .af .sbg-apps img { display: block; width: 46px; height: 46px; margin: 0 auto 5px; border-radius: 12px; }
+.af .sbg-acts { display: grid; grid-template-columns: repeat(3, 1fr); padding-top: 12px; text-align: center; font-size: 9.5px; }
+.af .sbg-acts i { display: block; width: 38px; height: 38px; margin: 0 auto 4px; border-radius: 50%; background: rgba(255, 255, 255, .12); }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -75,7 +106,7 @@
     </div>
     <div class="card-grid">
       <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="music"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><g class="ai-sway"><path d="M12 22.5V8.5l13-3V19"/><circle cx="9" cy="22.5" r="3"/><circle cx="22" cy="19" r="3"/></g></svg></span></span><p class="caption">Step 1</p><h3>Search for a sound</h3><p>Search the web for the sound you want, like “applause sound” or “drum roll sound”. Pick a site that lets you play, download or share each sound.</p></div>
-      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span></span><p class="caption">Step 2</p><h3>Tap Share under the sound</h3><p>Open the sound’s own page if it has one, then tap its <strong>Share</strong> button. Share the sound itself, so the audio file goes with it, not just the page link.</p></div>
+      <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="share"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><path d="M9 15.5V25a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9.5"/><g class="ai-rise"><path d="M16 4.5v14"/><path d="M11 9.5l5-5 5 5"/></g></svg></span></span><p class="caption">Step 2</p><h3>Tap Share under the sound</h3><p>Most sound sites show a play button for each sound, with a Download icon and a Share icon under it. Tap the sound’s own <strong>Share</strong> icon, not the browser’s, so the audio file goes with it.</p></div>
       <div class="info-card reveal" data-ai-host><span class="hf-feature-icon"><span class="hf-ai" data-icon="tap"><svg viewBox="0 0 32 32" aria-hidden="true" focusable="false"><circle class="ai-ring" cx="16" cy="16" r="11" style="--o:.35"/><circle class="ai-ring" cx="16" cy="16" r="14" style="--o:.18;--d:.14s"/><g class="ai-press"><rect x="9.5" y="9.5" width="13" height="13" rx="3.5"/><path d="M14.6 13.2v5.6l4.4-2.8z" fill="currentColor" stroke="none"/></g></svg></span></span><p class="caption">Step 3</p><h3>Choose HumFut</h3><p>Find HumFut in the row of apps. A card says “Got it” and closes by itself. Open HumFut: the sound is in Library, marked New. Tap <strong>+</strong> to put it on a Pad.</p></div>
     </div>
     <div class="card-grid two" style="margin-top:var(--space-24)">
@@ -90,9 +121,9 @@
     <div class="section-head center reveal">
       <span class="hf-kicker">Try it here</span>
       <h2 class="heading-xl">Tap along on the iPhone.</h2>
-      <p class="lede">The site in this example is made up. Real sites look different, but the Share button works the same way.</p>
+      <p class="lede">The site in this example is made up, but most sound sites look like this: a play button, then Download and Share under each sound.</p>
     </div>
-<div class="af" data-addsounds>
+<div class="af" data-addsounds data-variant="grid">
     <div class="ways ways-two" role="tablist" aria-label="Where is your sound?">
       <button class="way" role="tab" aria-selected="true" data-way="share" id="tab-share"><span class="way-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span><b>From a soundboard site</b><small>Share it to HumFut</small></span></button>
       <button class="way" role="tab" aria-selected="false" data-way="files" id="tab-files"><span class="way-ico"><svg viewBox="0 0 24 24"><path d="M3 7.5a2 2 0 0 1 2-2h4.5l2 2.5H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span><b>From your Files</b><small>Add an audio file</small></span></button>
@@ -116,7 +147,7 @@
       <h2 class="heading-xl">If it doesn’t work.</h2>
     </div>
     <div class="faq">
-      <details><summary>HumFut doesn’t show up when I tap Share.</summary><div><p>HumFut appears when what you share is an audio file. If you only see apps for links, you’re sharing the page, not the sound: open the sound’s own page and use the Share button under the sound. If HumFut still isn’t in the row, swipe to the end and tap <strong>More</strong>. If HumFut says “Open HumFut once to finish setting up, then share this again.”, do just that.</p></div></details>
+      <details><summary>HumFut doesn’t show up when I tap Share.</summary><div><p>HumFut appears when what you share is an audio file. If you only see apps for links, you’re sharing the page, not the sound: use the Share icon right under the sound, not the browser’s Share button. If HumFut still isn’t in the row, swipe to the end and tap <strong>More</strong>. If HumFut says “Open HumFut once to finish setting up, then share this again.”, do just that.</p></div></details>
       <details><summary>I shared a sound but it isn’t in my Library.</summary><div><p>Shared sounds finish adding when you next open HumFut. Open the app and look in Library for the sound marked New.</p></div></details>
       <details><summary>Why won’t HumFut add a sound?</summary><div><p>HumFut checks every sound on your iPhone and won’t add one that sounds like an emergency siren, an automated phone menu or dial tones, or a phone ringtone, because playing it into a call could be taken as real. Choose another sound.</p></div></details>
       <details><summary>The site has no Share or Download button.</summary><div><p>Then it doesn’t offer the sound as a file. Look for another site that does.</p></div></details>
@@ -169,6 +200,6 @@
 <script src="assets/site.js?v=da149e72" defer></script>
 <script src="assets/anim-icons.js?v=da149e72" defer></script>
 <script src="assets/phone.js?v=da149e72" defer></script>
-<script src="assets/addsounds.js?v=da149e72" defer></script>
+<script src="assets/addsounds.js?v=sbg2" defer></script>
 </body>
 </html>
