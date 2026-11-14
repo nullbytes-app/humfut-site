@@ -96,6 +96,43 @@
     }
   };
 
+  // Sounds page (sounds.html, data-variant="grid"): the soundboard drawn the way most sound sites look, a grid of
+  // round play buttons with Download and Share under each sound, then the iPhone share sheet. Made-up site and names.
+  if (root.dataset.variant === 'grid') {
+    var SHARE_I = '<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.6"/><circle cx="6" cy="12" r="2.6"/><circle cx="18" cy="19" r="2.6"/><path d="M8.3 10.8l7.4-4.4M8.3 13.2l7.4 4.4"/></svg>';
+    var DL_I = '<svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>';
+    var TILES = [['FAAAH', 'g1'], ['Bruh', 'g2'], ['Applause', 'g3'], ['Drum roll', 'g4'], ['Sad trombone', 'g5'], ['Ba dum tss', 'g6'], ['Crickets', 'g7'], ['Wow', 'g8'], ['Laugh track', 'g9'], ['Air horn', 'g2'], ['Boing', 'g4'], ['Ta-da', 'g1']];
+    var GRID = function (goFirst) {
+      return '<div class="sbg-page"><div class="sbg-h"><span class="sbg-menu"><i></i><i></i><i></i></span><b>Sound Buttons</b><span class="sbg-sun"></span></div>' +
+        '<div class="sbg-search">Search sounds…</div><div class="sbg-grid">' + TILES.map(function (t, k) {
+          return '<div class="sbg-tile"><span class="sbg-play ' + t[1] + '">▶</span><span class="sbg-nm">' + t[0] + '</span><span class="sbg-act"><i>' + DL_I + '</i><i' + (k === 0 && goFirst ? ' class="go" aria-label="Share FAAAH"' : '') + '>' + SHARE_I + '</i></span></div>';
+        }).join('') + '</div></div>';
+    };
+    var SITE = function (inner) { return '<div class="scr web sbg">' + ISL + SB() + inner + '<div class="safari-bar sbg-bar">sound-buttons.example</div></div>'; };
+    var AV = '<span><i class="av"></i><em></em></span>';
+    FLOWS.share = {
+      steps: [
+        ['Tap Share under the sound', 'On a sound site in Safari or Chrome, each sound has a Share icon under it, next to Download.'],
+        ['Choose HumFut', 'It’s in the row of apps; swipe along if you don’t see it. A card says “Got it” and closes by itself.'],
+        ['Open HumFut', 'The sound finishes adding when you open the app. It’s in Library, marked New.'],
+        ['Tap + to add it to Reactions', 'The sound becomes a Pad on your Reactions board.'],
+        ['Tap your new Pad', 'Try it on your own speaker. Hold it to rename it, pick an emoji or trim it.']
+      ],
+      screens: [
+        { s: 0, html: SITE(GRID(true)) },
+        { s: 1, html: SITE(GRID(false) + '<div class="dimmer"></div><div class="sbg-sheet"><div class="sbg-file"><span class="doc">MP3</span><div><b>FAAAH</b><small>Audio · 38 KB</small></div></div>' +
+            '<div class="sbg-people">' + AV + AV + AV + AV + '</div>' +
+            '<div class="sbg-apps"><span><i style="background:#34c759"></i>Messages</span><span class="go">' + ICON + 'HumFut</span><span><i style="background:#1d8cf8"></i>Mail</span><span><i style="background:#ffcc00"></i>Notes</span></div>' +
+            '<div class="sbg-acts"><span><i></i>Copy</span><span><i></i>Save to Files</span><span><i></i>More</span></div></div>') },
+        { s: 1, auto: 2400, html: SITE(GRID(false) + '<div class="dimmer"></div><div class="ext-card"><div class="grab"></div>Got it. HumFut will finish adding this the next time you open the app.<div class="closing">Closes by itself</div></div>') },
+        { s: 2, html: '<div class="scr home">' + ISL + SB() + '<div class="grid"><span><i></i>Photos</span><span><i></i>Camera</span><span><i></i>Maps</span><span><i></i>Weather</span><span><i></i>Clock</span><span><i></i>Notes</span><span class="go">' + ICON + 'HumFut</span><span><i></i>Music</span></div><div class="dock2"><i></i><i></i><i></i><i></i></div></div>' },
+        { s: 3, html: LIB(ROW('FAAAH', '0:02 · Not on Reactions', { isNew: 1, fresh: 1, go: 1 }) + BASE_ROWS, { dot: 1 }) },
+        { s: 4, html: LIB(ROW('FAAAH', '0:02', { dim: 1 }) + BASE_ROWS, { dot: 'go' }) },
+        { s: 4, html: BOARD('FAAAH', 'faaah', 'pad-orange', '😱'), last: 1 }
+      ]
+    };
+  }
+
   var flow = 'share', i = 0, done = false, auto = null, timer = null;
   function render() {
     clearTimeout(timer);
