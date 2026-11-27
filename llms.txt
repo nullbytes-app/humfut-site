@@ -1,0 +1,13 @@
+# HumFut: Sounds for Calls
+
+> HumFut is a free-to-try iPhone app that plays sounds, reactions and background music into a call you're already on, so the other person hears them live, mixed in with your voice, on Phone, FaceTime, WhatsApp, Zoom and other calls.
+
+Tap a sound and the person on the other end hears it: a laugh, applause, a "one moment" chime, your own clips, background music, or a typed message that HumFut speaks. Sounds can be shared with friends as small .humfut files. HumFut never uses the microphone and never records a call. It needs iOS 26 or later. The first 3 calls with Call Sounds on are free; one single purchase unlocks it for every call.
+
+## Key pages
+- [How to play sounds on a call on iPhone](https://humfut.nullbytes.app/how-to-play-sounds-on-a-call.html): step-by-step answer, limits and FAQ
+- [HumFut home page](https://humfut.nullbytes.app/): overview of the app
+- [Where to find sounds](https://humfut.nullbytes.app/sounds.html): how to share a sound in from a website
+- [Support](https://humfut.nullbytes.app/support.html): setup, music and levels, sharing, backup, fixes
+- [Privacy Policy](https://humfut.nullbytes.app/privacy.html)
+- [App Store](https://apps.apple.com/app/humfut-sounds-for-calls/id6815140274)
